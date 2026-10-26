@@ -1,0 +1,9 @@
+node_modules/
+.env*
+!.env.example
+kosular/
+uretim/
+*.mp4
+*.mov
+*.wav
+*.mp3
