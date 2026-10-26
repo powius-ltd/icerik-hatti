@@ -7,6 +7,7 @@
 
 ## 2026-10-26
 - Repo şablondan açıldı; mülakat bitti, 6 kazanım onaylandı; üç repo envanteri + YOL + 01-fis, 03-paylas paketleri (`e2e2e67`).
+- Deneme "benzeri" video (eski repolar elle zincir, 0 $, Chatterbox ses): VU IG DeZTLK4CeiQ senaryosu → KS fiş → HF render, 39,5 sn. İçerik ve sıra taşındı, görsel kimlik taşınmadı (koyu tek şablon, boş sohbet kutuları). Kullanıcı: "güzel olmuş". Teslim: `/home/dev/teslim/icerik-hatti/deneme-benzeri/`. Bulgular YOL 02'de.
 - Devir: klon düzeyi kararı (YOL Müşteriden #1), sonra 01 ve 03 paralel.
 
 ## Kararlar
