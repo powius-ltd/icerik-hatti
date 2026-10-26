@@ -6,7 +6,8 @@
 - Karar: patronun Zernio hesabı ve anahtarı hazır mı; Instagram hesabı bağlı mı.
 
 ## 2026-10-26
-- Repo şablondan açıldı; kapsam mülakatı bitti, 6 kazanım onaylandı.
+- Repo şablondan açıldı; mülakat bitti, 6 kazanım onaylandı; üç repo envanteri + YOL + 01-fis, 03-paylas paketleri (`e2e2e67`).
+- Devir: klon düzeyi kararı (YOL Müşteriden #1), sonra 01 ve 03 paralel.
 
 ## Kararlar
 - 2026-10-26 | Hat ilk önce patronun içerik hesabı için; portföyde patron işi, doğrudan Etkin | kullanıcı seçimi | mülakat
