@@ -18,3 +18,4 @@
 - 2026-10-26 | Ses patronun ElevenLabs klonu | kullanıcı seçimi | mülakat
 - 2026-10-26 | Kaynak TikTok + Instagram, hedef yalnız Instagram (Zernio) | ilk sürüm dar | mülakat
 - 2026-10-26 | Aradan giriş: video linki/dosyası ya da hazır metin verilince BUL atlanır; iki onay her girişte kalır | "direkt bi video atıp üretelim" | kullanıcı
+- 2026-10-26 | Repo herkese açık (public) | kullanıcı isteği; kodda gizli bilgi yok, anahtarlar yalnız .env'de | kullanıcı
