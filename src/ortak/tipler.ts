@@ -1,4 +1,4 @@
-// Kaynak: viral-uyarla/src/ortak/tipler.ts (335b436)
+// Kaynak: viral-uyarla/src/ortak/tipler.ts (335b436); uyarlama: sahneye ekranYazisiKonum eklendi
 /**
  * Adımlar arası veri sözleşmesi. Her adım bir önceki adımın dosyasını bu şemalarla okur ve kendi çıktısını yazar.
  * Alan adı değişirse iki tarafı da (yazan + okuyan) aynı commit'te güncelle.
@@ -85,6 +85,8 @@ export const analizSema = z.object({
         /** Görüntüde ne var (Türkçe, 1-2 cümle). */
         gorsel: z.string(),
         ekranYazisi: z.string().optional(),
+        /** Ekran yazısının kadrajdaki yeri (icerik-hatti eki: yapı klonu için). */
+        ekranYazisiKonum: z.enum(["ust", "orta", "alt"]).optional(),
         konusma: z.string().optional(),
         /** Kamera / hareket: sabit, yakınlaş, kaydır, kesme... */
         hareket: z.string().optional(),

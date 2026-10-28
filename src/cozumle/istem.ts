@@ -1,4 +1,4 @@
-// Kaynak: viral-uyarla/src/cozumle/istem.ts (335b436)
+// Kaynak: viral-uyarla/src/cozumle/istem.ts (335b436); uyarlama: ekranYazisiKonum kuralı eklendi
 /**
  * agy video çözümleme istemi. Model için İngilizce, yorumlar Türkçe. İstem değişirse `ISTEM_SURUMU` artar.
  *
@@ -8,7 +8,7 @@
  */
 import { sahneTuruSema } from "../ortak/tipler.ts";
 
-export const ISTEM_SURUMU = "cozumle-2026-10-v1";
+export const ISTEM_SURUMU = "cozumle-2026-10-v2";
 const ACIKLAMA_AZAMI = 2000;
 const DOKUM_AZAMI = 12000;
 const ONCEKI_YANIT_AZAMI = 6000;
@@ -52,6 +52,7 @@ export function analizIstemi(g: IstemGirdisi): string {
     `   - tur: one of ${sahneTuruSema.options.join(" | ")} (yuz = person talking to camera; ekran-kaydi = screen recording; ekran-goruntusu = still screenshot; grafik = animation/diagram; metin-karti = text on plain background; broll = cutaway footage).`,
     "   - gorsel: what is in the picture, in TURKISH, 1-2 sentences.",
     "   - ekranYazisi: text shown in the picture in this scene, verbatim, original language (omit when none). Subtitles that merely repeat the speech are not on-screen text.",
+    '   - ekranYazisiKonum: where the on-screen text sits in the frame: "ust" (top third) | "orta" (middle) | "alt" (bottom third); omit when there is no on-screen text.',
     "   - konusma: what is spoken in this scene, verbatim from the transcript, original language, never translated (omit when silent).",
     "   - hareket: camera / motion in a few words (sabit, yakinlas, kaydir, kesme…); omit when unclear.",
     '5. cta: only when the video asks viewers to do something (follow, comment a keyword, link in bio). metin = the exact words; anahtar = the keyword to comment when there is one. Omit the whole field when there is no call to action.',
