@@ -48,3 +48,12 @@ describe("kalipEsle", () => {
     expect(kalipEsle(girdi, A).params).toMatchObject({ konum: "orta" });
   });
 });
+
+describe("kart çizgisi", () => {
+  it("çizgi yazının satır sayısına göre konur", async () => {
+    const { cizgiTop, yaziBoyu } = await import("../../src/uret/render/kart.ts");
+    expect(yaziBoyu(8)).toBe(120);
+    expect(cizgiTop(300, "Kurallar", false)).toBeLessThan(cizgiTop(300, "Sonuç · WhatsApp'ta canlı ve uzun yazı", false));
+    expect(cizgiTop(300, "Numara al", true)).toBeGreaterThanOrEqual(300 + 150 + 34);
+  });
+});

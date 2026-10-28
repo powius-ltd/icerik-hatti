@@ -34,6 +34,14 @@ export function yaziBoyu(uzunluk: number): number {
   return uzunluk <= 16 ? 120 : uzunluk <= 30 ? 96 : 78;
 }
 
+/** Alt çizginin üst kenarı: yazının kestirilen satır sayısına göre (harf genişliği ≈ 0,52 em). */
+export function cizgiTop(top: number, yazi: string, rozet: boolean): number {
+  const boy = yaziBoyu(yazi.length);
+  const bosluk = 920 - (rozet ? 186 : 0);
+  const satir = Math.max(1, Math.ceil((yazi.length * boy * 0.52) / bosluk));
+  return Math.round(top + Math.max(satir * boy * 1.05, rozet ? 150 : 0) + 34);
+}
+
 function render(scene: MotionScene): Layer {
   const params = KartParams.parse(scene.params);
   const p = scenePrefix(scene);
@@ -43,7 +51,7 @@ function render(scene: MotionScene): Layer {
   let inner = "";
   if (yazi !== "") {
     const rozet = params.rozet ? `<div class="kt-r" id="${p}-r">${esc(params.rozet)}</div>` : "";
-    inner = `<div class="kt" style="top:${top}px">${rozet}<div class="kt-t" id="${p}-t" style="font-size:${yaziBoyu(yazi.length)}px">${esc(yazi)}</div></div><div class="kt-ln" id="${p}-ln" style="top:${top + 250}px"></div>`;
+    inner = `<div class="kt" style="top:${top}px">${rozet}<div class="kt-t" id="${p}-t" style="font-size:${yaziBoyu(yazi.length)}px">${esc(yazi)}</div></div><div class="kt-ln" id="${p}-ln" style="top:${cizgiTop(top, yazi, params.rozet !== undefined)}px"></div>`;
     js.push(slide(`#${p}-t`, scene.start + 0.05, { dy: 40, dur: 0.5 }), draw(`#${p}-ln`, scene.start + 0.2, { dur: 0.6 }));
     if (params.rozet) js.push(fade(`#${p}-r`, scene.start, { dur: 0.3 }));
   }
