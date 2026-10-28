@@ -1,0 +1,24 @@
+{
+  "name": "icerik-hatti",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Tutan videoyu bulur, Türkçeye birebir uyarlar, üretir, seslendirir ve onayla paylaşır (tek hat).",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "hat": "tsx --env-file-if-exists=.env src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --maxWorkers=2"
+  },
+  "dependencies": {
+    "yaml": "^2.8.1",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}
