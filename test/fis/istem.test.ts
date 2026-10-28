@@ -23,6 +23,13 @@ const iyi = {
 describe("birebir uyarlama istemi", () => {
   const i = fisIstemi(analiz, dokum);
 
+  it("görsel yön: model gorsel_yon ve yon_gerekce verir, sahneye yon eklemez", () => {
+    expect(i).toContain("gorsel_yon");
+    expect(i).toContain("yon_gerekce");
+    expect(i).toMatch(/sohbet.*terminal.*rakam-kart.*editoryal.*karma/s);
+    expect(i).toContain('Sahnelere "yon" ALANI EKLEME');
+  });
+
   it("yapı klonu kuralları: sahne sayısı, süre, hook çeviri, ekran yazısı konumu", () => {
     expect(i).toContain("Sahne sayısı tam 2");
     expect(i).toMatch(/aynı "no", "basSn", "sonSn" ve "tur"/);

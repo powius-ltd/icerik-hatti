@@ -18,7 +18,7 @@ export interface KelimeAraligi {
 }
 
 export interface KalipSecimi {
-  template: "kart" | "chat-window" | "big-stat";
+  template: "kart" | "chat-window" | "big-stat" | "sohbet" | "terminal" | "rakam-kart" | "editoryal";
   kind: "motion" | "screen";
   params: Record<string, unknown>;
   /** Neden bu kalıp (günlük/rapor için tek satır). */

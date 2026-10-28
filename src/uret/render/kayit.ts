@@ -4,10 +4,14 @@ import type { Sahne } from "./plan.ts";
 import type { Layer } from "./layer.ts";
 import { bigStatTemplate } from "./big-stat.ts";
 import { chatWindowTemplate } from "./chat-window.ts";
+import { editoryalTemplate } from "./editoryal.ts";
 import { kartTemplate } from "./kart.ts";
+import { rakamKartTemplate } from "./rakam-kart.ts";
+import { sohbetTemplate } from "./sohbet.ts";
+import { terminalTemplate } from "./terminal.ts";
 import type { SceneContext, TemplateScene } from "./types.ts";
 
-const TEMPLATES: readonly TemplateScene[] = [kartTemplate, chatWindowTemplate, bigStatTemplate];
+const TEMPLATES: readonly TemplateScene[] = [kartTemplate, chatWindowTemplate, bigStatTemplate, sohbetTemplate, terminalTemplate, rakamKartTemplate, editoryalTemplate];
 
 export function templateNames(): string[] {
   return TEMPLATES.map((t) => t.name);

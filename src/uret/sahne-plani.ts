@@ -3,7 +3,8 @@
  * sahne süresi o aralığın süresidir (sınır, iki sahne arası sessizliğin ortası). Ses tek çağrıda üretilir, sınırlar kelime sayısından çıkar.
  */
 import type { Fis } from "../fis/sema.ts";
-import { harfAnahtari, kalipEsle, kelimeler, type KelimeAraligi } from "./kalip-esle.ts";
+import { harfAnahtari, kelimeler, type KelimeAraligi } from "./kalip-esle.ts";
+import { etkinYon, yonEsle } from "./yon/esle.ts";
 import type { Plan } from "./render/plan.ts";
 import type { KonusKelime } from "./render/kelimeler.ts";
 
@@ -51,7 +52,7 @@ export function vurgular(ekranYazisi: string, sozler: readonly string[], ilk: nu
 export interface PlanSonucu {
   plan: Plan;
   /** Sahne başına seçilen kalıp ve nedeni. */
-  kalipler: Array<{ no: number; template: string; neden: string }>;
+  kalipler: Array<{ no: number; yon: string; template: string; neden: string }>;
 }
 
 export function planKur(fis: Fis, sozler: readonly KonusKelime[], sureSn: number): PlanSonucu {
@@ -61,9 +62,9 @@ export function planKur(fis: Fis, sozler: readonly KonusKelime[], sureSn: number
   const kalipler: PlanSonucu["kalipler"] = [];
   const scenes = fis.sahneler.map((s, i) => {
     const a = araliklar[i]!;
-    const secim = kalipEsle(s, a);
+    const secim = yonEsle(etkinYon(s, fis.gorsel_yon), s, a, { sira: i + 1, toplam: fis.sahneler.length });
     emphasis.push(...vurgular(s.ekranYazisi, kelimeler(s.metin), a.ilk));
-    kalipler.push({ no: s.no, template: secim.template, neden: secim.neden });
+    kalipler.push({ no: s.no, yon: etkinYon(s, fis.gorsel_yon) ?? "eski", template: secim.template, neden: secim.neden });
     const { start, end } = sinirlar[i]!;
     return { id: `s${s.no}`, start, end, kind: secim.kind, template: secim.template, params: secim.params };
   });

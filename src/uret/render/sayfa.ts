@@ -9,7 +9,8 @@ import type { Plan } from "./plan.ts";
 import { findTemplate, renderTemplate } from "./kayit.ts";
 import type { SceneContext } from "./types.ts";
 import { pageCss } from "./stiller.ts";
-import { themeFontFiles, type ReelsTheme } from "./tema.ts";
+import { belirtecleriDenetle, themeFontFiles, type ReelsTheme } from "./tema.ts";
+import { MARKA_CSS, markaKatmani } from "./marka.ts";
 import { makeGroups, type Word } from "./kelimeler.ts";
 
 const GSAP_URL = "https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js";
@@ -24,6 +25,8 @@ export interface ComposeInput {
   audioSrc: string;
   /** Ses dosyasının gerçek süresi (HyperFrames sürenin medyadan uzun yazılmasını uyarır); yoksa sayfa süresi. */
   audioDurationSec?: number;
+  /** Hata iletisinde tema dosyasını adlandırmak için (eksik belirteç). */
+  hesap?: string;
 }
 
 export interface ComposeResult {
@@ -57,16 +60,19 @@ export async function composePage(input: ComposeInput): Promise<ComposeResult> {
   const ctx: SceneContext = { theme, words, endSec: durationSec };
   const layers: Layer[] = [];
   for (const scene of plan.scenes) layers.push(await renderTemplate(scene, ctx));
+  layers.push(markaKatmani(theme));
   layers.push(captionLayer(makeGroups(words, plan.captions, theme), durationSec, theme));
 
+  const { w, h } = plan.size;
+  const css = pageCss(theme, [...templateCss(plan.scenes), MARKA_CSS], { w, h });
+  belirtecleriDenetle(theme, css, input.hesap);
   const body = layers.flatMap((l) => l.html).join("\n");
   const timeline = layers.flatMap((l) => l.js).join("\n");
-  const { w, h } = plan.size;
   const html = `<!doctype html>
 <html lang="tr" data-resolution="portrait">
 <head><meta charset="UTF-8"/><meta name="viewport" content="width=${w}, height=${h}"/>
 <script src="${GSAP_URL}"></script>
-<style>${pageCss(theme, templateCss(plan.scenes), { w, h })}</style></head>
+<style>${css}</style></head>
 <body>
 <div id="root" data-composition-id="main" data-start="0" data-duration="${fmt(durationSec)}" data-width="${w}" data-height="${h}">
 <div class="zemin"></div>
