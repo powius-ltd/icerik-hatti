@@ -64,7 +64,7 @@ export function planKur(fis: Fis, sozler: readonly KonusKelime[], sureSn: number
     const a = araliklar[i]!;
     const secim = yonEsle(etkinYon(s, fis.gorsel_yon), s, a, { sira: i + 1, toplam: fis.sahneler.length });
     emphasis.push(...vurgular(s.ekranYazisi, kelimeler(s.metin), a.ilk));
-    kalipler.push({ no: s.no, yon: etkinYon(s, fis.gorsel_yon), template: secim.template, neden: secim.neden });
+    kalipler.push({ no: s.no, yon: etkinYon(s, fis.gorsel_yon) ?? "eski", template: secim.template, neden: secim.neden });
     const { start, end } = sinirlar[i]!;
     return { id: `s${s.no}`, start, end, kind: secim.kind, template: secim.template, params: secim.params };
   });

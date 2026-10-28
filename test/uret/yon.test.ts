@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { fisOku, GORSEL_YONLER, type FisSahne } from "../../src/fis/sema.ts";
 import { yonSatiri } from "../../src/fis/yaz.ts";
 import { fisMd } from "../../src/fis/yaz.ts";
+import { kalipEsle } from "../../src/uret/kalip-esle.ts";
 import { etkinYon, yonEsle } from "../../src/uret/yon/esle.ts";
 import { cumleler, ikonBul, kirp, logoBul, vurguKelime } from "../../src/uret/yon/metin.ts";
 import { planKur, okunusMetni } from "../../src/uret/sahne-plani.ts";
@@ -23,6 +24,9 @@ describe("yön → kalıp eşlemesi", () => {
   it("karma eski davranıştır: sayılı yazı big-stat, düz yazı kart", () => {
     expect(yonEsle("karma", s({}), A, B).template).toBe("big-stat");
     expect(yonEsle("karma", s({ ekranYazisi: "Kurallar" }), A, B).template).toBe("kart");
+    // ekran yazısı yoksa ortası boş kart yerine sözün cümlesi editoryal başlık olur; metin de boşsa kart
+    expect(yonEsle("karma", s({ ekranYazisi: "" }), A, B)).toMatchObject({ template: "editoryal", params: { baslik: "Claude ile başla." } });
+    expect(yonEsle("karma", s({ ekranYazisi: "", metin: " " }), A, B).template).toBe("kart");
   });
 
   it("sohbet: ben balonu ekran yazısı, ai balonları cümleler; kelime sırası artan ve sahne içinde", () => {
@@ -72,10 +76,12 @@ describe("yön → kalıp eşlemesi", () => {
     expect(yonEsle("rakam-kart", s({ metin: "Evet." }), { ilk: 0, adet: 1 }, B).template).toBe("kart");
   });
 
-  it("sahne `yon` fişin yönünü ezer; hiçbiri yoksa karma", () => {
+  it("sahne `yon` fişin yönünü ezer; hiçbiri yoksa eski davranış", () => {
     expect(etkinYon(s({ yon: "editoryal" }), "sohbet")).toBe("editoryal");
     expect(etkinYon(s({}), "sohbet")).toBe("sohbet");
-    expect(etkinYon(s({}))).toBe("karma");
+    expect(etkinYon(s({}))).toBeUndefined();
+    // eski fiş (yön yok) kalipEsle ile birebir aynı
+    expect(yonEsle(undefined, s({ ekranYazisi: "" }), A, B)).toEqual(kalipEsle(s({ ekranYazisi: "" }), A));
   });
 });
 
@@ -100,7 +106,7 @@ describe("fiş şeması ve plan", () => {
     const sozler: KonusKelime[] = okunusMetni(fis).split(" ").map((w, i) => ({ w, s: i * 0.5, e: i * 0.5 + 0.4 }));
     const { kalipler } = planKur(fis, sozler, sozler.length * 0.5);
     expect(kalipler.map((k) => k.template)).toEqual(["kart", "big-stat"]);
-    expect(kalipler.every((k) => k.yon === "karma")).toBe(true);
+    expect(kalipler.every((k) => k.yon === "eski")).toBe(true);
   });
 
   it("gorsel_yon her sahneye uygulanır, sahne yon'ü yalnız o sahneyi çeker", () => {

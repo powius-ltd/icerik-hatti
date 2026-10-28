@@ -31,18 +31,18 @@ export const RakamKartParams = z.object({
 export type RakamKartParams = z.infer<typeof RakamKartParams>;
 
 const CSS = `
-.sc .rk{position:absolute;left:var(--safe-left);top:300px;width:var(--safe-w);height:880px;border-radius:var(--radius-window);background:var(--surface-window);border:1px solid var(--line-dark);box-shadow:var(--shadow-window);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;text-align:center;padding:0 48px;overflow:hidden}
+.sc .rk{position:absolute;left:var(--safe-left);top:300px;width:var(--safe-w);height:880px;border-radius:var(--radius-window);background:var(--surface-window);border:1px solid var(--line-dark);box-shadow:var(--shadow-window);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;text-align:center;padding:0 48px;overflow:hidden}
 .sc .rk-chip{padding:12px 30px;border-radius:var(--radius-pill);background:var(--accent-soft);color:var(--accent);font-size:30px;font-weight:700;letter-spacing:5px}
-.sc .rk-ring{width:210px;height:210px;border-radius:50%;background:var(--accent-soft);border:4px solid var(--accent);color:var(--fg-on-dark);display:flex;align-items:center;justify-content:center}
+.sc .rk-ring{width:176px;height:176px;border-radius:50%;background:var(--accent-soft);border:4px solid var(--accent);color:var(--fg-on-dark);display:flex;align-items:center;justify-content:center}
 .sc .rk-ring.ik{color:var(--accent)}
-.sc .rk-num{font-size:176px;font-weight:800;line-height:1;letter-spacing:-6px;color:var(--accent);font-variant-numeric:tabular-nums}
+.sc .rk-num{font-size:150px;font-weight:800;line-height:1;letter-spacing:-5px;color:var(--accent);font-variant-numeric:tabular-nums}
 .sc .rk-ln{width:360px;height:8px;border-radius:4px;background:var(--accent)}
 .sc .rk-t{font-weight:800;line-height:1.1;letter-spacing:-1px;color:var(--fg-on-dark)}
-.sc .rk-a{font-size:34px;font-weight:600;line-height:1.3;color:var(--text-muted-on-dark)}
+.sc .rk-a{font-size:30px;font-weight:600;line-height:1.3;color:var(--text-muted-on-dark)}
 `;
 
 function baslikBoyu(n: number): number {
-  return n <= 22 ? 78 : n <= 44 ? 64 : 54;
+  return n <= 22 ? 72 : n <= 44 ? 60 : 50;
 }
 
 async function render(scene: Sahne, ctx: SceneContext): Promise<Layer> {
@@ -51,7 +51,7 @@ async function render(scene: Sahne, ctx: SceneContext): Promise<Layer> {
   const startT = atWord(ctx, scene, params.startWord, "startWord");
   const landT = atWord(ctx, scene, params.landWord, "landWord");
   if (!(startT < landT)) throw new Error(`Sahne "${scene.id}": startWord landWord'den önce olmalı (${startT.toFixed(2)} ≥ ${landT.toFixed(2)} sn).`);
-  const merkez = params.logo ? await logoSvg(params.logo, 112) : icon(params.ikon, 112);
+  const merkez = params.logo ? await logoSvg(params.logo, 92) : icon(params.ikon, 92);
   const etiket = `ADIM ${String(params.adim).padStart(2, "0")}/${String(params.toplam).padStart(2, "0")}`;
   const buyuk = params.sayi ?? params.adim;
   const ilk = params.sayi !== undefined ? "0" : String(params.adim).padStart(2, "0");

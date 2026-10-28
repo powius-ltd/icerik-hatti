@@ -8,6 +8,7 @@ import { z } from "zod";
 import type { Sahne } from "./plan.ts";
 import { type Layer } from "./layer.ts";
 import { pulse, slide, typer } from "./motion-kit.ts";
+import { yaziBoyu } from "./sohbet.ts";
 import { atWord, esc, scenePrefix, shell, SHELL_CSS } from "./shell.ts";
 import type { SceneContext, TemplateScene } from "./types.ts";
 
@@ -24,7 +25,7 @@ export type TerminalParams = z.infer<typeof TerminalParams>;
 const CPS = 22;
 
 const CSS = `
-.sc .tm-body{position:absolute;left:0;right:0;top:72px;bottom:0;padding:40px 44px;font-family:var(--font-mono);font-size:38px;line-height:1.4}
+.sc .tm-body{position:absolute;left:0;right:0;top:72px;bottom:0;padding:40px 44px;font-family:var(--font-mono);font-size:38px;line-height:1.4;display:flex;flex-direction:column;justify-content:center}
 .sc .tm-cmd{display:flex;gap:18px;color:var(--fg-on-dark);min-height:54px}
 .sc .tm-cmd .pr{color:var(--accent);flex:none}
 .sc .tm-cmd .cur{display:inline-block;width:20px;height:44px;margin-left:4px;background:var(--accent);vertical-align:middle}
@@ -32,7 +33,7 @@ const CSS = `
 .sc .tm-l .im{flex:none;width:34px}
 .sc .tm-l.ok .im{color:var(--success)}
 .sc .tm-l.cikti .im{color:var(--text-faint-on-dark)}
-.sc .tm-l .tx{flex:1;color:var(--fg-on-dark);font-family:var(--font-display);font-weight:600;font-size:40px;line-height:1.28}
+.sc .tm-l .tx{flex:1;color:var(--fg-on-dark);font-family:var(--font-display);font-weight:600;font-size:var(--fs,40px);line-height:1.28}
 .sc .tm-l.cikti .tx{color:var(--text-muted-on-dark)}
 `;
 
@@ -60,8 +61,8 @@ function render(scene: Sahne, ctx: SceneContext): Layer {
     return `<div class="tm-l ${s.tur}" id="${p}-l${i}"><span class="im">${s.tur === "ok" ? "✓" : "·"}</span><span class="tx">${esc(s.metin)}</span></div>`;
   });
   const inner =
-    `<div class="win" id="${p}-win" style="top:300px;height:880px"><div class="bar"><i></i><i></i><i></i><span>${esc(params.baslik)}</span></div>` +
-    `<div class="tm-body">${cmd}${satirlar.join("")}</div></div>`;
+    `<div class="win" id="${p}-win" style="top:330px;height:820px"><div class="bar"><i></i><i></i><i></i><span>${esc(params.baslik)}</span></div>` +
+    `<div class="tm-body" style="--fs:${yaziBoyu(params.satirlar.reduce((n, s) => n + s.metin.length, 0))}px">${cmd}${satirlar.join("")}</div></div>`;
   return shell({ scene, inner, winId: `${p}-win`, js });
 }
 
