@@ -34,3 +34,11 @@ Zamanlama: cron (ör. `*/10 * * * * cd <repo> && agir --ram 4 --ad hat-tablo -- 
 ## KARAR GEREKLİ
 - Hata satırı otomatik yeniden denensin mi (şimdi elle sıfırlama)? Varsayılan: elle, ücretli tekrar riski yok.
 - Zamanlanmış gönderi, paylasim_onay sonradan hayır olunca Zernio'dan iptal edilsin mi? (şimdi iptal yok)
+
+## 09 eki (2026-10-28): onay geri alınınca iptal
+- Karar (kullanıcı): `zamanlandi` iken `paylasim_onay` evet değilse Zernio'daki zamanlanmış gönderi silinir (`gonderiSil`: DELETE /posts/<id>, 404 başarılı sayılır); tablo `durum: video_hazir`, `not: paylaşım iptal edildi (onay geri alındı)`.
+- Silmeden önce Zernio'ya durum sorulur: `yayinda` ise SİLİNMEZ, durum yayinda + link, not "onay geri alındı ama gönderi zaten yayında; silinmedi".
+- Fişte paylaşım izi geri alınır (`durum: uretildi`, `paylasim_onay: hayir`); aksi hâlde onay yeniden verilince `paylas` "fiş zaten paylaşılmış" derdi. Eski `zernio_post_id` yeni gönderide ezilir.
+- Kuru kip: silme, durum sorusu ve yazma yok; yalnız ne yapılacağı yazılır. `zernio_post_id` fişte yoksa ya da silme patlarsa satır `hata` olur.
+- Karar: hata satırları ELLE sıfırlanır (otomatik yeniden deneme eklenmedi); önceki "KARAR GEREKLİ" iki maddesi kapandı.
+- Testler sahte Zernio ile (gerçek çağrı yok): iptal yolu, yayındakinin silinmemesi, kuru kip, silme hatası, id yok; istemci DELETE testi.
