@@ -2,8 +2,9 @@
 
 ## Bekleyen
 - Karar: son tarih.
-- Karar: patronun ses kaydı + ElevenLabs klon izni var mı (klon ücretli; tutar + tavan onayı).
-- Karar: patronun Zernio hesabı ve anahtarı hazır mı; Instagram hesabı bağlı mı.
+- Karar: Drive tablosunun adı (kullanıcı açacak; rclone salt okuma, "bizim video" hücresini şimdilik kullanıcı yazar).
+- Karar: görsel zenginleştirme (AISCALE teması + 05 görsel klon) zamanı; ilk video çalışıyor ama ortası boş.
+- rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
 
 ## 2026-10-26
 - Repo şablondan açıldı; mülakat bitti, 6 kazanım onaylandı; üç repo envanteri + YOL + 01-fis, 03-paylas paketleri (`e2e2e67`).
@@ -12,6 +13,8 @@
 
 ## 2026-10-28
 - 02-uret bitti (dal `is-02-uret`): `hat uret --fis <fis.md> [--render]`; ElevenLabs tek çağrı (698 karakter, ~0,056 $), sahne=ses parçası, deterministik kalıp eşleme, K24/K26 kapıları. Gerçek koşu `kosular/deneme-02`: final.mp4 1080x1920, 44,8 sn. Teslim: `/home/dev/teslim/icerik-hatti/ilk-video/`. Ayrıntı: `docs/isler/02-uret/RAPOR.md`.
+- 01-fis (67 test, deneme fişi 8 sahne) + 03-paylas (kuru koşu; Zernio'da yalnız @aiscale_app bağlı, gerçek gönderim yok) + 02 + 06 main'de, 126 test yeşil (`b2b88e5`). Ses: hesaptaki hazır klon `batu-deneme`, kayıt gerekmedi.
+- 06-testimonial: YouTube sunucu IP'sini bot saydı; kaynak Drive `AISCALE_KLIP_ARSIVI/videolar/05_TESTIMONIALS_KANIT` (8 video, tek kadın Buğçe). Kadın derlemesi + 6 varyant, 0 $. Teslim: `/home/dev/teslim/icerik-hatti/testimonial/`.
 
 ## Kararlar
 - 2026-10-26 | Hat ilk önce patronun içerik hesabı için; portföyde patron işi, doğrudan Etkin | kullanıcı seçimi | mülakat
@@ -26,3 +29,5 @@
 - 2026-10-28 | Giriş kapısı Drive'daki tablo: kaynak link · bizim video · paylaşım zamanı; tabloyu kullanıcı elle doldurur, hat okur (Drive izni salt okuma yeter) | ekip örnek alınan videoyu orada istiyor | kullanıcı
 - 2026-10-28 | Ses: patronun ElevenLabs klonu (ücretli, tutar onayı ayrı) | kullanıcı seçimi | kullanıcı
 - 2026-10-28 | Testimonial varyasyonları bu repoda ayrı iş: kaynak youtube.com/@baturalp.tunali/shorts, yalnız kadınların olduğu kadın hedefli derleme + yeni kesimler (ffmpeg, 0 $) | AISCALE içeriği tek hatta | kullanıcı
+- 2026-10-28 | Hedef hesap Zernio'daki @aiscale_app; anahtar sosyal-panel `.env.local` | patron hesabı = AISCALE | kullanıcı (main onayı)
+- 2026-10-28 | Testimonial kaynağı YouTube yerine Drive arşivi | YouTube sunucuyu engelledi, aynı videolar Drive'da | engel
