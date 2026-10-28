@@ -1,0 +1,33 @@
+{
+ "hook": "1000 KİŞİYE AYNI ANDA\nAYNI KALİTEDE HİZMET",
+ "clips": [
+  {
+   "src": "TST-06_Bugce_Yapay_Zekayla_Danismanligini_Olcekledi.mp4",
+   "dokum": "TST-06",
+   "t0": 40.05,
+   "t1": 47.4,
+   "crop": [
+    160,
+    190,
+    880,
+    715
+   ],
+   "fgy": 520
+  },
+  {
+   "src": "TST-06_Bugce_Yapay_Zekayla_Danismanligini_Olcekledi.mp4",
+   "dokum": "TST-06",
+   "t0": 688.65,
+   "t1": 695.5,
+   "crop": [
+    160,
+    190,
+    880,
+    715
+   ],
+   "fgy": 520
+  }
+ ],
+ "out": "varyant-bugce-kisa15",
+ "hook_sn": 3.0
+}

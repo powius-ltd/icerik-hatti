@@ -1,0 +1,72 @@
+{
+ "hook": "KOD BİLMEDEN\nDİŞ KLİNİĞİ YAZILIMI\nKURDU",
+ "clips": [
+  {
+   "src": "TST-04_Hakan_Kod_Bilmeden_Klinik_Yazilimi_Gelistirdi.mp4",
+   "dokum": "TST-04",
+   "t0": -0.05,
+   "t1": 5.3,
+   "crop": [
+    100,
+    230,
+    800,
+    640
+   ],
+   "fgy": 500
+  },
+  {
+   "src": "TST-08_Hakan_Yapay_Zekayla_Dis_Klinigi_Yazilimi_Yapti.mp4",
+   "dokum": "TST-08",
+   "t0": 156.45,
+   "t1": 158.0,
+   "crop": [
+    100,
+    230,
+    800,
+    640
+   ],
+   "fgy": 500
+  },
+  {
+   "src": "TST-08_Hakan_Yapay_Zekayla_Dis_Klinigi_Yazilimi_Yapti.mp4",
+   "dokum": "TST-08",
+   "t0": 2.75,
+   "t1": 13.8,
+   "crop": [
+    100,
+    230,
+    800,
+    640
+   ],
+   "fgy": 500
+  },
+  {
+   "src": "TST-08_Hakan_Yapay_Zekayla_Dis_Klinigi_Yazilimi_Yapti.mp4",
+   "dokum": "TST-08",
+   "t0": 168.15,
+   "t1": 173.5,
+   "crop": [
+    100,
+    230,
+    800,
+    640
+   ],
+   "fgy": 500
+  },
+  {
+   "src": "TST-08_Hakan_Yapay_Zekayla_Dis_Klinigi_Yazilimi_Yapti.mp4",
+   "dokum": "TST-08",
+   "t0": 183.95,
+   "t1": 192.4,
+   "crop": [
+    100,
+    230,
+    800,
+    640
+   ],
+   "fgy": 500
+  }
+ ],
+ "out": "varyant-hakan-sonuc-once",
+ "hook_sn": 3.0
+}
