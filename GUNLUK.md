@@ -2,8 +2,10 @@
 
 ## Bekleyen
 - Karar: son tarih.
-- Karar: Drive tablosunun adı (kullanıcı açacak; rclone salt okuma, "bizim video" hücresini şimdilik kullanıcı yazar).
-- Karar: görsel zenginleştirme (AISCALE teması + 05 görsel klon) zamanı; ilk video çalışıyor ama ortası boş.
+- Kullanıcı: rclone kendi client_id + tam Drive izni (Google Cloud adımları); sonra `tablo kur` + gerçek deneme (07 RAPOR komutları).
+- Kullanıcı: AISCALE logo dosyası (şimdilik yazı markası).
+- Ekranın alt %40'ı boş (kart üstte, altyazı ortada): sonraki görsel iyileştirme.
+- Fişte ürün adı ASR hatası (Kapso → CAPSO): fiş onayında kontrol.
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
 
 ## 2026-10-26
@@ -15,6 +17,7 @@
 - 02-uret bitti (dal `is-02-uret`): `hat uret --fis <fis.md> [--render]`; ElevenLabs tek çağrı (698 karakter, ~0,056 $), sahne=ses parçası, deterministik kalıp eşleme, K24/K26 kapıları. Gerçek koşu `kosular/deneme-02`: final.mp4 1080x1920, 44,8 sn. Teslim: `/home/dev/teslim/icerik-hatti/ilk-video/`. Ayrıntı: `docs/isler/02-uret/RAPOR.md`.
 - 01-fis (67 test, deneme fişi 8 sahne) + 03-paylas (kuru koşu; Zernio'da yalnız @aiscale_app bağlı, gerçek gönderim yok) + 02 + 06 main'de, 126 test yeşil (`b2b88e5`). Ses: hesaptaki hazır klon `batu-deneme`, kayıt gerekmedi.
 - 06-testimonial: YouTube sunucu IP'sini bot saydı; kaynak Drive `AISCALE_KLIP_ARSIVI/videolar/05_TESTIMONIALS_KANIT` (8 video, tek kadın Buğçe). Kadın derlemesi + 6 varyant, 0 $. Teslim: `/home/dev/teslim/icerik-hatti/testimonial/`.
+- 07-tablo (Drive tablosu: `tablo kur`, `tablo yokla`; Sheets hücre bazlı, ekip sütunlarına yazmaz), 08-yon (4 görsel yön + AISCALE teması, katalog `/home/dev/teslim/icerik-hatti/gorsel-yon/`), 09 (karma gerçek karışım + onay geri alınınca Zernio iptali) main'de, 186 test. Gerçek Drive/Zernio denemesi yok.
 
 ## Kararlar
 - 2026-10-26 | Hat ilk önce patronun içerik hesabı için; portföyde patron işi, doğrudan Etkin | kullanıcı seçimi | mülakat
@@ -31,3 +34,7 @@
 - 2026-10-28 | Testimonial varyasyonları bu repoda ayrı iş: kaynak youtube.com/@baturalp.tunali/shorts, yalnız kadınların olduğu kadın hedefli derleme + yeni kesimler (ffmpeg, 0 $) | AISCALE içeriği tek hatta | kullanıcı
 - 2026-10-28 | Hedef hesap Zernio'daki @aiscale_app; anahtar sosyal-panel `.env.local` | patron hesabı = AISCALE | kullanıcı (main onayı)
 - 2026-10-28 | Testimonial kaynağı YouTube yerine Drive arşivi | YouTube sunucuyu engelledi, aynı videolar Drive'da | engel
+- 2026-10-28 | Apify (BUL) kredi gelene kadar bekler; link tabloya elle | kredi yok | kullanıcı
+- 2026-10-28 | Görsel klon (05) yerine önce yön sorusu + AISCALE teması; varsayılan yön karma | 05 1–2 gün ve riskli, yön sorusu yarım gün | kullanıcı
+- 2026-10-28 | Tabloda paylaşım onayı geri alınırsa zamanlanmış gönderi otomatik silinir; hata satırları elle sıfırlanır | otomatik tekrar ücretli sesi yeniden tetikler | kullanıcı
+- 2026-10-28 | Drive tablosunu ve klasörünü hat kendisi açar (`tablo kur`); rclone kendi client_id + scope=drive | ortak client_id 2026'da kapanıyor, yazma izni gerek | kullanıcı
