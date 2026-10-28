@@ -3,6 +3,7 @@
  * HyperFrames çağrısı: önce `check` (hata varsa durur), sonra `render` (tek işçi: 4 vCPU / 16 GB makine paylaşılır).
  * Sürüm sabit (`npx hyperframes@…`). Gerçek render `agir` altında çalıştırılır; testte sahte süreç.
  */
+import { rm } from "node:fs/promises";
 import { temelEnv } from "../../ortak/surec.ts";
 import type { Kosucu } from "../../cozumle/surec-tipleri.ts";
 import { gurlukNormallestir, type GurlukHedefi } from "./gurluk.ts";
@@ -42,6 +43,9 @@ export async function olustur(girdi: { hfDir: string; output: string; gurluk?: G
   const ham = girdi.gurluk ? `${girdi.output}.ham.mp4` : girdi.output;
   const s = await kosucu(NPX, renderArgs(girdi.hfDir, ham), { env: ortam(), timeoutMs: RENDER_TIMEOUT_MS });
   if (s.kod !== 0) throw acikla("render", girdi.hfDir, s.stderr || s.stdout);
-  if (girdi.gurluk) await gurlukNormallestir({ girdi: ham, cikti: girdi.output, hedef: girdi.gurluk, kosucu });
+  if (girdi.gurluk) {
+    await gurlukNormallestir({ girdi: ham, cikti: girdi.output, hedef: girdi.gurluk, kosucu });
+    await rm(ham, { force: true });
+  }
   return girdi.output;
 }

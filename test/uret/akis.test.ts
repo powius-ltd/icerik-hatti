@@ -95,6 +95,7 @@ describe("uret akışı", () => {
     expect(fis).toMatch(/^kapak: kapak\.png$/m);
     expect(fis).toContain("Gövde yorumu kalır.");
     expect(fisOku(fis).durum).toBe("uretildi");
+    await expect(stat(`${s.final}.ham.mp4`)).rejects.toThrow();
   });
 
   it("aynı metin ikinci koşuda sesi önbellekten alır (ücretli çağrı tekrarlanmaz); --yeniden-ses zorlar", async () => {

@@ -10,6 +10,9 @@
 - Deneme "benzeri" video (eski repolar elle zincir, 0 $, Chatterbox ses): VU IG DeZTLK4CeiQ senaryosu → KS fiş → HF render, 39,5 sn. İçerik ve sıra taşındı, görsel kimlik taşınmadı (koyu tek şablon, boş sohbet kutuları). Kullanıcı: "güzel olmuş". Teslim: `/home/dev/teslim/icerik-hatti/deneme-benzeri/`. Bulgular YOL 02'de.
 - Devir: klon düzeyi kararı (YOL Müşteriden #1), sonra 01 ve 03 paralel.
 
+## 2026-10-28
+- 02-uret bitti (dal `is-02-uret`): `hat uret --fis <fis.md> [--render]`; ElevenLabs tek çağrı (698 karakter, ~0,056 $), sahne=ses parçası, deterministik kalıp eşleme, K24/K26 kapıları. Gerçek koşu `kosular/deneme-02`: final.mp4 1080x1920, 44,8 sn. Teslim: `/home/dev/teslim/icerik-hatti/ilk-video/`. Ayrıntı: `docs/isler/02-uret/RAPOR.md`.
+
 ## Kararlar
 - 2026-10-26 | Hat ilk önce patronun içerik hesabı için; portföyde patron işi, doğrudan Etkin | kullanıcı seçimi | mülakat
 - 2026-10-26 | Üç repo (viral-uyarla, kreatif-studyo, sosyal-panel) yerine tek yeni repo; parçalar kopyalanır, eski repolar donar | tek komut, tek yer; Abdürrahim teslimi etkilenmesin | mülakat
