@@ -4,10 +4,12 @@
  */
 const komutlar: Record<string, (argv: string[]) => Promise<void>> = {
   fis: async (argv) => (await import("./fis/komut.ts")).calistir(argv),
+  paylas: async (argv) => (await import("./paylas/komut.ts")).calistir(argv),
 };
 
 const OZET: Record<string, string> = {
   fis: "Video/link/hazır metinden onaylanacak Türkçe birebir uyarlama fişi (fis.md) üretir",
+  paylas: "Onaylı videoyu Zernio ile (zamanlı) gönderir; varsayılan kuru koşu",
 };
 
 async function ana(): Promise<void> {
