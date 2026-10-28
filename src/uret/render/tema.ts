@@ -5,6 +5,7 @@
  */
 import { access } from "node:fs/promises";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { okuJson } from "../../ortak/dosya.ts";
 
@@ -28,8 +29,10 @@ export const ReelsTheme = z.object({
 });
 export type ReelsTheme = z.infer<typeof ReelsTheme>;
 
-export const TEMA_KOK = "config/hesaplar";
-export const FONT_KOK = "assets/fonts";
+/** Repo kökü (bu dosyadan iki üst): tema ve yazı tipleri çalışma dizininden bağımsız bulunur. */
+export const REPO_KOK = fileURLToPath(new URL("../../../", import.meta.url));
+export const TEMA_KOK = join(REPO_KOK, "config/hesaplar");
+export const FONT_KOK = join(REPO_KOK, "assets/fonts");
 
 /** `config/hesaplar/<hesap>.json`; hesaba özel dosya yoksa `varsayilan.json`. */
 export async function temaYukle(hesap: string, kok: string = TEMA_KOK): Promise<ReelsTheme> {
