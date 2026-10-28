@@ -48,3 +48,5 @@ export interface AltKomutlar {
 
 export type YayinDurumu = { durum: "yayinda"; link?: string } | { durum: "bekliyor" } | { durum: "hata"; neden: string };
 export type YayinSorgu = (postId: string, hesap: string | undefined) => Promise<YayinDurumu>;
+/** Zamanlanmış (henüz yayınlanmamış) Zernio gönderisini siler. */
+export type GonderiIptal = (postId: string, hesap: string | undefined) => Promise<void>;

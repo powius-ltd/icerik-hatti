@@ -39,7 +39,7 @@ function sahne(satirlar: string[][]) {
   okuKancasi = () => {};
 }
 
-function baglam(ek: Partial<Baglam> = {}): Baglam & { alt: { fis: ReturnType<typeof vi.fn>; uret: ReturnType<typeof vi.fn>; paylas: ReturnType<typeof vi.fn> }; drive: { yukle: ReturnType<typeof vi.fn> } } {
+function baglam(ek: Partial<Baglam> = {}): Baglam & { alt: { fis: ReturnType<typeof vi.fn>; uret: ReturnType<typeof vi.fn>; paylas: ReturnType<typeof vi.fn> }; drive: { yukle: ReturnType<typeof vi.fn> }; iptal: ReturnType<typeof vi.fn> } {
   const alt = {
     fis: vi.fn(async ({ id }: { id: string }) => {
       mkdirSync(join(kok, id), { recursive: true });
@@ -68,6 +68,7 @@ function baglam(ek: Partial<Baglam> = {}): Baglam & { alt: { fis: ReturnType<typ
     drive,
     alt,
     yayin: vi.fn(async () => ({ durum: "yayinda" as const, link: "https://www.instagram.com/reel/XYZ/" })),
+    iptal: vi.fn(async () => {}),
     kosuDizini: kok,
     kosuAdi: "tablo",
     simdi: () => SIMDI,
@@ -171,8 +172,8 @@ describe("tablo yoklama durum makinesi", () => {
 
   it("zamanlandi: saat geçmişse yayın durumu sorulur → yayinda + instagram_link; erkense dokunulmaz", async () => {
     sahne([
-      satir({ ornek_link: L1, paylasim_zamani: "28.10.2026 12:00", durum: "zamanlandi" }),
-      satir({ ornek_link: L2, paylasim_zamani: "30.10.2026 12:00", durum: "zamanlandi" }),
+      satir({ ornek_link: L1, paylasim_zamani: "28.10.2026 12:00", durum: "zamanlandi", paylasim_onay: "evet" }),
+      satir({ ornek_link: L2, paylasim_zamani: "30.10.2026 12:00", durum: "zamanlandi", paylasim_onay: "evet" }),
     ]);
     fisHazirla(L1, 'zernio_post_id: "p1"\n');
     fisHazirla(L2, 'zernio_post_id: "p2"\n');
@@ -182,6 +183,73 @@ describe("tablo yoklama durum makinesi", () => {
     expect(grid[1]![IDX.durum!]).toBe("yayinda");
     expect(grid[1]![IDX.instagram_link!]).toContain("instagram.com/reel/XYZ");
     expect(grid[2]![IDX.durum!]).toBe("zamanlandi");
+  });
+
+  describe("paylaşım onayı geri alınırsa (zamanlandi + paylasim_onay evet değil)", () => {
+    const PAYLASILDI = (id: string) => `zernio_post_id: "${id}"\n`;
+    const paylasilmisFis = (link: string, id: string) => {
+      fisHazirla(link, PAYLASILDI(id));
+      writeFileSync(fisYolu(link), readFileSync(fisYolu(link), "utf8").replace("durum: uretildi", "durum: paylasildi").replace("paylasim_onay: hayir", "paylasim_onay: evet"));
+    };
+
+    it("zamanlanmış gönderi Zernio'da silinir; durum video_hazir, not iptal; fişte paylaşım izi geri alınır", async () => {
+      sahne([satir({ ornek_link: L1, paylasim_zamani: "30.10.2026 14:30", durum: "zamanlandi", paylasim_onay: "hayır" })]);
+      paylasilmisFis(L1, "p1");
+      const b = baglam({ yayin: vi.fn(async () => ({ durum: "bekliyor" as const })) });
+      const o = await yokla(b);
+      expect(b.iptal).toHaveBeenCalledExactlyOnceWith("p1", "aiscale");
+      expect(grid[1]![IDX.durum!]).toBe("video_hazir");
+      expect(grid[1]![IDX.not!]).toBe("paylaşım iptal edildi (onay geri alındı)");
+      expect(o).toEqual({ islenen: 1, atlanan: 0, hata: 0 });
+      const fis = readFileSync(fisYolu(L1), "utf8");
+      expect(fis).toMatch(/durum: uretildi/);
+      expect(fis).toMatch(/paylasim_onay: "?hayir"?/);
+      for (const [, alan] of yazimlar) for (const k of Object.keys(alan)) expect(["durum", "video_link", "caption", "instagram_link", "not"]).toContain(k);
+      expect([grid[1]![0], grid[1]![1], grid[1]![3], grid[1]![4]]).toEqual([L1, "30.10.2026 14:30", "", "hayır"]); // ekip hücrelerine dokunulmadı
+    });
+
+    it("yayında olan gönderi silinmez; yalnız not yazılır, durum yayinda", async () => {
+      sahne([satir({ ornek_link: L1, paylasim_zamani: "28.10.2026 12:00", durum: "zamanlandi", paylasim_onay: "hayır" })]);
+      paylasilmisFis(L1, "p1");
+      const b = baglam();
+      await yokla(b);
+      expect(b.iptal).not.toHaveBeenCalled();
+      expect(grid[1]![IDX.durum!]).toBe("yayinda");
+      expect(grid[1]![IDX.not!]).toMatch(/yayında; silinmedi/);
+      expect(grid[1]![IDX.instagram_link!]).toContain("instagram.com/reel/XYZ");
+    });
+
+    it("kuru kip: silme yok, hiçbir yazma yok, yalnız ne yapılacağı yazılır", async () => {
+      sahne([satir({ ornek_link: L1, paylasim_zamani: "30.10.2026 14:30", durum: "zamanlandi", paylasim_onay: "" })]);
+      paylasilmisFis(L1, "p1");
+      const satirlar: string[] = [];
+      const b = baglam({ kuru: true, yaz: (x: string) => satirlar.push(x) });
+      await yokla(b);
+      expect(b.iptal).not.toHaveBeenCalled();
+      expect(b.yayin).not.toHaveBeenCalled();
+      expect(yazimlar).toHaveLength(0);
+      expect(satirlar.join("\n")).toMatch(/SİLİNECEK/);
+      expect(readFileSync(fisYolu(L1), "utf8")).toMatch(/durum: paylasildi/);
+    });
+
+    it("silme patlarsa satır hata olur ve elle sıfırlanır (otomatik düzeltme yok)", async () => {
+      sahne([satir({ ornek_link: L1, paylasim_zamani: "30.10.2026 14:30", durum: "zamanlandi", paylasim_onay: "" })]);
+      paylasilmisFis(L1, "p1");
+      const b = baglam({ yayin: vi.fn(async () => ({ durum: "bekliyor" as const })), iptal: vi.fn(async () => { throw new Error("Zernio gönderisi silinemedi (500)"); }) });
+      const o = await yokla(b);
+      expect(o.hata).toBe(1);
+      expect(grid[1]![IDX.durum!]).toBe("hata");
+      expect(readFileSync(fisYolu(L1), "utf8")).toMatch(/durum: paylasildi/);
+    });
+
+    it("zernio_post_id yoksa silinemez: hata", async () => {
+      sahne([satir({ ornek_link: L1, paylasim_zamani: "30.10.2026 14:30", durum: "zamanlandi", paylasim_onay: "" })]);
+      fisHazirla(L1);
+      const b = baglam();
+      await yokla(b);
+      expect(b.iptal).not.toHaveBeenCalled();
+      expect(grid[1]![IDX.not!]).toMatch(/zernio_post_id yok/);
+    });
   });
 
   it("bir satır patlarsa durum=hata + not yazılır, diğer satırlar sürer", async () => {
@@ -253,7 +321,7 @@ describe("tablo yoklama durum makinesi", () => {
     const b = baglam({ kuru: true, yaz: (s) => satirlar.push(s) });
     const o = await yokla(b);
     expect(yazimlar).toHaveLength(0);
-    for (const f of [b.alt.fis, b.alt.uret, b.alt.paylas, b.drive.yukle, b.yayin]) expect(f).not.toHaveBeenCalled();
+    for (const f of [b.alt.fis, b.alt.uret, b.alt.paylas, b.drive.yukle, b.yayin, b.iptal]) expect(f).not.toHaveBeenCalled();
     expect(readFileSync(fisYolu(L2), "utf8")).toBe(onceki);
     expect(existsSync(fisYolu(L1))).toBe(false);
     expect(o.islenen).toBe(3);

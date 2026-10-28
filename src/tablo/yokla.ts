@@ -1,22 +1,25 @@
 /**
  * Tablo yoklama turu (durum makinesi). Bir tur satır başına EN FAZLA BİR geçiş yapar:
  *   yeni → fis_hazir → (fis_onay=evet) → video_hazir → (paylasim_onay=evet) → zamanlandi → yayinda | hata
+ *   zamanlandi + paylasim_onay≠evet (onay geri alındı) → Zernio'daki zamanlanmış gönderi silinir, durum video_hazir (yayınlanmışsa silinmez, yalnız not)
  * Her satır kendi try/catch'inde: bir satır patlarsa durum=hata + not yazılır, öteki satırlar sürer. Kuru kipte hiçbir yazma/alt komut yok.
  * Yazmadan önce satır, `ornek_link` ile yeniden bulunur (ekip araya satır eklediyse kayma yanlış satıra yazdırmaz).
  */
 import { existsSync } from "node:fs";
 import { basename, dirname, join, resolve } from "node:path";
-import { onayYaz } from "../fis/geri-yaz.ts";
+import { geriYaz, onayYaz } from "../fis/geri-yaz.ts";
 import { zamanlamaKur } from "../paylas/zaman.ts";
 import { tabloFisOku } from "./fis-yardim.ts";
 import { satirKimligi, satirlariCoz, zamanBicimle } from "./satir.ts";
-import type { AltKomutlar, DriveIstemci, HatAlani, Satir, TabloIstemci, YayinSorgu } from "./tipler.ts";
+import type { AltKomutlar, DriveIstemci, HatAlani, Satir, GonderiIptal, TabloIstemci, YayinSorgu } from "./tipler.ts";
 
 export interface Baglam {
   tablo: TabloIstemci;
   drive: DriveIstemci;
   alt: AltKomutlar;
   yayin: YayinSorgu;
+  /** Zamanlanmış Zernio gönderisini siler (onay geri alınınca). */
+  iptal: GonderiIptal;
   /** `kosular/tablo` (fişler `<dizin>/<satır-kimliği>/fis.md`). */
   kosuDizini: string;
   kosuAdi: string;
@@ -117,6 +120,34 @@ async function yayinAdimi(b: Baglam, s: Satir, fis: string): Promise<boolean> {
   return true;
 }
 
+const IPTAL_NOTU = "paylaşım iptal edildi (onay geri alındı)";
+const YAYINDA_NOTU = "paylaşım onayı geri alındı ama gönderi zaten yayında; silinmedi";
+
+/**
+ * zamanlandi + paylasim_onay evet değil. Önce Zernio'ya durum sorulur: yayınlanmışsa silinmez (yalnız not), değilse zamanlanmış gönderi silinir.
+ * Fişin paylaşım izi geri alınır (durum uretildi, paylasim_onay hayir) ki onay yeniden verilirse hat tekrar zamanlayabilsin; eski zernio_post_id yeni gönderide ezilir.
+ * Hata olursa satır hata olur, otomatik sıfırlanmaz (ekip durumu elle düzeltir; karar 2026-10-28).
+ */
+async function iptalAdimi(b: Baglam, s: Satir, fis: string): Promise<boolean> {
+  if (!existsSync(fis)) throw new Error("onay geri alındı ama fis.md bulunamadı; Zernio'daki gönderi elle iptal edilmeli");
+  const f = tabloFisOku(fis);
+  if (!f.zernioPostId) throw new Error("onay geri alındı ama fişte zernio_post_id yok; Zernio'daki gönderi elle iptal edilmeli");
+  if (b.kuru) return b.yaz(`  satır ${s.no}: paylasim_onay evet değil → Zernio gönderisi ${f.zernioPostId} yayında değilse SİLİNECEK, durum video_hazir (kuru kip: silinmedi)`), true;
+  const d = await b.yayin(f.zernioPostId, f.hesap);
+  if (d.durum === "yayinda") {
+    await guvenliYaz(b, s, { durum: "yayinda", ...(d.link ? { instagram_link: d.link } : {}), not: YAYINDA_NOTU });
+    b.yaz(`  satır ${s.no}: onay geri alındı ama gönderi yayında; silinmedi`);
+    return true;
+  }
+  if (d.durum === "hata") throw new Error(`Zernio: ${d.neden}`);
+  await b.iptal(f.zernioPostId, f.hesap);
+  await geriYaz(fis, { durum: "uretildi" });
+  await onayYaz(fis, { paylasim_onay: "hayir" });
+  await guvenliYaz(b, s, { durum: "video_hazir", not: IPTAL_NOTU });
+  b.yaz(`  satır ${s.no}: paylaşım iptal edildi (Zernio gönderisi ${f.zernioPostId} silindi)`);
+  return true;
+}
+
 function zamanIso(deger: string): string {
   return `${zamanBicimle(deger).replace(" ", "T")}:00+03:00`;
 }
@@ -135,7 +166,7 @@ async function satiriIsle(b: Baglam, s: Satir, id: string): Promise<boolean> {
       if (existsSync(fis) && !b.kuru) await onayYaz(fis, { paylasim_onay: "hayir" });
       return false;
     case "zamanlandi":
-      return yayinAdimi(b, s, fis);
+      return s.paylasimOnay ? yayinAdimi(b, s, fis) : iptalAdimi(b, s, fis);
     default:
       return false; // yayinda, hata (ekip durumu silip/yeniden ayarlayınca devam), bilinmeyen
   }

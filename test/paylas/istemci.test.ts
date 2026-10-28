@@ -64,4 +64,12 @@ describe("zernioIstemciKur", () => {
     const { istemci: i } = istemci([json(200, govde)]);
     await expect(i.gonderiDurumu("p1")).resolves.toEqual({ postId: "p1", status: "published", instagram: { status: "published", permalink: "https://www.instagram.com/reel/ABC/" } });
   });
+
+  it("gonderiSil: DELETE /posts/<id>; 404 başarılı sayılır; hata iletisinde anahtar yok", async () => {
+    const { istemci: i, fetchImpl } = istemci([new Response(null, { status: 204 }), json(404, { error: "yok" }), json(500, { error: "patladı gizli-anahtar" })]);
+    await expect(i.gonderiSil("p/1")).resolves.toBeUndefined();
+    await expect(i.gonderiSil("p2")).resolves.toBeUndefined();
+    await expect(i.gonderiSil("p3")).rejects.toThrow(/silinemedi \(500\)/);
+    expect(cagrilar(fetchImpl as never)).toEqual(["DELETE /posts/p%2F1", "DELETE /posts/p2", "DELETE /posts/p3"]);
+  });
 });

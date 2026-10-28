@@ -13,7 +13,7 @@ import { jetonSaglayici, type Kosucu } from "./erisim.ts";
 import { tabloKur } from "./kur.ts";
 import { sheetsIstemci } from "./sheets.ts";
 import { yokla } from "./yokla.ts";
-import { zernioYayinSorgu } from "./yayin.ts";
+import { zernioGonderiIptal, zernioYayinSorgu } from "./yayin.ts";
 
 const AYAR = resolve(".hat/tablo.json");
 const KILIT = resolve(".hat/tablo.kilit");
@@ -61,6 +61,7 @@ export async function calistir(argv: string[]): Promise<void> {
       drive: driveIstemci(rclone),
       alt: gercekAltKomutlar,
       yayin: zernioYayinSorgu(process.env),
+      iptal: zernioGonderiIptal(process.env),
       kosuDizini: kosuYollari("tablo").kok,
       kosuAdi: "tablo",
       simdi: () => new Date(),

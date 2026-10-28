@@ -19,6 +19,7 @@ function sahteIstemci(olusan?: GonderiSonucu, durumlar: { status: string }[] = [
     presign: vi.fn(async () => ({ uploadUrl: "https://depo/up", publicUrl: "https://cdn/v.mp4" })),
     yukle: vi.fn(async () => {}),
     gonderiOlustur: vi.fn(async () => olusan ?? ({ kind: "created", httpStatus: 201, state: { postId: "p1", status: "publishing" } } as GonderiSonucu)),
+    gonderiSil: vi.fn(async () => {}),
     gonderiDurumu: vi.fn(async () => ({ postId: "p1", ...(durumlar.shift() ?? { status: "published" }), instagram: { permalink: "https://www.instagram.com/reel/ABC/" } })),
   };
   return i satisfies ZernioIstemci;

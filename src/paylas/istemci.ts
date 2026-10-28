@@ -1,6 +1,6 @@
 // Kaynak: sosyal-panel/src/lib/zernio/client.ts + publish-client.ts (c960b96)
 /**
- * Zernio istemcisi: hesap listesi (GET), video yükleme (`POST /media/presign` → imzalı adrese `PUT`), gönderi (`POST /posts`), durum (`GET /posts/<id>`).
+ * Zernio istemcisi: hesap listesi (GET), video yükleme (`POST /media/presign` → imzalı adrese `PUT`), gönderi (`POST /posts`), durum (`GET /posts/<id>`), zamanlanmış gönderiyi silme (`DELETE /posts/<id>`).
  *
  * Kurallar: gönderim idempotent değildir; 429/5xx için yeniden deneme YOK (ikinci `POST` yapılmaz). 409 hata değildir:
  * "aynı içerik son 24 saatte bu hesaba gönderilmiş" demektir, mevcut gönderi kimliğiyle `duplicate` döner.
@@ -66,6 +66,8 @@ export interface ZernioIstemci {
   yukle(uploadUrl: string, govde: Uint8Array, contentType: string): Promise<void>;
   gonderiOlustur(govde: ReelGovdesi): Promise<GonderiSonucu>;
   gonderiDurumu(postId: string): Promise<ZernioGonderiDurumu>;
+  /** Zamanlanmış gönderiyi siler (`DELETE /posts/<id>`). Zaten yoksa (404) başarılı sayılır. */
+  gonderiSil(postId: string): Promise<void>;
 }
 
 export function zernioIstemciKur(secenekler: ZernioSecenekleri): ZernioIstemci {
@@ -73,7 +75,7 @@ export function zernioIstemciKur(secenekler: ZernioSecenekleri): ZernioIstemci {
   const getir = secenekler.fetchImpl ?? fetch;
   const yetki = { Authorization: `Bearer ${secenekler.apiKey}` };
 
-  async function cagir(method: "GET" | "POST", yol: string, govde?: unknown): Promise<{ status: number; json: unknown }> {
+  async function cagir(method: "GET" | "POST" | "DELETE", yol: string, govde?: unknown): Promise<{ status: number; json: unknown }> {
     const res = await getir(`${temelUrl}${yol}`, {
       method,
       headers: { ...yetki, ...(govde === undefined ? {} : { "Content-Type": "application/json" }) },
@@ -117,6 +119,10 @@ export function zernioIstemciKur(secenekler: ZernioSecenekleri): ZernioIstemci {
       const { status, json } = await cagir("GET", `/posts/${encodeURIComponent(postId)}`);
       if (status !== 200) throw new ZernioHata(`Zernio gönderi durumu okunamadı (${status})${ayrinti(json)}`, status);
       return { ...gonderiDurumuOku(json, postId), postId };
+    },
+    async gonderiSil(postId) {
+      const { status, json } = await cagir("DELETE", `/posts/${encodeURIComponent(postId)}`);
+      if (status !== 404 && (status < 200 || status >= 300)) throw new ZernioHata(`Zernio gönderisi silinemedi (${status})${ayrinti(json)}`, status);
     },
   };
 }
