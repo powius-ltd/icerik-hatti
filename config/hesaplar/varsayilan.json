@@ -1,51 +1,58 @@
 {
-  "basis": "kreatif-studyo aiscale.reels.json (ekran görünümü) varsayılan tema; hesap konfigü bunu ezer",
+  "basis": "AISCALE markası: kreatif-studyo aiscale.style.json (renk #0F1218 / #F4F6FA / #4DA3FF, Poppins) + aiscale.reels.json (ölçüler); 28 Eki 2026. Logo dosyası yok: yazı markası.",
   "tokens": {
-    "bg-dark": "#15171E",
-    "surface-window": "#1D2029",
-    "surface-window-bar": "#232733",
-    "surface-row": "#272B37",
-    "line-dark": "#343949",
+    "bg-dark": "#0F1218",
+    "surface-window": "#171C26",
+    "surface-window-bar": "#1D2330",
+    "surface-row": "#232A38",
+    "line-dark": "#2E3647",
     "line-soft": "rgba(255,255,255,.08)",
-    "fg-on-dark": "#F4F2EF",
-    "text-muted-on-dark": "#8D93A3",
-    "text-faint-on-dark": "#5C6273",
-    "accent": "#D9663F",
-    "accent-soft": "rgba(217,102,63,.16)",
-    "accent-glow": "rgba(217,102,63,.20)",
+    "fg-on-dark": "#F4F6FA",
+    "text-muted-on-dark": "#98A4BA",
+    "text-faint-on-dark": "#5F6B82",
+    "accent": "#4DA3FF",
+    "accent-soft": "rgba(77,163,255,.16)",
+    "accent-glow": "rgba(77,163,255,.20)",
     "success": "#4CB782",
     "success-soft": "rgba(76,183,130,.16)",
     "danger": "#E0605A",
     "danger-soft": "rgba(224,96,90,.14)",
-    "scrim": "rgba(10,11,15,.82)",
-    "scrim-none": "rgba(10,11,15,0)",
+    "scrim": "rgba(8,10,15,.82)",
+    "scrim-none": "rgba(8,10,15,0)",
     "cap-stroke": "rgba(8,9,12,.92)",
     "cap-shadow": "rgba(0,0,0,.55)",
     "radius-window": "30px",
     "radius-row": "16px",
     "radius-pill": "999px",
     "shadow-window": "0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04)",
-    "safe-left": "80px",
-    "safe-w": "920px"
+    "safe-left": "65px",
+    "safe-w": "950px"
   },
   "fonts": {
     "display": {
-      "family": "Inter",
-      "file": "Inter-Variable.ttf",
-      "weight": "100 900"
+      "family": "Poppins",
+      "file": "Poppins-ExtraBold.ttf",
+      "weight": "800"
     },
     "mono": {
       "family": "JetBrainsMono",
       "file": "JetBrainsMono-Variable.ttf",
       "weight": "100 800"
-    }
+    },
+    "extra": [
+      {
+        "family": "Poppins",
+        "file": "Poppins-Bold.ttf",
+        "weight": "600 700"
+      }
+    ]
   },
   "captions": {
     "centerPx": 1330,
-    "fontPx": 84,
-    "ctaFontPx": 74,
-    "minFontPx": 66,
-    "maxCharsPerLine": 20,
+    "fontPx": 80,
+    "ctaFontPx": 70,
+    "minFontPx": 60,
+    "maxCharsPerLine": 17,
     "maxWords": 3,
     "strokePx": 10,
     "leadSec": 0.06,
@@ -62,5 +69,6 @@
     "targetLufs": -14,
     "truePeakDb": -1,
     "lra": 11
-  }
+  },
+  "marka": "AISCALE"
 }

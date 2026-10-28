@@ -14,6 +14,8 @@ const Positive = z.number().positive();
 
 export const ReelsTheme = z.object({
   basis: z.string().optional(),
+  /** Köşede küçük duran yazı markası (logo dosyası yoksa); boşsa gösterilmez. */
+  marka: z.string().max(24).optional(),
   /** Şablon görünümü: bu hatta yalnız "screen" (koyu ekran dili); editoryal görünüm alınmadı. */
   look: z.enum(["screen"]).default("screen"),
   tokens: z.record(z.string().regex(/^[a-z][a-z0-9-]*$/), z.string().min(1)),
@@ -61,4 +63,12 @@ export function themeCss(theme: ReelsTheme): string {
 /** Sayfanın kopyalaması gereken yazı dosyaları (ortak varlık kökünde `fonts/`). */
 export function themeFontFiles(theme: ReelsTheme): string[] {
   return [theme.fonts.display.file, theme.fonts.mono.file, ...(theme.fonts.extra ?? []).map((f) => f.file)];
+}
+
+/** CSS'te `var(--ad)` ile kullanılan ama temada tanımsız belirteçler; varsa kullanıcıya hangi belirtecin eksik olduğunu söyler. */
+export function belirtecleriDenetle(theme: ReelsTheme, css: string, hesap = "tema"): void {
+  const tanimli = new Set([...Object.keys(theme.tokens), "font-display", "font-mono"]);
+  const eksik = new Set<string>();
+  for (const m of css.matchAll(/var\(--([a-z][a-z0-9-]*)\)/g)) if (!tanimli.has(m[1]!)) eksik.add(m[1]!);
+  if (eksik.size > 0) throw new Error(`Tema belirteci eksik (${hesap}): ${[...eksik].map((e) => `--${e}`).join(", ")}; config/hesaplar/${hesap}.json "tokens" bölümüne ekleyin.`);
 }

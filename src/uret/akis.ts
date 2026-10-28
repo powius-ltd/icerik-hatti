@@ -90,7 +90,7 @@ export async function uret(g: UretGirdisi, bag: UretBagi): Promise<UretSonucu> {
     const words = toWords(ses.kelimeler, plan.captions);
     const bosluk = enBuyukBosluk(makeGroups(words, plan.captions, tema), ses.sureSn, tema);
     if (bosluk > BOSLUK_TAVANI_SN) throw new Error(`Altyazısız boşluk ${bosluk.toFixed(2)} sn; tavan ${BOSLUK_TAVANI_SN} sn (K26).`);
-    const sayfa = await composePage({ plan, words, durationSec: ses.sureSn, theme: tema, audioSrc: "assets/ses-son.wav", audioDurationSec: ses.sureSn });
+    const sayfa = await composePage({ plan, words, durationSec: ses.sureSn, theme: tema, hesap: fis.hesap, audioSrc: "assets/ses-son.wav", audioDurationSec: ses.sureSn });
     await sayfayiYaz(hfDir, sayfa.html, themeFontFiles(tema), ses.mp3, bag.kosucu);
     bag.gunluk(`hf/index.html: ${sayfa.html.length} bayt`);
     await sayfayiDenetle(hfDir, bag.kosucu);
