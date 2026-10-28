@@ -26,7 +26,7 @@ export const fisSahneSema = z.object({
 });
 export type FisSahne = z.infer<typeof fisSahneSema>;
 
-export const DURUMLAR = ["taslak", "onaylandi", "uretiliyor", "hazir", "paylasildi", "hata"] as const;
+export const DURUMLAR = ["taslak", "onaylandi", "uretiliyor", "uretildi", "hazir", "paylasildi", "hata"] as const;
 
 export const fisSema = z.object({
   fis_id: z.string().min(1),
