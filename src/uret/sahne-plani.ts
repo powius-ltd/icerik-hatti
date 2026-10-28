@@ -4,7 +4,8 @@
  */
 import type { Fis } from "../fis/sema.ts";
 import { harfAnahtari, kelimeler, type KelimeAraligi } from "./kalip-esle.ts";
-import { etkinYon, yonEsle } from "./yon/esle.ts";
+import { etkinYon, karmaEsle, yonEsle } from "./yon/esle.ts";
+import { karmaYonleri } from "./yon/karma.ts";
 import type { Plan } from "./render/plan.ts";
 import type { KonusKelime } from "./render/kelimeler.ts";
 
@@ -60,9 +61,12 @@ export function planKur(fis: Fis, sozler: readonly KonusKelime[], sureSn: number
   const sinirlar = sahneSiniri(sozler, araliklar, sureSn);
   const emphasis: number[] = [];
   const kalipler: PlanSonucu["kalipler"] = [];
+  const karmaDizi = karmaYonleri(fis.sahneler); // art arda 3'ten fazla aynı yön olmasın diye tüm sahnelere birlikte bakılır
   const scenes = fis.sahneler.map((s, i) => {
     const a = araliklar[i]!;
-    const secim = yonEsle(etkinYon(s, fis.gorsel_yon), s, a, { sira: i + 1, toplam: fis.sahneler.length });
+    const yon = etkinYon(s, fis.gorsel_yon);
+    const baglam = { sira: i + 1, toplam: fis.sahneler.length };
+    const secim = yon === "karma" ? karmaEsle(karmaDizi[i]!, s, a, baglam) : yonEsle(yon, s, a, baglam);
     emphasis.push(...vurgular(s.ekranYazisi, kelimeler(s.metin), a.ilk));
     kalipler.push({ no: s.no, yon: etkinYon(s, fis.gorsel_yon) ?? "eski", template: secim.template, neden: secim.neden });
     const { start, end } = sinirlar[i]!;

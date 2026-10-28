@@ -21,11 +21,12 @@ describe("yön → kalıp eşlemesi", () => {
     for (const [yon, kalip] of Object.entries(beklenen)) expect(yonEsle(yon as never, s({}), A, B).template).toBe(kalip);
   });
 
-  it("karma eski davranıştır: sayılı yazı big-stat, düz yazı kart", () => {
-    expect(yonEsle("karma", s({}), A, B).template).toBe("big-stat");
-    expect(yonEsle("karma", s({ ekranYazisi: "Kurallar" }), A, B).template).toBe("kart");
-    // ekran yazısı yoksa ortası boş kart yerine sözün cümlesi editoryal başlık olur; metin de boşsa kart
-    expect(yonEsle("karma", s({ ekranYazisi: "" }), A, B)).toMatchObject({ template: "editoryal", params: { baslik: "Claude ile başla." } });
+  it("karma tek sahnede içeriğe bakar: sayılı yazı rakam-kart, düz yazı editoryal, metin boşsa kart", () => {
+    const sayili = s({ metin: "Ayda 2.000 mesaj hakkın var." });
+    expect(yonEsle("karma", sayili, A, B).template).toBe("rakam-kart");
+    expect(yonEsle("karma", sayili, A, { sira: 1, toplam: 8 }).template).toBe("editoryal"); // kanca
+    expect(yonEsle("karma", s({ ekranYazisi: "Kurallar", metin: "Kuralları bil." }), A, B).template).toBe("editoryal");
+    expect(yonEsle("karma", s({ ekranYazisi: "", metin: "Claude ile başla." }), A, B)).toMatchObject({ template: "editoryal", params: { baslik: "Claude ile başla." } });
     expect(yonEsle("karma", s({ ekranYazisi: "", metin: " " }), A, B).template).toBe("kart");
   });
 

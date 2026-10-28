@@ -1,7 +1,7 @@
 /**
  * Görsel yön → sahne kalıbı (deterministik, LLM yok). Fiş `gorsel_yon` verir, sahnenin `yon`'ü onu ezer; ikisi de yoksa (eski fiş) `kalipEsle` aynen.
  *
- *   karma       → `kalipEsle` (sahne türüne göre kart / chat-window / big-stat), ekran yazısız düz kart yerine editoryal
+ *   karma       → içeriğe göre sahne başına dört yönden biri (`karma.ts`: soru/istem → sohbet, komut → terminal, rakam/adım → rakam-kart, kalan → editoryal)
  *   sohbet      → sohbet (balonlar, yazıyor göstergesi)           terminal → terminal (komut + ✓ satırları)
  *   rakam-kart  → rakam-kart (halka: logo/ikon + büyük rakam)     editoryal → editoryal (büyük tipografi + vurgu)
  *
@@ -10,6 +10,7 @@
  */
 import type { FisSahne, GorselYon } from "../../fis/sema.ts";
 import { kalipEsle, kelimeler, type KalipSecimi, type KelimeAraligi } from "../kalip-esle.ts";
+import { adayYonler, karmaYonleri, type SomutYon } from "./karma.ts";
 import { butceyeSigdir, cumleler, ikonBul, kirp, logoBul, vurguKelime, type Cumle } from "./metin.ts";
 
 export interface YonBaglami {
@@ -100,14 +101,23 @@ function editoryal(s: FisSahne, _a: KelimeAraligi, b: YonBaglami): KalipSecimi |
 }
 
 /**
- * Karma: eski kural (`kalipEsle`); tek fark, ekran yazısı olmayan düz kart (ortası boş) yerine sözün cümlesi editoryal başlık olur.
- * Sohbet/sayaç kuralı tutan sahneler olduğu gibi kalır; metin de boşsa kart.
+ * Karma: sahnenin içeriğine göre yön (`karma.ts`); tek sahne verilirse geçmişsiz (çeşitlilik kuralı yok).
+ * Plan kurulurken sahnelerin tümü için `karmaYonleri` hesaplanır ve `yon` olarak somut yön verilir (`karmaNedeni` ile).
  */
 function karma(s: FisSahne, a: KelimeAraligi, b: YonBaglami): KalipSecimi {
-  const eski = kalipEsle(s, a);
-  if (eski.template !== "kart" || bosluksuz(s.ekranYazisi) !== "" || bosluksuz(s.metin) === "") return eski;
-  const e = editoryal(s, a, b);
-  return e ? { ...e, neden: "karma: ekran yazısı yok, sözün cümlesi büyük tipografi" } : eski;
+  return somutYon(b.sira === 1 ? karmaYonleri([s])[0]! : adayYonler(s)[0]!, s, a, b, "karma");
+}
+
+function somutYon(yon: SomutYon, s: FisSahne, a: KelimeAraligi, b: YonBaglami, onEk?: string): KalipSecimi {
+  const k = yon === "sohbet" ? sohbet(s, a) : yon === "terminal" ? terminal(s, a, b) : yon === "rakam-kart" ? rakamKart(s, a, b) : editoryal(s, a, b);
+  const sonuc = k ?? kartaDus(s, `${yon} yönü kuralına uymadı: kart`);
+  return onEk ? { ...sonuc, neden: `${onEk} → ${yon}: ${sonuc.neden}` } : sonuc;
+}
+
+/** Karma planı: sahne `i` için karma dizisindeki somut yönle eşler. */
+export function karmaEsle(yon: SomutYon, s: FisSahne, a: KelimeAraligi, b: YonBaglami): KalipSecimi {
+  if (bosluksuz(s.metin) === "") return kartaDus(s, `karma → ${yon} ama sahne metni boş: yalnız kart`);
+  return somutYon(yon, s, a, b, "karma");
 }
 
 /** Sahne için yönün kalıbı; sahne metni boşsa ya da kalıp kuralına uymuyorsa `kart`. */
@@ -115,6 +125,5 @@ export function yonEsle(yon: GorselYon | undefined, s: FisSahne, a: KelimeAralig
   if (yon === undefined) return kalipEsle(s, a);
   if (yon === "karma") return karma(s, a, b);
   if (bosluksuz(s.metin) === "") return kartaDus(s, `${yon} yönü ama sahne metni boş: yalnız kart`);
-  const secim = yon === "sohbet" ? sohbet(s, a) : yon === "terminal" ? terminal(s, a, b) : yon === "rakam-kart" ? rakamKart(s, a, b) : editoryal(s, a, b);
-  return secim ?? kartaDus(s, `${yon} yönü kuralına uymadı: kart`);
+  return somutYon(yon, s, a, b);
 }
