@@ -17,6 +17,7 @@ export function kosuYollari(kosu: string) {
         kaynakVideo: path.join(k, "kaynak.mp4"),
         dokum: path.join(k, "dokum.json"),
         analiz: path.join(k, "analiz.json"),
+        fis: path.join(k, "fis.md"),
         senaryo: path.join(k, "senaryo.json"),
         senaryoMd: path.join(k, "senaryo.md"),
         calisma: path.join(k, "calisma"),

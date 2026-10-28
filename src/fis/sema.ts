@@ -62,3 +62,11 @@ export function fisOku(metin: string): Fis {
   }
   return sonuc.data;
 }
+
+/** `claude -p`'den istenen gövde: fişin modelin yazdığı kısmı. */
+export const fisModelSema = z.object({
+  sahneler: z.array(fisSahneSema).min(1),
+  aciklama_taslagi: z.string().min(1),
+  dogrulanacak: z.array(dogrulanacakSema),
+});
+export type FisModel = z.infer<typeof fisModelSema>;
