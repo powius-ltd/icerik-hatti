@@ -1,0 +1,7 @@
+{
+  "dil": "en",
+  "segmentler": [
+    { "bas": 0.2, "son": 3.4, "metin": "Example tool lets you build an app in one minute.", "kelimeler": [[0.2, 0.5, "Example"], [0.5, 0.8, "tool"]] },
+    { "bas": 8.1, "son": 11.0, "metin": "Just type one command and it is done.", "kelimeler": [[8.1, 8.4, "Just"]] }
+  ]
+}

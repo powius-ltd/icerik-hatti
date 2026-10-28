@@ -1,0 +1,12 @@
+{
+  "dil": "en",
+  "sureSn": 20,
+  "hook": { "metin": "Example tool lets you build an app in one minute.", "kaynak": "konusma", "tur": "iddia" },
+  "sahneler": [
+    { "no": 1, "basSn": 0, "sonSn": 8, "tur": "yuz", "gorsel": "Bir kişi kameraya doğru konuşuyor, arkada düz duvar var.", "konusma": "Example tool lets you build an app in one minute.", "ekranYazisi": "BUILD IN 1 MIN", "hareket": "sabit" },
+    { "no": 2, "basSn": 8, "sonSn": 20, "tur": "ekran-kaydi", "gorsel": "Terminalde bir komut yazılıyor ve uygulama açılıyor.", "konusma": "Just type one command and it is done." }
+  ],
+  "cta": { "metin": "Comment GUIDE and I will send it", "anahtar": "GUIDE" },
+  "iddialar": [{ "metin": "build an app in one minute", "sn": 2 }],
+  "kurgu": { "kesimSayisi": 3, "tempo": "orta", "muzik": true, "altyazi": true, "yuzVar": true }
+}
