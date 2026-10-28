@@ -1,0 +1,66 @@
+{
+  "basis": "kreatif-studyo aiscale.reels.json (ekran görünümü) varsayılan tema; hesap konfigü bunu ezer",
+  "tokens": {
+    "bg-dark": "#15171E",
+    "surface-window": "#1D2029",
+    "surface-window-bar": "#232733",
+    "surface-row": "#272B37",
+    "line-dark": "#343949",
+    "line-soft": "rgba(255,255,255,.08)",
+    "fg-on-dark": "#F4F2EF",
+    "text-muted-on-dark": "#8D93A3",
+    "text-faint-on-dark": "#5C6273",
+    "accent": "#D9663F",
+    "accent-soft": "rgba(217,102,63,.16)",
+    "accent-glow": "rgba(217,102,63,.20)",
+    "success": "#4CB782",
+    "success-soft": "rgba(76,183,130,.16)",
+    "danger": "#E0605A",
+    "danger-soft": "rgba(224,96,90,.14)",
+    "scrim": "rgba(10,11,15,.82)",
+    "scrim-none": "rgba(10,11,15,0)",
+    "cap-stroke": "rgba(8,9,12,.92)",
+    "cap-shadow": "rgba(0,0,0,.55)",
+    "radius-window": "30px",
+    "radius-row": "16px",
+    "radius-pill": "999px",
+    "shadow-window": "0 40px 90px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.04)",
+    "safe-left": "80px",
+    "safe-w": "920px"
+  },
+  "fonts": {
+    "display": {
+      "family": "Inter",
+      "file": "Inter-Variable.ttf",
+      "weight": "100 900"
+    },
+    "mono": {
+      "family": "JetBrainsMono",
+      "file": "JetBrainsMono-Variable.ttf",
+      "weight": "100 800"
+    }
+  },
+  "captions": {
+    "centerPx": 1330,
+    "fontPx": 84,
+    "ctaFontPx": 74,
+    "minFontPx": 66,
+    "maxCharsPerLine": 20,
+    "maxWords": 3,
+    "strokePx": 10,
+    "leadSec": 0.06,
+    "holdSec": 0.3,
+    "joinGapSec": 0.7,
+    "newGroupGapSec": 0.3,
+    "inSec": 0.22,
+    "ctaInSec": 0.5,
+    "wordInSec": 0.09,
+    "dimOpacity": 0.5,
+    "maxGapSec": 0.6
+  },
+  "finalLoudness": {
+    "targetLufs": -14,
+    "truePeakDb": -1,
+    "lra": 11
+  }
+}
