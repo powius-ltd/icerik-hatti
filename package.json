@@ -1,0 +1,19 @@
+{
+  "name": "icerik-hatti",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "hat": "tsx --env-file-if-exists=.env src/cli.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --maxWorkers=2"
+  },
+  "dependencies": {
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "tsx": "^4.20",
+    "typescript": "^5.9",
+    "vitest": "^3.2"
+  }
+}
