@@ -41,6 +41,8 @@ export async function fisUret(g: UretGirdisi, claude: ClaudeSor): Promise<UretSo
     fis_id: g.id,
     kaynak: g.kaynak,
     hesap: g.hesap,
+    ...(govde.gorsel_yon !== undefined && { gorsel_yon: govde.gorsel_yon }),
+    ...(govde.yon_gerekce !== undefined && { yon_gerekce: govde.yon_gerekce.replace(/\s+/g, " ").trim() }),
     fis_onay: "hayir",
     paylasim_onay: "hayir",
     durum: "taslak",

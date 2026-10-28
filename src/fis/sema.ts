@@ -12,6 +12,11 @@ export type Kaynak = z.infer<typeof kaynakSema>;
 
 export const konumSema = z.enum(["ust", "orta", "alt", "yok"]);
 
+/** Görsel yön: fişin sahnelerinin hangi kalıp ailesine eşleneceği (`src/uret/yon/esle.ts`). `karma` = sahne türüne göre en uygun kalıp (eski davranış). */
+export const GORSEL_YONLER = ["sohbet", "terminal", "rakam-kart", "editoryal", "karma"] as const;
+export const gorselYonSema = z.enum(GORSEL_YONLER);
+export type GorselYon = z.infer<typeof gorselYonSema>;
+
 export const fisSahneSema = z.object({
   no: z.number().int().positive(),
   basSn: z.number().nonnegative(),
@@ -23,6 +28,8 @@ export const fisSahneSema = z.object({
   konum: konumSema,
   /** Seslendirilecek/okunacak Türkçe metin. */
   metin: z.string().min(1),
+  /** Yalnız bu sahneyi farklı yöne çeker; yoksa fişin `gorsel_yon`'ü. */
+  yon: gorselYonSema.optional(),
 });
 export type FisSahne = z.infer<typeof fisSahneSema>;
 
@@ -32,6 +39,10 @@ export const fisSema = z.object({
   fis_id: z.string().min(1),
   kaynak: kaynakSema,
   hesap: z.string().min(1),
+  /** Videonun görsel yönü; yoksa `karma`. Hat önerir, onaylayan `gorsel_yon:` satırını değiştirerek seçer. */
+  gorsel_yon: gorselYonSema.optional(),
+  /** Önerinin tek satır gerekçesi (yalnız bilgi). */
+  yon_gerekce: z.string().optional(),
   fis_onay: z.enum(["hayir", "evet"]),
   paylasim_onay: z.enum(["hayir", "evet"]),
   durum: z.enum(DURUMLAR),
@@ -68,5 +79,7 @@ export const fisModelSema = z.object({
   sahneler: z.array(fisSahneSema).min(1),
   aciklama_taslagi: z.string().min(1),
   dogrulanacak: z.array(dogrulanacakSema),
+  gorsel_yon: gorselYonSema.optional(),
+  yon_gerekce: z.string().max(200).optional(),
 });
 export type FisModel = z.infer<typeof fisModelSema>;
