@@ -1,0 +1,9 @@
+{"out":"kadin-derleme-bugce","hook":"KADIN GİRİŞİMCİLER:\nYAPAY ZEKAYLA\nDANIŞMANLIĞINI BÜYÜT","hook_sn":3.0,
+ "fix":{"HİZMETE":"HİZMET"},
+ "clips":[
+ {"src":"TST-06_Bugce_Yapay_Zekayla_Danismanligini_Olcekledi.mp4","dokum":"TST-06","t0":40.05,"t1":47.4,"crop":[160,190,880,715],"fgy":520},
+ {"src":"TST-06_Bugce_Yapay_Zekayla_Danismanligini_Olcekledi.mp4","dokum":"TST-06","t0":156.55,"t1":171.3,"crop":[160,190,880,715],"fgy":520},
+ {"src":"TST-06_Bugce_Yapay_Zekayla_Danismanligini_Olcekledi.mp4","dokum":"TST-06","t0":642.25,"t1":651.4,"crop":[160,190,880,715],"fgy":520},
+ {"src":"TST-06_Bugce_Yapay_Zekayla_Danismanligini_Olcekledi.mp4","dokum":"TST-06","t0":688.65,"t1":695.5,"crop":[160,190,880,715],"fgy":520},
+ {"src":"TST-06_Bugce_Yapay_Zekayla_Danismanligini_Olcekledi.mp4","dokum":"TST-06","t0":725.85,"t1":731.0,"crop":[160,190,880,715],"fgy":520}
+ ]}

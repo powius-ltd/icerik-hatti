@@ -1,0 +1,59 @@
+{
+ "hook": "19 YAŞINDA, SIFIR BİLGİ:\n3. GÜNDE OTOMASYON\nKURDU",
+ "clips": [
+  {
+   "src": "TST-01_Baki_Sifirdan_Baslayip_Ucuncu_Gunde_Kanal.mp4",
+   "dokum": "TST-01",
+   "t0": 37.15,
+   "t1": 38.5,
+   "crop": [
+    100,
+    314,
+    840,
+    610
+   ],
+   "fgy": 520
+  },
+  {
+   "src": "TST-05_Baki_Uc_Haftada_Kurdugu_Otomasyonu_Anlatiyor.mp4",
+   "dokum": "TST-05",
+   "t0": 71.15,
+   "t1": 74.3,
+   "crop": [
+    100,
+    314,
+    840,
+    610
+   ],
+   "fgy": 520
+  },
+  {
+   "src": "TST-05_Baki_Uc_Haftada_Kurdugu_Otomasyonu_Anlatiyor.mp4",
+   "dokum": "TST-05",
+   "t0": 85.65,
+   "t1": 95.1,
+   "crop": [
+    100,
+    314,
+    840,
+    610
+   ],
+   "fgy": 520
+  },
+  {
+   "src": "TST-05_Baki_Uc_Haftada_Kurdugu_Otomasyonu_Anlatiyor.mp4",
+   "dokum": "TST-05",
+   "t0": 106.55,
+   "t1": 109.0,
+   "crop": [
+    100,
+    314,
+    840,
+    610
+   ],
+   "fgy": 520
+  }
+ ],
+ "out": "varyant-baki-kisa15",
+ "hook_sn": 3.0
+}

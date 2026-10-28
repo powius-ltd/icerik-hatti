@@ -1,11 +1,11 @@
-id	baslik	kaynak	kadin_on_tahmin(isimden,DOGRULANMADI)
-3MQVHOjBULY	Cagri's AI Venture	baslik	bilinmiyor
-QSVJUsqqVBA	SAADET YAPAY SERVET TRANSFERI	baslik	olasi kadin
-duiWupA45e8	TAHA'S GLOBAL AI PROJECT	baslik	erkek
-4iy5RJ7wsYo	Hakan develops the software he produces for the healthcare sector.	baslik	erkek
-NPNH0P4ZRT4	Hasan is building his own SaaS	baslik	erkek
-sVSMnqWUvec	Bugce created her own app.	baslik	kadin
-A_wuadae_3o	Baki is selling an AI system for YouTube automators.	baslik	erkek
-OD4BTsa1PlI	17 yasinda biri internetten satis yapabiliyorsa	baslik	bilinmiyor
-CxFj-j8dV7w	"cok mutlu oldum, bagirmak istedim"	baslik	bilinmiyor
-tYPgNXW5NIg	Evde e-ticareti ogrenip satis yapiyor	baslik	bilinmiyor
+dosya	kisi	cinsiyet(kareyle dogrulandi)	sure_sn	en_guclu_3_cumle(zaman)
+TST-01	Baki	erkek	40	"3. günde kurdum." (37.2) | VO "Baki 19 yaşında, sıfır teknik bilgiyle başladı" (0.0) | "Otomatik yapay zekayı video paylaştırıyorsun" (18.9)
+TST-02	Buğçe	KADIN (başörtülü, tek konuşmacı panelde)	69	"1000 kişiye, 2000 kişiye aynı anda aynı kalitede hizmet verebilirim" (27.3) | "AI danışman... birebir özel hissettiren danışmanlık" (51.8) | "O AI senin bilgi birikimine sahip olacak" (60.3)
+TST-03	Hasan	erkek (panel pillarbox, düşük çözünürlük)	66	"Kalıp teknisyeniyim" (13.0) | "Cloud Code'da bütün otomasyonları yapabilirim" (35.4) | "Otomatik müşteri maillerine cevap veren otomasyon kurdun / Evet" (60.7)
+TST-04	Hakan	erkek	36	VO "kod bilmeden diş kliniklerini tek yerden yöneten yapay zeka yazılımı kurdu" (0.0) | "İlk önce Cloud Code ile başladım" (16.1) | "Siteyi yapmaya başladım" (18.5)
+TST-05	Baki	erkek	175	"3 hafta önce yapay zeka hiçbir şey bilmiyordum" (85.7) | "Hepsini yapay zeka, otomatik kendini paylaşıyor" (71.2) | "İnansınlar, çalışsınlar" (106.6)
+TST-06	Buğçe	KADIN	794	"1000 kişiye aynı anda aynı kalitede hizmet" (40.1) | "annelerimiz evde antrenman yapsın... iyi gelebilecek bir şey yapmak istedim" (156.6) | "buna girdikten sonra hayatım çok değişti, çok kolaylaştı" (691.8)
+TST-07	Hasan (fabrika teknisyeni)	erkek	557	"Kalıp teknisyeniyim, plastik enjeksiyon" (53.3) | "Otomatik mail cevaplayıcı otomasyonunu çalıştırdım" (97.2) | "bir aydan fazladır soğuk mail atıyorum hukuk bürolarına" (100.4)
+TST-08	Hakan	erkek	1219	"yüzde doksan dokuza yakın sonuç elde edileceğini öğrendim... gerisi geldi" (2.8) | "sekiz ana modül" (82.4) | "ilk önce sabretmeleri önemli" (168.2)
+October 22, 2026.mp4	(laptop short)	erkek (kareyle)	39	taranmadı (kadın değil, derlemeye girmedi)
+Cagri'nin Yapay Zeka girisimi.mp4	Çağrı	erkek (kareyle)	-	kadın değil, derlemeye girmedi
