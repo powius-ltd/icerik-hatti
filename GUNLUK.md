@@ -19,3 +19,7 @@
 - 2026-10-26 | Kaynak TikTok + Instagram, hedef yalnız Instagram (Zernio) | ilk sürüm dar | mülakat
 - 2026-10-26 | Aradan giriş: video linki/dosyası ya da hazır metin verilince BUL atlanır; iki onay her girişte kalır | "direkt bi video atıp üretelim" | kullanıcı
 - 2026-10-26 | Repo herkese açık (public) | kullanıcı isteği; kodda gizli bilgi yok, anahtarlar yalnız .env'de | kullanıcı
+- 2026-10-28 | Klon düzeyi ilk sürüm: yapı klonu (akış, sıra, tempo, ekran yazısı konumu; görseller bizim) | bugün bitsin; görsel klon 05'te | kullanıcı
+- 2026-10-28 | Giriş kapısı Drive'daki tablo: kaynak link · bizim video · paylaşım zamanı; tabloyu kullanıcı elle doldurur, hat okur (Drive izni salt okuma yeter) | ekip örnek alınan videoyu orada istiyor | kullanıcı
+- 2026-10-28 | Ses: patronun ElevenLabs klonu (ücretli, tutar onayı ayrı) | kullanıcı seçimi | kullanıcı
+- 2026-10-28 | Testimonial varyasyonları bu repoda ayrı iş: kaynak youtube.com/@baturalp.tunali/shorts, yalnız kadınların olduğu kadın hedefli derleme + yeni kesimler (ffmpeg, 0 $) | AISCALE içeriği tek hatta | kullanıcı
