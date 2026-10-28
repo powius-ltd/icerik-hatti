@@ -39,6 +39,10 @@ Patron hesabı için tek yeni repo; parçalar viral-uyarla, kreatif-studyo, sosy
 - [M] 02-uret-ses: onaylı fişten ElevenLabs patron sesi + HyperFrames video + kapak + açıklama (KS `production/voice`, `hf-engine`, `orders/{cover,caption}`). Klon kararına bağlı: "yapı klonu" ise genel HF sahneleri, "görsel klon" ise 05'i bekler.
   26 Eki deneme bulguları (KS kapısı 4 denemenin hiçbirinde temiz geçmedi): (1) KS `orders/display-text.ts` "Birinci" → "1." yapıyor, `edit-director/sentences.ts:12-16` ". " ile bölüyor → metin/ses cümle sayısı tutmuyor (K24); (2) K26 altyazısız boşluk > 1,0 sn denetimi düzeltme turundan sonra da kalıyor; (3) yönetmen LLM'i her koşuda farklı plan → kapı kararsız; bu hatta yönetmen alınmaz, sahne planı fişten deterministik çıkar; (4) sohbet kutuları yarım yazı kalıyor, komut/liste sahneleri görünmüyor; (5) edge ses yolu bozuk (`edge-speak.py:20` WordBoundary), Chatterbox çalışıyor ama robotik.
 - [M] 04-bul: TikTok + Instagram'da tutan video (VU `tara`/`sec`, SP eşikleri: izlenme/takipçi ≥ 3, ≥ 10.000, ≤ 30 gün) → aday listesi → seçilen fişe.
+  28 Eki ek (kullanıcı fikri, iki yeni kaynak kipi; 04 ile birlikte planlanır):
+  - Aktif içerik üreticiler: izlenen hesaplar listesi (TikTok/IG); listedekilerin yeni videoları düzenli taranır, tutanlar aday olur. Kazanım: "kimi takip ettiğimizi" tek yerde tutarız, aday akışı kendiliğinden gelir.
+  - Kişi bazlı kopyalama: tek hesap adı ver → o kişinin son N videosu (ya da en çok tutanları) fiş adayı olur, istersen toplu fişe gider. Kazanım: beğendiğin bir üreticinin formatını videoyla değil kişiyle başlatırsın.
+  Açık: liste nerede (Drive tablosunda yeni sekme mi, repoda dosya mı), "son N" ve tarama sıklığı; ikisi de Apify kredisine bağlı.
 
 ## Daha sonra
 - [M] 05-klon: kaynak kareden yerleşim çıkarımı (agy: öğe türü + kutu + zamanlama) → genel HF sahnesi; renk/tipografi patron temasından.

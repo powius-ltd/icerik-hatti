@@ -1,6 +1,7 @@
 # Günlük
 
 ## Bekleyen
+- Karar: 04-bul'a eklenen iki kip (aktif üretici listesi + kişi bazlı kopyalama): liste Drive tablosunda yeni sekme mi, repoda dosya mı; kişi başı kaç video (öneri son 10, tutanlar önce).
 - Karar: son tarih.
 - Kullanıcı: rclone kendi client_id + tam Drive izni (Google Cloud adımları); sonra `tablo kur` + gerçek deneme (07 RAPOR komutları).
 - Kullanıcı: AISCALE logo dosyası (şimdilik yazı markası).
