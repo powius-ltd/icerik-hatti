@@ -42,6 +42,7 @@ describe("karma yön kuralları", () => {
 
   it("kalan → editoryal; boş metin de editoryal adayıdır", () => {
     expect(ilk("Bu işin sırrı sadelik.")).toBe("editoryal");
+    expect(ilk("Kuralları bil, yazılım değil.")).toBe("editoryal"); // kur/yaz kökü kelime başı değil
     expect(adayYonler(s("Hem 5 sayı hem soru var mı?")).at(-1)).toBe("editoryal");
   });
 

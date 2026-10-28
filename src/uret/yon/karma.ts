@@ -19,7 +19,7 @@ export const EN_COK_ART_ARDA = 3;
 const TIRNAK = /["“„]([^"“”„]{3,160})["”]/;
 const KOMUT_KOKU = /^\s*(?:[$>`]|npm\b|npx\b|pnpm\b|yarn\b|git\b|pip\b|brew\b|claude\b|curl\b|cd\b|sudo\b)/i;
 const SORU_EKI = /(?<![\p{L}])m[ıiuü](?:s[ıiuü]n(?:[ıi]z)?|y[ıiuü]m|y[ıiuü]z)?(?![\p{L}])/iu;
-const KOMUT_FIILI = /(?<![\p{L}])(?:kur|kurul|kurulum|komut|çalıştır|terminal|kod|yaz)/iu;
+const KOMUT_FIILI = /(?<![\p{L}])(?:kur(?:un|ar|du|ulum\p{L}*|ulur|ulu)?|komut\p{L}*|çalıştır\p{L}*|terminal\p{L}*|kod\p{L}*|yaz(?:ın|ar|ıyor|ıp|dır\p{L}*)?)(?![\p{L}])/iu;
 const ADIM = /(?<![\p{L}])(?:birinci|ikinci|üçüncü|dördüncü|beşinci|bir|iki|üç|dört|beş)\s+adım|(?<![\p{L}])adım\s*\d|^\s*(?:bir|iki|üç|dört|beş)\s*[:.]/iu;
 
 const duz = (s: string): string => s.replace(/\s+/g, " ").trim();
