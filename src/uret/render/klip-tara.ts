@@ -14,6 +14,8 @@ export interface BrollKlip {
   dosya: string;
   etiket: string;
   sureSn: number;
+  /** Dosyada döndürme etiketi var mı (ör. .mov rotation=-90); varsa ffmpeg kendisi dikleştirir. */
+  donusEtiketli: boolean;
 }
 
 export const KLASORLER = ["01_KANCALAR_HOOKS", "02_ARA_GORUNTU_BROLL"] as const;
@@ -24,6 +26,13 @@ async function sureOku(dosya: string, kosucu: Kosucu): Promise<number> {
   const sn = Number(s.stdout.trim());
   if (s.kod !== 0 || !Number.isFinite(sn) || sn <= 0) throw new Error(`B-roll klibinin süresi okunamadı: ${path.basename(dosya)}.`);
   return sn;
+}
+
+/** Döndürme etiketi (displaymatrix rotation) var mı; okunamazsa yok sayılır. */
+async function donusOku(dosya: string, kosucu: Kosucu): Promise<boolean> {
+  const s = await kosucu("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream_side_data=rotation", "-of", "default=nw=1:nk=1", dosya], { env: temelEnv(), timeoutMs: 30_000 });
+  const satir = s.stdout.trim().split("\n")[0] ?? "";
+  return s.kod === 0 && /^-?\d+$/.test(satir) && Number(satir) % 360 !== 0;
 }
 
 async function klasorTara(kok: string): Promise<Array<{ id: string; dosya: string; etiket: string }>> {
@@ -49,7 +58,7 @@ export async function kliplerBul(ayar: BrollAyari, kosucu: Kosucu): Promise<Brol
   for (const k of ham) {
     if (kimlikler.has(k.id)) throw new Error(`B-roll kimliği ${k.id} birden çok dosyada geçiyor.`);
     kimlikler.add(k.id);
-    sonuc.push({ id: k.id, dosya: k.dosya, etiket: k.etiket, sureSn: (k.sureSn ?? (await sureOku(k.dosya, kosucu))) });
+    sonuc.push({ id: k.id, dosya: k.dosya, etiket: k.etiket, sureSn: (k.sureSn ?? (await sureOku(k.dosya, kosucu))), donusEtiketli: await donusOku(k.dosya, kosucu) });
   }
   return sonuc;
 }

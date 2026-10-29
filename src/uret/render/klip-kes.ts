@@ -1,5 +1,5 @@
 /**
- * B-roll ön kırpması: yatay (16:9) arşiv klibinden sahne süresi kadar dikey (9:16) parça çıkarır (orta kırpma, sessiz, 1080x1920, 30 fps).
+ * B-roll ön kırpması: arşiv klibinden sahne süresi kadar dikey (9:16) parça çıkarır (orta kırpma, sessiz, 1080x1920, 30 fps).
  * Tek girdiden tek çıktı (RAM); çok trim yok. Çıktı `hf/assets/broll/<sahne>.mp4`; çalıştırıcı enjekte edilir.
  */
 import { mkdir } from "node:fs/promises";
@@ -9,7 +9,12 @@ import { temelEnv } from "../../ortak/surec.ts";
 
 /** Parça sahne süresinden bu kadar uzun kesilir (kare yuvarlama payı). */
 export const KIRPMA_PAYI_SN = 0.2;
-export const KLIP_FILTRESI = "crop=ih*9/16:ih,scale=1080:1920,fps=30";
+/**
+ * AISCALE arşivi dikey çekim: .mp4'ler etiketsiz yan yatık kaydedilmiş (17 Eki prototipi `transpose=2` ile kullandı),
+ * .mov'larda döndürme etiketi var ve ffmpeg kendisi dikleştirir. İkisinde de sonuç 9:16; oran tutmazsa orta kırpma.
+ */
+export const KLIP_FILTRESI = "transpose=2,scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30";
+export const ETIKETLI_FILTRE = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30";
 
 const yuvarla = (n: number): number => Math.round(n * 1000) / 1000;
 
@@ -25,12 +30,14 @@ export interface KesimIstegi {
   sahneSureSn: number;
   /** Çıktı dosyası (mutlak). */
   cikti: string;
+  /** Klipte döndürme etiketi var mı (yoksa arşiv kuralıyla çevrilir). */
+  donusEtiketli?: boolean;
 }
 
 /** ffmpeg argümanları (saf; testte doğrudan denetlenir). */
 export function kesimArgumanlari(i: KesimIstegi): string[] {
   const sure = yuvarla(i.sahneSureSn + KIRPMA_PAYI_SN);
-  return ["-v", "error", "-y", "-ss", String(baslangicSn(i.klipSureSn, sure)), "-t", String(sure), "-i", i.klip, "-vf", KLIP_FILTRESI, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", i.cikti];
+  return ["-v", "error", "-y", "-ss", String(baslangicSn(i.klipSureSn, sure)), "-t", String(sure), "-i", i.klip, "-vf", i.donusEtiketli ? ETIKETLI_FILTRE : KLIP_FILTRESI, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", i.cikti];
 }
 
 /** Klipleri sırayla (aynı anda tek ffmpeg) keser; ilk hatada Türkçe tek cümleyle durur. */
