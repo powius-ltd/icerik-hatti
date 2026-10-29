@@ -25,7 +25,7 @@ function sahneler(n = 25): BrollSahnesi[] {
 
 describe("bölüm başı tespiti", () => {
   it("Birincisi/İkincisi/…/Son olarak ile başlayanı yakalar, cümle ortasındakini yakalamaz", () => {
-    for (const m of ["Birincisi, hızlı.", "İkincisi kolay.", "Üçüncüsü:", "Dördüncüsü bu", "Beşincisi", "Altıncısı", "Son olarak, bitir.", "  Birinci adım"]) expect(bolumBasiMi(m)).toBe(true);
+    for (const m of ["Birincisi, hızlı.", "İkincisi kolay.", "Üçüncüsü:", "Dördüncüsü bu", "Beşincisi", "Altıncısı", "Son olarak, bitir.", "  Birinci adım", "Üçüncüsünün adı Headroom.", "Ve son olarak Task Observer."]) expect(bolumBasiMi(m)).toBe(true);
     for (const m of ["Bu birincisi değil.", "İkinciler gibi", "Sonra olarak", "Son olaylar"]) expect(bolumBasiMi(m)).toBe(false);
   });
 });

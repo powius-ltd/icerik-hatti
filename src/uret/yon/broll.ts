@@ -28,7 +28,8 @@ export interface BrollAtamasi {
 }
 
 const SIRALAR = "birinci|ikinci|üçüncü|dördüncü|beşinci|altıncı|yedinci|sekizinci|dokuzuncu|onuncu";
-const BOLUM_BASI = new RegExp(`^(?:(?:${SIRALAR})(?:si|sı|su|sü)?|son olarak)(?![\\p{L}])`, "u");
+// "Üçüncüsünün adı …" (iyelik + tamlayan) ve "Ve son olarak …" de bölüm başıdır.
+const BOLUM_BASI = new RegExp(`^(?:ve\\s+)?(?:(?:${SIRALAR})(?:si|sı|su|sü)?(?:nin|nın|nun|nün)?|son olarak)(?![\\p{L}])`, "u");
 
 /** Sahne metni bölüm başı mı ("Birincisi, …", "İkincisi …", "Son olarak, …"). */
 export function bolumBasiMi(metin: string): boolean {
