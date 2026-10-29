@@ -1,8 +1,9 @@
 /**
- * B-roll ara kesit ataması (deterministik, LLM yok). Hesapta broll tanımlıysa:
- *   kanca      1. sahne            → HK klibi
- *   bölüm başı "Birincisi / İkincisi / … / Son olarak" ile başlayan sahne metni → BR klibi
- *   CTA        son sahne           → BR klibi
+ * B-roll karma ataması (deterministik, LLM yok; kullanıcı 29 Eki: "anlatılan yerlerde animasyon, onun dışında b-roll"). Hesapta broll tanımlıysa:
+ *   kanca  1. sahne                                  → HK klibi
+ *   ara    kaynakta kameraya konuşan yüz (`tur: yuz`) → BR klibi; anlatım yok, kurucu görüntüsü yüzün yerini alır
+ *   CTA    son sahne                                 → BR klibi
+ * Grafik / ekran görüntüsü / ekran kaydı sahneleri ve bölüm başları ("Birincisi …", araç adını söyler) animasyonda kalır.
  * Fişteki sahne `broll:` satırı ezer (klip kimliği; `yok` = bu sahnede kapalı). Aynı videoda aynı klip iki kez kullanılmaz;
  * seçim fiş kimliğiyle tohumlanmış sabit sırayla yapılır. Klip sahne süresinden (+ kırpma payı) kısaysa atlanır (döngü yok);
  * uygun klip kalmadıysa sahne kendi kalıbında kalır.
@@ -10,13 +11,15 @@
 import type { BrollKlip } from "../render/klip-tara.ts";
 import { KIRPMA_PAYI_SN } from "../render/klip-kes.ts";
 
-export type BrollNedeni = "kanca" | "bolum" | "cta" | "fis";
+export type BrollNedeni = "kanca" | "ara" | "cta" | "fis";
 
 export interface BrollSahnesi {
   id: string;
   start: number;
   end: number;
   metin: string;
+  /** Fişteki sahne türü (yuz, grafik, ekran-goruntusu…). */
+  tur?: string | undefined;
   /** Fişteki `broll:` satırı. */
   broll?: string | undefined;
 }
@@ -80,7 +83,7 @@ export function brollAta(fisId: string, sahneler: readonly BrollSahnesi[], klipl
   const havuz = { HK: karistir(klipler.filter((k) => k.id.startsWith("HK-")), `${fisId}/HK`), BR: karistir(klipler.filter((k) => k.id.startsWith("BR-")), `${fisId}/BR`) };
   sahneler.forEach((s, i) => {
     if (s.broll !== undefined) return;
-    const neden: BrollNedeni | undefined = i === 0 ? "kanca" : bolumBasiMi(s.metin) ? "bolum" : i === sahneler.length - 1 ? "cta" : undefined;
+    const neden: BrollNedeni | undefined = i === 0 ? "kanca" : i === sahneler.length - 1 ? "cta" : s.tur === "yuz" && !bolumBasiMi(s.metin) ? "ara" : undefined;
     if (!neden) return;
     const klip = havuz[neden === "kanca" ? "HK" : "BR"].find((k) => !kullanilan.has(k.id) && k.sureSn >= gerekenSn(s));
     if (!klip) return;

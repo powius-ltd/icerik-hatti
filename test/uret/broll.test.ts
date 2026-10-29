@@ -17,10 +17,10 @@ import { bolumBasiMi, brollAta, type BrollSahnesi } from "../../src/uret/yon/bro
 const klip = (id: string, sureSn = 8): BrollKlip => ({ id, dosya: `/k/${id}.mp4`, etiket: "", sureSn, zatenDik: false });
 const HAVUZ: BrollKlip[] = [klip("HK-01"), klip("HK-03"), klip("HK-04"), ...[8, 10, 11, 12, 14, 15, 16, 17, 19, 20].map((n) => klip(`BR-${String(n).padStart(2, "0")}`))];
 
-/** 25 sahne: 1 kanca, 6/11/16/21 "Birincisi…Dördüncüsü", 25 CTA; her sahne 2 sn. */
+/** 25 sahne: 1 kanca, 6/11/16/21 "Birincisi…Dördüncüsü", 3/6/8/9 kaynakta konuşan yüz (6 aynı zamanda bölüm başı), 25 CTA; her sahne 2 sn. */
 function sahneler(n = 25): BrollSahnesi[] {
   const bolumler = new Map([[6, "Birincisi, bir şey."], [11, "İkincisi, başka şey."], [16, "Üçüncüsü: üçüncü şey."], [21, "Son olarak, sonuncu."]]);
-  return Array.from({ length: n }, (_, i) => ({ id: `s${i + 1}`, start: i * 2, end: i * 2 + 2, metin: bolumler.get(i + 1) ?? "Düz bir cümle." }));
+  return Array.from({ length: n }, (_, i) => ({ id: `s${i + 1}`, start: i * 2, end: i * 2 + 2, metin: bolumler.get(i + 1) ?? "Düz bir cümle.", tur: [3, 6, 8, 9].includes(i + 1) ? "yuz" : "grafik" }));
 }
 
 describe("bölüm başı tespiti", () => {
@@ -31,9 +31,9 @@ describe("bölüm başı tespiti", () => {
 });
 
 describe("brollAta", () => {
-  it("25 sahnede yalnız kanca, bölüm başları ve CTA atanır; kanca HK, diğerleri BR", () => {
+  it("karma: kanca, konuşan yüz sahneleri ve CTA b-roll; anlatım ve bölüm başı animasyonda kalır", () => {
     const a = brollAta("f1", sahneler(), HAVUZ);
-    expect(a.map((x) => `${x.sahneId}:${x.neden}`)).toEqual(["s1:kanca", "s6:bolum", "s11:bolum", "s16:bolum", "s21:bolum", "s25:cta"]);
+    expect(a.map((x) => `${x.sahneId}:${x.neden}`)).toEqual(["s1:kanca", "s3:ara", "s8:ara", "s9:ara", "s25:cta"]);
     expect(a[0]!.klip.id).toMatch(/^HK-/);
     for (const x of a.slice(1)) expect(x.klip.id).toMatch(/^BR-/);
   });
@@ -53,7 +53,6 @@ describe("brollAta", () => {
         "BR-10",
         "BR-20",
         "BR-16",
-        "BR-08",
       ]
     `);
   });
@@ -162,7 +161,7 @@ durum: onaylandi
 sahneler:
   - { no: 1, basSn: 0, sonSn: 2, tur: grafik, ekranYazisi: "BİLİYOR MUYDUN?", konum: ust, metin: "Kanca cümlesi burada." }
   - { no: 2, basSn: 2, sonSn: 5, tur: grafik, ekranYazisi: "Birincisi", konum: orta, metin: "Birincisi, ilk şey." }
-  - { no: 3, basSn: 5, sonSn: 6, tur: grafik, ekranYazisi: "", konum: yok, metin: "Orta sahne burada." }
+  - { no: 3, basSn: 5, sonSn: 6, tur: yuz, ekranYazisi: "", konum: yok, metin: "Orta sahne burada." }
   - { no: 4, basSn: 6, sonSn: 7, tur: yuz, ekranYazisi: "Takip et", konum: yok, metin: "Takip et bitti." }
 aciklama_taslagi: "x"
 ---
@@ -189,14 +188,14 @@ describe("plana uygulama ve kalıp", () => {
     await expect(brollUygula(secili, planKur(secili, sozler, 6.2), undefined, "/hf", kosucu)).rejects.toThrow(/hesapta broll ayarı yok/);
   });
 
-  it("kanca, bölüm başı ve CTA 'broll' kalıbına döner, orta sahne kalır; kırpma istekleri hf/assets/broll altına", async () => {
+  it("kanca, konuşan yüz ve CTA 'broll' kalıbına döner, bölüm başı animasyonda kalır; kırpma istekleri hf/assets/broll altına", async () => {
     const fis = fisOku(FIS);
     const ps = planKur(fis, sozler, 6.2);
     const s = await brollUygula(fis, ps, { kok: await kokKur(), yaklasma: 1.04 }, "/hf", kosucu);
-    expect(s.plan.scenes.map((x) => x.template === "broll")).toEqual([true, true, false, true]);
+    expect(s.plan.scenes.map((x) => x.template === "broll")).toEqual([true, false, true, true]);
     expect(s.plan.scenes[0]!.params).toEqual({ src: "assets/broll/s1.mp4", baslik: "BİLİYOR MUYDUN?" });
-    expect(s.plan.scenes[2]!.template).toBe(ps.plan.scenes[2]!.template);
-    expect(s.kesimler.map((k) => k.cikti)).toEqual(["/hf/assets/broll/s1.mp4", "/hf/assets/broll/s2.mp4", "/hf/assets/broll/s4.mp4"]);
+    expect(s.plan.scenes[1]!.template).toBe(ps.plan.scenes[1]!.template);
+    expect(s.kesimler.map((k) => k.cikti)).toEqual(["/hf/assets/broll/s1.mp4", "/hf/assets/broll/s3.mp4", "/hf/assets/broll/s4.mp4"]);
     expect(s.kalipler[0]).toMatchObject({ template: "broll", neden: expect.stringContaining("HK-01") });
   });
 

@@ -10,7 +10,7 @@ Bağlı: yok (ses ayarı işi ayrı). Süre bütçesi: yarım gün; dolarsa klip
 
 ## Kararlar (2026-10-29, kullanıcı)
 - Kaynak: AISCALE kurucu arşivi, sunucuda `/home/dev/cikti/aiscale-broll/kaynak/` (02_ARA_GORUNTU_BROLL: 23 BR, 01_KANCALAR_HOOKS: 3 HK; Drive `AISCALE_KLIP_ARSIVI` kopyası). rclone gerekmez; ileride Drive'dan çekme 07-tablo ile.
-- Yerleşim: **ara kesit**. Kanca (1. sahne), her "Birincisi/İkincisi…" bölüm başı ve CTA (son sahne) tam ekran klip; üstte yalnız altyazı + kısa ekran yazısı. Diğer sahneler mevcut yön kalıpları.
+- Yerleşim (29 Eki düzeltme): **karma**: anlatılan yerlerde animasyon, onun dışında b-roll. Kural: kanca + CTA + kaynakta kameraya konuşan yüz (`tur: yuz`) sahneleri b-roll; grafik/ekran ve bölüm başı animasyon. İlk taslak (yalnız ara kesit): Kanca (1. sahne), her "Birincisi/İkincisi…" bölüm başı ve CTA (son sahne) tam ekran klip; üstte yalnız altyazı + kısa ekran yazısı. Diğer sahneler mevcut yön kalıpları.
 - Klip kendi sesi kapalı; bizim ses sürer. Klip sahne süresine kırpılır (concat demuxer / `-ss -to`, tek girdiden çok trim yok).
 - Okunurluk: klip üstüne tema belirteciyle karartma (`--broll-overlay` yeni belirteç), altyazı mevcut stil.
 
