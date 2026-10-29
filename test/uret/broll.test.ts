@@ -14,7 +14,7 @@ import { temaYukle } from "../../src/uret/render/tema.ts";
 import { planKur } from "../../src/uret/sahne-plani.ts";
 import { bolumBasiMi, brollAta, type BrollSahnesi } from "../../src/uret/yon/broll.ts";
 
-const klip = (id: string, sureSn = 8): BrollKlip => ({ id, dosya: `/k/${id}.mp4`, etiket: "", sureSn, donusEtiketli: false });
+const klip = (id: string, sureSn = 8): BrollKlip => ({ id, dosya: `/k/${id}.mp4`, etiket: "", sureSn, zatenDik: false });
 const HAVUZ: BrollKlip[] = [klip("HK-01"), klip("HK-03"), klip("HK-04"), ...[8, 10, 11, 12, 14, 15, 16, 17, 19, 20].map((n) => klip(`BR-${String(n).padStart(2, "0")}`))];
 
 /** 25 sahne: 1 kanca, 6/11/16/21 "Birincisi…Dördüncüsü", 25 CTA; her sahne 2 sn. */
@@ -111,8 +111,8 @@ describe("klip kırpma", () => {
     expect(KIRPMA_PAYI_SN).toBe(0.2);
   });
 
-  it("döndürme etiketli klip (.mov) çevrilmez, etiketsiz arşiv klibi transpose=2 ile dikleşir", () => {
-    const etiketli = kesimArgumanlari({ klip: "/k/BR-54.mov", klipSureSn: 9, sahneSureSn: 2, cikti: "/o/s9.mp4", donusEtiketli: true });
+  it("zaten dik klip (.mov) çevrilmez, yan yatık arşiv klibi transpose=2 ile dikleşir", () => {
+    const etiketli = kesimArgumanlari({ klip: "/k/BR-54.mov", klipSureSn: 9, sahneSureSn: 2, cikti: "/o/s9.mp4", zatenDik: true });
     expect(etiketli[etiketli.indexOf("-vf") + 1]).not.toContain("transpose");
     const etiketsiz = kesimArgumanlari({ klip: "/k/BR-12.mp4", klipSureSn: 9, sahneSureSn: 2, cikti: "/o/s9.mp4" });
     expect(etiketsiz[etiketsiz.indexOf("-vf") + 1]).toMatch(/^transpose=2,/);

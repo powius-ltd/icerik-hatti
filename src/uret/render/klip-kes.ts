@@ -11,10 +11,10 @@ import { temelEnv } from "../../ortak/surec.ts";
 export const KIRPMA_PAYI_SN = 0.2;
 /**
  * AISCALE arşivi dikey çekim: .mp4'ler etiketsiz yan yatık kaydedilmiş (17 Eki prototipi `transpose=2` ile kullandı),
- * .mov'larda döndürme etiketi var ve ffmpeg kendisi dikleştirir. İkisinde de sonuç 9:16; oran tutmazsa orta kırpma.
+ * .mov'lar ya dik kaydedilmiş ya da döndürme etiketli, ffmpeg dik açar (`zatenDik`). İkisinde de sonuç 9:16; oran tutmazsa orta kırpma.
  */
 export const KLIP_FILTRESI = "transpose=2,scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30";
-export const ETIKETLI_FILTRE = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30";
+export const DIK_FILTRE = "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30";
 
 const yuvarla = (n: number): number => Math.round(n * 1000) / 1000;
 
@@ -30,14 +30,14 @@ export interface KesimIstegi {
   sahneSureSn: number;
   /** Çıktı dosyası (mutlak). */
   cikti: string;
-  /** Klipte döndürme etiketi var mı (yoksa arşiv kuralıyla çevrilir). */
-  donusEtiketli?: boolean;
+  /** Klip ekranda zaten dik mi (değilse arşiv kuralıyla çevrilir). */
+  zatenDik?: boolean;
 }
 
 /** ffmpeg argümanları (saf; testte doğrudan denetlenir). */
 export function kesimArgumanlari(i: KesimIstegi): string[] {
   const sure = yuvarla(i.sahneSureSn + KIRPMA_PAYI_SN);
-  return ["-v", "error", "-y", "-ss", String(baslangicSn(i.klipSureSn, sure)), "-t", String(sure), "-i", i.klip, "-vf", i.donusEtiketli ? ETIKETLI_FILTRE : KLIP_FILTRESI, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", i.cikti];
+  return ["-v", "error", "-y", "-ss", String(baslangicSn(i.klipSureSn, sure)), "-t", String(sure), "-i", i.klip, "-vf", i.zatenDik ? DIK_FILTRE : KLIP_FILTRESI, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", i.cikti];
 }
 
 /** Klipleri sırayla (aynı anda tek ffmpeg) keser; ilk hatada Türkçe tek cümleyle durur. */

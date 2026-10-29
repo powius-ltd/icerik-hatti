@@ -34,7 +34,7 @@ export async function brollUygula(fis: Fis, planSonucu: PlanSonucu, ayar: BrollA
   const scenes = planSonucu.plan.scenes.map((s, i) => {
     const a = atamalar.get(s.id);
     if (!a) return s;
-    kesimler.push({ klip: a.klip.dosya, klipSureSn: a.klip.sureSn, donusEtiketli: a.klip.donusEtiketli, sahneSureSn: s.end - s.start, cikti: path.join(hfDir, "assets", "broll", `${s.id}.mp4`) });
+    kesimler.push({ klip: a.klip.dosya, klipSureSn: a.klip.sureSn, zatenDik: a.klip.zatenDik, sahneSureSn: s.end - s.start, cikti: path.join(hfDir, "assets", "broll", `${s.id}.mp4`) });
     const baslik = kirp(fis.sahneler[i]!.ekranYazisi, 40);
     return { ...s, kind: "screen" as const, template: "broll", params: { src: `assets/broll/${s.id}.mp4`, ...(baslik && { baslik }) } };
   });

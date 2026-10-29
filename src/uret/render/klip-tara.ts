@@ -14,8 +14,8 @@ export interface BrollKlip {
   dosya: string;
   etiket: string;
   sureSn: number;
-  /** Dosyada döndürme etiketi var mı (ör. .mov rotation=-90); varsa ffmpeg kendisi dikleştirir. */
-  donusEtiketli: boolean;
+  /** Ekranda zaten dik görünüyor mu (2160x3840 ya da rotation=-90 etiketli); değilse arşiv kuralıyla çevrilir. */
+  zatenDik: boolean;
 }
 
 export const KLASORLER = ["01_KANCALAR_HOOKS", "02_ARA_GORUNTU_BROLL"] as const;
@@ -28,11 +28,18 @@ async function sureOku(dosya: string, kosucu: Kosucu): Promise<number> {
   return sn;
 }
 
-/** Döndürme etiketi (displaymatrix rotation) var mı; okunamazsa yok sayılır. */
-async function donusOku(dosya: string, kosucu: Kosucu): Promise<boolean> {
-  const s = await kosucu("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream_side_data=rotation", "-of", "default=nw=1:nk=1", dosya], { env: temelEnv(), timeoutMs: 30_000 });
-  const satir = s.stdout.trim().split("\n")[0] ?? "";
-  return s.kod === 0 && /^-?\d+$/.test(satir) && Number(satir) % 360 !== 0;
+/** Klip ekranda dik mi görünür: boy > en (döndürme etiketi ±90 ise ters). Okunamazsa dik değil sayılır. */
+async function dikMi(dosya: string, kosucu: Kosucu): Promise<boolean> {
+  const s = await kosucu("ffprobe", ["-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height:stream_side_data=rotation", "-of", "json", dosya], { env: temelEnv(), timeoutMs: 30_000 });
+  if (s.kod !== 0) return false;
+  try {
+    const v = (JSON.parse(s.stdout) as { streams?: Array<{ width?: number; height?: number; side_data_list?: Array<{ rotation?: number }> }> }).streams?.[0];
+    if (!v?.width || !v.height) return false;
+    const ceyrek = Math.abs(v.side_data_list?.find((d) => d.rotation !== undefined)?.rotation ?? 0) % 180 === 90;
+    return (v.height > v.width) !== ceyrek;
+  } catch {
+    return false;
+  }
 }
 
 async function klasorTara(kok: string): Promise<Array<{ id: string; dosya: string; etiket: string }>> {
@@ -58,7 +65,7 @@ export async function kliplerBul(ayar: BrollAyari, kosucu: Kosucu): Promise<Brol
   for (const k of ham) {
     if (kimlikler.has(k.id)) throw new Error(`B-roll kimliği ${k.id} birden çok dosyada geçiyor.`);
     kimlikler.add(k.id);
-    sonuc.push({ id: k.id, dosya: k.dosya, etiket: k.etiket, sureSn: (k.sureSn ?? (await sureOku(k.dosya, kosucu))), donusEtiketli: await donusOku(k.dosya, kosucu) });
+    sonuc.push({ id: k.id, dosya: k.dosya, etiket: k.etiket, sureSn: (k.sureSn ?? (await sureOku(k.dosya, kosucu))), zatenDik: await dikMi(k.dosya, kosucu) });
   }
   return sonuc;
 }
