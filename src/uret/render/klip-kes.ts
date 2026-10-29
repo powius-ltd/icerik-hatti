@@ -1,0 +1,43 @@
+/**
+ * B-roll ön kırpması: yatay (16:9) arşiv klibinden sahne süresi kadar dikey (9:16) parça çıkarır (orta kırpma, sessiz, 1080x1920, 30 fps).
+ * Tek girdiden tek çıktı (RAM); çok trim yok. Çıktı `hf/assets/broll/<sahne>.mp4`; çalıştırıcı enjekte edilir.
+ */
+import { mkdir } from "node:fs/promises";
+import path from "node:path";
+import type { Kosucu } from "../../cozumle/surec-tipleri.ts";
+import { temelEnv } from "../../ortak/surec.ts";
+
+/** Parça sahne süresinden bu kadar uzun kesilir (kare yuvarlama payı). */
+export const KIRPMA_PAYI_SN = 0.2;
+export const KLIP_FILTRESI = "crop=ih*9/16:ih,scale=1080:1920,fps=30";
+
+const yuvarla = (n: number): number => Math.round(n * 1000) / 1000;
+
+/** Klibin ortasına yakın, `gerekenSn` sığacak başlangıç (sn). */
+export function baslangicSn(klipSureSn: number, gerekenSn: number): number {
+  return yuvarla(Math.max(0, Math.min((klipSureSn - gerekenSn) / 2, klipSureSn - gerekenSn)));
+}
+
+export interface KesimIstegi {
+  /** Kaynak klip dosyası (mutlak). */
+  klip: string;
+  klipSureSn: number;
+  sahneSureSn: number;
+  /** Çıktı dosyası (mutlak). */
+  cikti: string;
+}
+
+/** ffmpeg argümanları (saf; testte doğrudan denetlenir). */
+export function kesimArgumanlari(i: KesimIstegi): string[] {
+  const sure = yuvarla(i.sahneSureSn + KIRPMA_PAYI_SN);
+  return ["-v", "error", "-y", "-ss", String(baslangicSn(i.klipSureSn, sure)), "-t", String(sure), "-i", i.klip, "-vf", KLIP_FILTRESI, "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", i.cikti];
+}
+
+/** Klipleri sırayla (aynı anda tek ffmpeg) keser; ilk hatada Türkçe tek cümleyle durur. */
+export async function klipleriKes(istekler: readonly KesimIstegi[], kosucu: Kosucu): Promise<void> {
+  for (const i of istekler) {
+    await mkdir(path.dirname(i.cikti), { recursive: true });
+    const s = await kosucu("ffmpeg", kesimArgumanlari(i), { env: temelEnv(), timeoutMs: 300_000 });
+    if (s.kod !== 0) throw new Error(`B-roll klibi kesilemedi (${path.basename(i.klip)}): ${s.stderr.trim().split("\n").at(-1)?.slice(0, 160) ?? ""}`);
+  }
+}

@@ -18,6 +18,7 @@
     "danger": "#E0605A",
     "danger-soft": "rgba(224,96,90,.14)",
     "scrim": "rgba(8,10,15,.82)",
+    "broll-overlay": "rgba(8,10,15,.35)",
     "scrim-none": "rgba(8,10,15,0)",
     "cap-stroke": "rgba(8,9,12,.92)",
     "cap-shadow": "rgba(0,0,0,.55)",
@@ -71,6 +72,7 @@
     "lra": 11
   },
   "marka": "AISCALE",
+  "broll": { "kok": "/home/dev/cikti/aiscale-broll/kaynak", "yaklasma": 1.04 },
   "ses": {
     "modelId": "eleven_v4",
     "settings": { "stability": 0.5, "similarityBoost": 0.9, "style": 0, "useSpeakerBoost": true, "speed": 1.2 },

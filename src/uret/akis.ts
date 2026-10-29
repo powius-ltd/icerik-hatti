@@ -8,8 +8,10 @@ import type { Kosucu } from "../cozumle/surec-tipleri.ts";
 import { geriYaz } from "../fis/geri-yaz.ts";
 import { fisOku, type Fis } from "../fis/sema.ts";
 import { temelEnv } from "../ortak/surec.ts";
+import { brollUygula } from "./broll-uygula.ts";
 import { aciklamaYaz } from "./aciklama.ts";
 import { kapakYap } from "./kapak.ts";
+import { klipleriKes } from "./render/klip-kes.ts";
 import { GURLUK } from "./render/gurluk.ts";
 import { olustur, sayfayiDenetle } from "./render/hyperframes.ts";
 import { enBuyukBosluk, makeGroups, toWords } from "./render/kelimeler.ts";
@@ -32,6 +34,8 @@ export interface UretGirdisi {
   render: boolean;
   yeniden?: boolean;
   karakterTavani?: number;
+  /** B-roll arşiv kökü: verilirse hesabın `broll.kok`'unu ezer; `null` = b-roll kapalı. */
+  brollKok?: string | null;
 }
 
 export interface UretBagi {
@@ -87,13 +91,16 @@ export async function uret(g: UretGirdisi, bag: UretBagi): Promise<UretSonucu> {
     const ses = await sesUret({ metin: okunusMetni(fis), klasor, saglayici: typeof g.saglayici === "function" ? g.saglayici(tema.ses) : g.saglayici, ...(tema.ses && { sozluk: tema.ses.lexicon }), sesId: g.sesId, kosucu: bag.kosucu, yeniden: g.yeniden ?? false, ...(g.karakterTavani !== undefined && { karakterTavani: g.karakterTavani }), gunluk: bag.gunluk });
     bag.gunluk(`ses: ${ses.sureSn} sn, ${ses.kelimeler.length} kelime, ${ses.karakter} karakter`);
 
-    const { plan, kalipler } = planKur(fis, ses.kelimeler, ses.sureSn);
+    const brollAyar = g.brollKok === null ? undefined : g.brollKok !== undefined && tema.broll ? { ...tema.broll, kok: g.brollKok } : tema.broll;
+    const { plan, kalipler, kesimler } = await brollUygula(fis, planKur(fis, ses.kelimeler, ses.sureSn), brollAyar, hfDir, bag.kosucu);
     bag.gunluk(`sahne planı: ${kalipler.map((k) => `${k.no}:${k.template}`).join(" ")}`);
     const words = toWords(ses.kelimeler, plan.captions);
     const bosluk = enBuyukBosluk(makeGroups(words, plan.captions, tema), ses.sureSn, tema);
     if (bosluk > BOSLUK_TAVANI_SN) throw new Error(`Altyazısız boşluk ${bosluk.toFixed(2)} sn; tavan ${BOSLUK_TAVANI_SN} sn (K26).`);
     const sayfa = await composePage({ plan, words, durationSec: ses.sureSn, theme: tema, hesap: fis.hesap, audioSrc: "assets/ses-son.wav", audioDurationSec: ses.sureSn });
     await sayfayiYaz(hfDir, sayfa.html, themeFontFiles(tema), ses.mp3, bag.kosucu);
+    await klipleriKes(kesimler, bag.kosucu);
+    if (kesimler.length > 0) bag.gunluk(`b-roll: ${kesimler.length} klip kırpıldı`);
     bag.gunluk(`hf/index.html: ${sayfa.html.length} bayt`);
     await sayfayiDenetle(hfDir, bag.kosucu);
     bag.gunluk("hyperframes check: geçti");

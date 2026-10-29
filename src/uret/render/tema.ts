@@ -13,6 +13,15 @@ import { SesAyari } from "../ses/ayar.ts";
 const FontSpec = z.object({ family: z.string().min(1), file: z.string().min(1), weight: z.string().min(1), style: z.enum(["normal", "italic"]).optional() });
 const Positive = z.number().positive();
 
+/** Hesabın b-roll arşivi: `kok` altında `01_KANCALAR_HOOKS` (HK-*) ve `02_ARA_GORUNTU_BROLL` (BR-*) taranır; `klipler` verilirse tarama yerine bu liste (dosya `kok`'a göre). */
+export const BrollAyari = z.object({
+  kok: z.string().min(1),
+  /** Klip içi çok hafif yaklaşma: sahne sonundaki ölçek (1 = yok). */
+  yaklasma: z.number().min(1).max(1.2).default(1.04),
+  klipler: z.array(z.object({ id: z.string().regex(/^(HK|BR)-\d+$/), dosya: z.string().min(1), etiket: z.string().optional(), sureSn: Positive.optional() })).optional(),
+});
+export type BrollAyari = z.infer<typeof BrollAyari>;
+
 export const ReelsTheme = z.object({
   basis: z.string().optional(),
   /** Köşede küçük duran yazı markası (logo dosyası yoksa); boşsa gösterilmez. */
@@ -31,6 +40,8 @@ export const ReelsTheme = z.object({
   }),
   /** Hesabın ses ayarı (model, ses ayarları, birim fiyat, telaffuz sözlüğü); yoksa sağlayıcı varsayılanı. */
   ses: SesAyari.optional(),
+  /** Yoksa b-roll ara kesidi kapalı (hat eski davranışla çalışır). */
+  broll: BrollAyari.optional(),
 });
 export type ReelsTheme = z.infer<typeof ReelsTheme>;
 

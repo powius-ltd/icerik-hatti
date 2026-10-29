@@ -3,6 +3,7 @@
 import type { Sahne } from "./plan.ts";
 import type { Layer } from "./layer.ts";
 import { bigStatTemplate } from "./big-stat.ts";
+import { brollTemplate } from "./broll.ts";
 import { chatWindowTemplate } from "./chat-window.ts";
 import { editoryalTemplate } from "./editoryal.ts";
 import { kartTemplate } from "./kart.ts";
@@ -11,7 +12,7 @@ import { sohbetTemplate } from "./sohbet.ts";
 import { terminalTemplate } from "./terminal.ts";
 import type { SceneContext, TemplateScene } from "./types.ts";
 
-const TEMPLATES: readonly TemplateScene[] = [kartTemplate, chatWindowTemplate, bigStatTemplate, sohbetTemplate, terminalTemplate, rakamKartTemplate, editoryalTemplate];
+const TEMPLATES: readonly TemplateScene[] = [kartTemplate, chatWindowTemplate, bigStatTemplate, sohbetTemplate, terminalTemplate, rakamKartTemplate, editoryalTemplate, brollTemplate];
 
 export function templateNames(): string[] {
   return TEMPLATES.map((t) => t.name);

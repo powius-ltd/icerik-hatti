@@ -65,7 +65,7 @@ describe("uret akışı", () => {
   it("onaysız ya da paylaşılmış fiş üretilmez; ses çağrısı yapılmaz", async () => {
     const yol = await kur("hayir");
     const sag = sahteSaglayici();
-    await expect(uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false }, { kosucu: sahteKosucu(), gunluk: () => {} })).rejects.toThrow(/onaylı değil/);
+    await expect(uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false, brollKok: null }, { kosucu: sahteKosucu(), gunluk: () => {} })).rejects.toThrow(/onaylı değil/);
     expect(sag.cagri).toBe(0);
     expect(() => uretilebilir({ ...fisOku(FIS()), durum: "paylasildi" })).toThrow(/zaten paylaşılmış/);
   });
@@ -73,7 +73,7 @@ describe("uret akışı", () => {
   it("--render yok: ses + sayfa + açıklama yazılır, fiş durumu değişmez", async () => {
     const yol = await kur();
     const sag = sahteSaglayici();
-    const s = await uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false }, { kosucu: sahteKosucu(), gunluk: () => {} });
+    const s = await uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false, brollKok: null }, { kosucu: sahteKosucu(), gunluk: () => {} });
     const klasor = path.dirname(yol);
     expect(s.sureSn).toBe(6);
     expect(await readFile(path.join(klasor, "aciklama.txt"), "utf8")).toBe("Deneme açıklaması #ai\n");
@@ -87,7 +87,7 @@ describe("uret akışı", () => {
 
   it("--render: final + kapak üretilir, fişe satır düzeyinde durum/video/kapak yazılır, gövde dokunulmaz", async () => {
     const yol = await kur();
-    const s = await uret({ fisYolu: yol, saglayici: sahteSaglayici(), sesId: "v", render: true }, { kosucu: sahteKosucu(), gunluk: () => {} });
+    const s = await uret({ fisYolu: yol, saglayici: sahteSaglayici(), sesId: "v", render: true, brollKok: null }, { kosucu: sahteKosucu(), gunluk: () => {} });
     expect(s.final).toBe(path.join(path.dirname(yol), "final.mp4"));
     const fis = await readFile(yol, "utf8");
     expect(fis).toMatch(/^durum: uretildi$/m);
@@ -102,24 +102,24 @@ describe("uret akışı", () => {
     const yol = await kur();
     const sag = sahteSaglayici();
     const bag = { kosucu: sahteKosucu(), gunluk: () => {} };
-    await uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false }, bag);
-    const ikinci = await uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false }, bag);
+    await uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false, brollKok: null }, bag);
+    const ikinci = await uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false, brollKok: null }, bag);
     expect([sag.cagri, ikinci.cagriYapildi]).toEqual([1, false]);
-    await uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false, yeniden: true }, bag);
+    await uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false, yeniden: true, brollKok: null }, bag);
     expect(sag.cagri).toBe(2);
   });
 
   it("karakter tavanı aşılırsa çağrıdan önce durur", async () => {
     const yol = await kur();
     const sag = sahteSaglayici();
-    await expect(uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false, karakterTavani: 20 }, { kosucu: sahteKosucu(), gunluk: () => {} })).rejects.toThrow(/tavan 20/);
+    await expect(uret({ fisYolu: yol, saglayici: sag, sesId: "v", render: false, karakterTavani: 20, brollKok: null }, { kosucu: sahteKosucu(), gunluk: () => {} })).rejects.toThrow(/tavan 20/);
     expect(sag.cagri).toBe(0);
   });
 
   it("render hatasında fişe durum: hata ve tek satırlık not yazılır", async () => {
     const yol = await kur();
     const kosucu: Kosucu = async (komut, args) => (komut === "npx" && args.includes("check") ? { kod: 1, stdout: "", stderr: "bozuk sayfa" } : sahteKosucu()(komut, args));
-    await expect(uret({ fisYolu: yol, saglayici: sahteSaglayici(), sesId: "v", render: true }, { kosucu, gunluk: () => {} })).rejects.toThrow(/HyperFrames check başarısız/);
+    await expect(uret({ fisYolu: yol, saglayici: sahteSaglayici(), sesId: "v", render: true, brollKok: null }, { kosucu, gunluk: () => {} })).rejects.toThrow(/HyperFrames check başarısız/);
     const fis = fisOku(await readFile(yol, "utf8"));
     expect(fis.durum).toBe("hata");
     expect(fis.hata_notu).toMatch(/HyperFrames check/);

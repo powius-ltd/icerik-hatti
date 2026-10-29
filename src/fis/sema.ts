@@ -30,6 +30,8 @@ export const fisSahneSema = z.object({
   metin: z.string().min(1),
   /** Yalnız bu sahneyi farklı yöne çeker; yoksa fişin `gorsel_yon`'ü. */
   yon: gorselYonSema.optional(),
+  /** B-roll klibi (`BR-12`, `HK-01`) ya da `yok` (otomatik atamayı kapatır); yoksa kural atar (`yon/broll.ts`). */
+  broll: z.string().regex(/^(?:(?:HK|BR)-\d+|yok)$/, "BR-12, HK-01 ya da yok olmalı").optional(),
 });
 export type FisSahne = z.infer<typeof fisSahneSema>;
 
