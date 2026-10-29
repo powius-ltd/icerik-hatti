@@ -50,4 +50,5 @@
 - 2026-10-29 | Doğrulanamayan rakam iddiaları (ör. "ayda 1,6 milyar ücretsiz token") birebir uyarlamada da yumuşatılır; yorum anahtarı kaynaktaki gibi CLAUDE | AISCALE tonu: rakam yalnız doğrulanmışsa; kullanıcı onayı | kullanıcı
 - 2026-10-29 | B-roll karma: anlatılan yerlerde animasyon, onun dışında kurucu b-roll (ölçüt: kaynakta konuşan yüz) | "full olmasın, karma olsun" | kullanıcı
 - 2026-10-29 | Telaffuz: Claude → "Klad", Code → "Kod" (Klod uzuyordu) | kullanıcı kulağı | kullanıcı
+- 2026-10-29 | Kaynak vaat eden Reels'te DM iki mesaj: önce vaat edilen doküman, 1 dk sonra seminer linki | 17 Eki "DM seminere gider" kararı korunur, vaat de tutulur | kullanıcı
 - 2026-10-28 | Drive tablosunu ve klasörünü hat kendisi açar (`tablo kur`); rclone kendi client_id + scope=drive | ortak client_id 2026'da kapanıyor, yazma izni gerek | kullanıcı
