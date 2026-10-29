@@ -1,7 +1,7 @@
 # Günlük
 
 ## Bekleyen
-- Kullanıcı: v4 sesli videoyu dinleyip onay; Notion yetkisi (/mcp) ya da dokümanı elle yapıştırma; ManyChat'te CLAUDE anahtarı.
+- Kullanıcı: v4 sesli videoyu dinleyip onay; ManyChat'te CLAUDE akışını kurma (`manychat.md`).
 - Karar: 04-bul'a eklenen iki kip (aktif üretici listesi + kişi bazlı kopyalama): liste Drive tablosunda yeni sekme mi, repoda dosya mı; kişi başı kaç video (öneri son 10, tutanlar önce).
 - Karar: son tarih.
 - Kullanıcı: rclone kendi client_id + tam Drive izni (Google Cloud adımları); sonra `tablo kur` + gerçek deneme (07 RAPOR komutları).
@@ -25,7 +25,7 @@
 - İlk BUL'suz gerçek koşu: 15 Eki taramasından nick_saraev "5 Claude Code eklentisi" (IG, 2 M) → fiş (25 sahne, iddialar web'de kontrol edildi, 1,6 milyar token gibi doğrulanmayanlar yumuşatıldı) → ElevenLabs 1.126 karakter (~0,09 $) → karma render 66,4 sn. Teslim: `/home/dev/teslim/icerik-hatti/2026-10-29-5-eklenti/`. Kullanıcı izleme onayı ve paylaşım bekliyor.
 - Kırık: `fis` için `WHISPER_PY=/home/dev/.venvs/whisper/bin/python` gerekiyor (.env yok); ses anahtarı sosyal-panel `ELEVENLABS_API_KEY_AISCALE` (düz `ELEVENLABS_API_KEY` batu-deneme sesine 400 veriyor).
 - Ses robotikti: hat ayarsız multilingual_v2 kullanıyordu; 18 Eki onaylı Batu ayarları (eleven_v4, 0,5/0,9/0, boost, hız 1,2, sözlük Claude→Klod) hesap konfigüne taşındı (`5186e22`, 193 test). Video yeniden seslendirildi: 1.114 karakter, 0,33 $, 64,8 sn → `final-v4.mp4`. Kullanıcı "Klod uzuyor" dedi: sözlük Claude→Klad, Code→Kod; yeniden seslendirme 0,33 $ → `final-v4-klad.mp4` (bugün ses toplamı ~0,75 $).
-- DM dokümanı (5 eklenti, linkler + kurulum, web'den doğrulandı): teslim klasöründe `dokuman.md`; Notion bağlayıcısı yetkisiz, sayfa açılmadı. Son hali (resmi/topluluk ayrımı, kaynak notu çıktı, AISCALE kapanışı) yapıştırmaya hazır. 10-broll SPEC yazıldı (`6582589`).
+- DM dokümanı (5 eklenti, linkler + kurulum, web'den doğrulandı): teslim klasöründe `dokuman.md`; Notion bağlayıcısı yetkisiz, sayfa açılmadı. Son hali kullanıcı Notion'da yayınladı: https://longing-dust-981.notion.site/Claude-Code-i-in-5-eklenti-4085e43269648090a603cc7f29738e48 ; ManyChat metinleri `manychat.md` (teslim klasörü). 10-broll SPEC yazıldı (`6582589`).
 - 10-broll: kurucu arşivinden karma b-roll (kanca + CTA + kaynakta konuşan yüz sahneleri; anlatım animasyonda), 11/25 sahne; arşiv .mp4'leri yan yatık kayıtlı → transpose=2, dik .mov olduğu gibi (`92d846b`, `cc859cc`, 211 test). Prototip `final-broll-karma.mp4`, 0 $.
 - Konuşmasız kaynak (the_unfair 3D ada) hatta uymuyor: fiş 2 cümleye iniyor; BUL'da konuşma olmayanlar elenmeli.
 
