@@ -70,5 +70,16 @@
     "truePeakDb": -1,
     "lra": 11
   },
-  "marka": "AISCALE"
+  "marka": "AISCALE",
+  "ses": {
+    "modelId": "eleven_v4",
+    "settings": { "stability": 0.5, "similarityBoost": 0.9, "style": 0, "useSpeakerBoost": true, "speed": 1.2 },
+    "usdPer1kChars": 0.3,
+    "lexicon": [
+      { "display": "OpenMontage", "spoken": "Opın Montaj" },
+      { "display": "Claude", "spoken": "Klod" },
+      { "display": "GitHub", "spoken": "Githab" },
+      { "display": "HyperFrames", "spoken": "Hayper Freymz" }
+    ]
+  }
 }

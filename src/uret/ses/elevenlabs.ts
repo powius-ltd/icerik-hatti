@@ -83,6 +83,7 @@ export function createElevenLabsProvider(options: ElevenLabsOptions): SesSaglayi
   const model = options.modelId ?? DEFAULT_MODEL;
   return {
     id: "elevenlabs",
+    imza: JSON.stringify({ model, ayar: settingsBody(options.voiceSettings) ?? null, usd: options.usdPer1kChars ?? null }),
     async konus(istek) {
       const response = await fetchImpl(`${ENDPOINT}/${encodeURIComponent(istek.sesId)}/with-timestamps?output_format=${OUTPUT_FORMAT}`, {
         method: "POST",

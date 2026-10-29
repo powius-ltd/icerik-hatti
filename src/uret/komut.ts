@@ -22,9 +22,9 @@ export async function calistir(argv: string[]): Promise<void> {
   if (!values.fis) throw new Error(`--fis zorunlu.\n${KULLANIM}`);
   const tavan = values["karakter-tavan"] === undefined ? KARAKTER_TAVANI : Number(values["karakter-tavan"]);
   if (!Number.isInteger(tavan) || tavan <= 0) throw new Error("--karakter-tavan pozitif tam sayı olmalı.");
-  const { saglayici, sesId } = saglayiciKur(values.ses ?? "elevenlabs");
+  const { kur, sesId } = saglayiciKur(values.ses ?? "elevenlabs");
   const s = await uret(
-    { fisYolu: values.fis, saglayici, sesId, render: values.render === true, yeniden: values["yeniden-ses"] === true, karakterTavani: tavan },
+    { fisYolu: values.fis, saglayici: kur, sesId, render: values.render === true, yeniden: values["yeniden-ses"] === true, karakterTavani: tavan },
     { kosucu: surecCalistir, gunluk: (satir) => console.log(`  ${satir}`) },
   );
   console.log(`tamam: ${s.klasor}\n  süre ${s.sureSn} sn, ${s.karakter} karakter${s.cagriYapildi ? " (ElevenLabs çağrıldı)" : " (ses önbellekten)"}, en büyük altyazısız boşluk ${s.enBuyukBoslukSn} sn${s.final ? `\n  ${s.final}\n  ${s.kapak}` : "\n  render yapılmadı (--render)"}`);

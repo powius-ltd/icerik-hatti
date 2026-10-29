@@ -17,6 +17,7 @@ import { composePage } from "./render/sayfa.ts";
 import { FONT_KOK, temaYukle, themeFontFiles } from "./render/tema.ts";
 import { okunusMetni, planKur } from "./sahne-plani.ts";
 import { sesUret } from "./ses/sentez.ts";
+import type { SesAyari } from "./ses/ayar.ts";
 import type { SesSaglayici } from "./ses/saglayici.ts";
 
 /** K26: altyazının görünmediği aralık bu süreyi geçerse üretim durur. */
@@ -25,7 +26,8 @@ const SURE_SAPMASI_SN = 0.5;
 
 export interface UretGirdisi {
   fisYolu: string;
-  saglayici: SesSaglayici;
+  /** Hazır sağlayıcı ya da hesabın ses ayarından kuran fabrika (`saglayiciKur().kur`). */
+  saglayici: SesSaglayici | ((ayar?: SesAyari) => SesSaglayici);
   sesId: string;
   render: boolean;
   yeniden?: boolean;
@@ -82,7 +84,7 @@ export async function uret(g: UretGirdisi, bag: UretBagi): Promise<UretSonucu> {
   try {
     if (g.render) await geriYaz(g.fisYolu, { durum: "uretiliyor" });
     const tema = await temaYukle(fis.hesap);
-    const ses = await sesUret({ metin: okunusMetni(fis), klasor, saglayici: g.saglayici, sesId: g.sesId, kosucu: bag.kosucu, yeniden: g.yeniden ?? false, ...(g.karakterTavani !== undefined && { karakterTavani: g.karakterTavani }), gunluk: bag.gunluk });
+    const ses = await sesUret({ metin: okunusMetni(fis), klasor, saglayici: typeof g.saglayici === "function" ? g.saglayici(tema.ses) : g.saglayici, ...(tema.ses && { sozluk: tema.ses.lexicon }), sesId: g.sesId, kosucu: bag.kosucu, yeniden: g.yeniden ?? false, ...(g.karakterTavani !== undefined && { karakterTavani: g.karakterTavani }), gunluk: bag.gunluk });
     bag.gunluk(`ses: ${ses.sureSn} sn, ${ses.kelimeler.length} kelime, ${ses.karakter} karakter`);
 
     const { plan, kalipler } = planKur(fis, ses.kelimeler, ses.sureSn);

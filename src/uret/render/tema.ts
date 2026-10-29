@@ -8,6 +8,7 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { z } from "zod";
 import { okuJson } from "../../ortak/dosya.ts";
+import { SesAyari } from "../ses/ayar.ts";
 
 const FontSpec = z.object({ family: z.string().min(1), file: z.string().min(1), weight: z.string().min(1), style: z.enum(["normal", "italic"]).optional() });
 const Positive = z.number().positive();
@@ -28,6 +29,8 @@ export const ReelsTheme = z.object({
     maxGapSec: Positive.default(0.6),
     inSec: Positive, ctaInSec: Positive, wordInSec: Positive, dimOpacity: z.number().min(0).max(1),
   }),
+  /** Hesabın ses ayarı (model, ses ayarları, birim fiyat, telaffuz sözlüğü); yoksa sağlayıcı varsayılanı. */
+  ses: SesAyari.optional(),
 });
 export type ReelsTheme = z.infer<typeof ReelsTheme>;
 

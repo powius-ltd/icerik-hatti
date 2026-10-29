@@ -26,6 +26,8 @@ export interface KonusmaSonucu {
 
 export interface SesSaglayici {
   readonly id: "elevenlabs" | "chatterbox";
+  /** Sonucu etkileyen ayarların (model, ses ayarları) parmak izi; önbellek imzasına girer. */
+  readonly imza?: string;
   /** Ağ çağrısı: testte çalışmaz, sahtesi verilir. Başarısızlıkta fırlatır. */
   konus(istek: KonusmaIstegi): Promise<KonusmaSonucu>;
 }
