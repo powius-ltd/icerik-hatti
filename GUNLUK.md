@@ -20,6 +20,11 @@
 - 06-testimonial: YouTube sunucu IP'sini bot saydı; kaynak Drive `AISCALE_KLIP_ARSIVI/videolar/05_TESTIMONIALS_KANIT` (8 video, tek kadın Buğçe). Kadın derlemesi + 6 varyant, 0 $. Teslim: `/home/dev/teslim/icerik-hatti/testimonial/`.
 - 07-tablo (Drive tablosu: `tablo kur`, `tablo yokla`; Sheets hücre bazlı, ekip sütunlarına yazmaz), 08-yon (4 görsel yön + AISCALE teması, katalog `/home/dev/teslim/icerik-hatti/gorsel-yon/`), 09 (karma gerçek karışım + onay geri alınınca Zernio iptali) main'de, 186 test. Gerçek Drive/Zernio denemesi yok.
 
+## 2026-10-29
+- İlk BUL'suz gerçek koşu: 15 Eki taramasından nick_saraev "5 Claude Code eklentisi" (IG, 2 M) → fiş (25 sahne, iddialar web'de kontrol edildi, 1,6 milyar token gibi doğrulanmayanlar yumuşatıldı) → ElevenLabs 1.126 karakter (~0,09 $) → karma render 66,4 sn. Teslim: `/home/dev/teslim/icerik-hatti/2026-10-29-5-eklenti/`. Kullanıcı izleme onayı ve paylaşım bekliyor.
+- Kırık: `fis` için `WHISPER_PY=/home/dev/.venvs/whisper/bin/python` gerekiyor (.env yok); ses anahtarı sosyal-panel `ELEVENLABS_API_KEY_AISCALE` (düz `ELEVENLABS_API_KEY` batu-deneme sesine 400 veriyor).
+- Konuşmasız kaynak (the_unfair 3D ada) hatta uymuyor: fiş 2 cümleye iniyor; BUL'da konuşma olmayanlar elenmeli.
+
 ## Kararlar
 - 2026-10-26 | Hat ilk önce patronun içerik hesabı için; portföyde patron işi, doğrudan Etkin | kullanıcı seçimi | mülakat
 - 2026-10-26 | Üç repo (viral-uyarla, kreatif-studyo, sosyal-panel) yerine tek yeni repo; parçalar kopyalanır, eski repolar donar | tek komut, tek yer; Abdürrahim teslimi etkilenmesin | mülakat
@@ -38,4 +43,5 @@
 - 2026-10-28 | Apify (BUL) kredi gelene kadar bekler; link tabloya elle | kredi yok | kullanıcı
 - 2026-10-28 | Görsel klon (05) yerine önce yön sorusu + AISCALE teması; varsayılan yön karma | 05 1–2 gün ve riskli, yön sorusu yarım gün | kullanıcı
 - 2026-10-28 | Tabloda paylaşım onayı geri alınırsa zamanlanmış gönderi otomatik silinir; hata satırları elle sıfırlanır | otomatik tekrar ücretli sesi yeniden tetikler | kullanıcı
+- 2026-10-29 | Doğrulanamayan rakam iddiaları (ör. "ayda 1,6 milyar ücretsiz token") birebir uyarlamada da yumuşatılır; yorum anahtarı kaynaktaki gibi CLAUDE | AISCALE tonu: rakam yalnız doğrulanmışsa; kullanıcı onayı | kullanıcı
 - 2026-10-28 | Drive tablosunu ve klasörünü hat kendisi açar (`tablo kur`); rclone kendi client_id + scope=drive | ortak client_id 2026'da kapanıyor, yazma izni gerek | kullanıcı
