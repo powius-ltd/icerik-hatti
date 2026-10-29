@@ -44,6 +44,9 @@ Patron hesabı için tek yeni repo; parçalar viral-uyarla, kreatif-studyo, sosy
   - Kişi bazlı kopyalama: tek hesap adı ver → o kişinin son N videosu (ya da en çok tutanları) fiş adayı olur, istersen toplu fişe gider. Kazanım: beğendiğin bir üreticinin formatını videoyla değil kişiyle başlatırsın.
   Açık: liste nerede (Drive tablosunda yeni sekme mi, repoda dosya mı), "son N" ve tarama sıklığı; ikisi de Apify kredisine bağlı.
 
+- [A] 10-broll: kurucu arşivinden ara kesit (kanca, bölüm başları, CTA tam ekran klip). SPEC: `docs/isler/10-broll/SPEC.md`. Önce yön onayı + 412 px görüntü.
+- [M] DM dokümanı: CTA'da söz verilen link (ör. 5 eklenti) her video için Notion sayfası; fiş onayında "doküman hazır mı" satırı.
+
 ## Daha sonra
 - [M] 05-klon: kaynak kareden yerleşim çıkarımı (agy: öğe türü + kutu + zamanlama) → genel HF sahnesi; renk/tipografi patron temasından.
 - Fiş ve paylaşım onayı için telefondan onay (Telegram ya da basit sayfa).
