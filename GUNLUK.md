@@ -1,7 +1,7 @@
 # Günlük
 
 ## Bekleyen
-- Kullanıcı: v4 sesli videoyu dinleyip onay; ManyChat'te CLAUDE akışını kurma (`manychat.md`).
+- Kullanıcı: Reels açıklamasına eklenecek şeyi söylemek ("captionda koy"); açıklama Instagram uygulamasından düzenlenir.
 - Karar: 04-bul'a eklenen iki kip (aktif üretici listesi + kişi bazlı kopyalama): liste Drive tablosunda yeni sekme mi, repoda dosya mı; kişi başı kaç video (öneri son 10, tutanlar önce).
 - Karar: son tarih.
 - Kullanıcı: rclone kendi client_id + tam Drive izni (Google Cloud adımları); sonra `tablo kur` + gerçek deneme (07 RAPOR komutları).
@@ -28,6 +28,7 @@
 - DM dokümanı (5 eklenti, linkler + kurulum, web'den doğrulandı): teslim klasöründe `dokuman.md`; Notion bağlayıcısı yetkisiz, sayfa açılmadı. Son hali kullanıcı Notion'da yayınladı: https://longing-dust-981.notion.site/Claude-Code-i-in-5-eklenti-4085e43269648090a603cc7f29738e48 ; ManyChat metinleri `manychat.md` (teslim klasörü). 10-broll SPEC yazıldı (`6582589`).
 - 10-broll: kurucu arşivinden karma b-roll (kanca + CTA + kaynakta konuşan yüz sahneleri; anlatım animasyonda), 11/25 sahne; arşiv .mp4'leri yan yatık kayıtlı → transpose=2, dik .mov olduğu gibi (`92d846b`, `cc859cc`, 211 test). Prototip `final-broll-karma.mp4`, 0 $.
 - Konuşmasız kaynak (the_unfair 3D ada) hatta uymuyor: fiş 2 cümleye iniyor; BUL'da konuşma olmayanlar elenmeli.
+- 5 eklenti Reels'i Zernio ile @aiscale_app'te yayında (15:31, kapak 1 sn): https://www.instagram.com/reel/DfFA5cSASRt/ · Zernio 6ae33cb74000a42c8178d3e3. ManyChat CLAUDE akışı kuruldu (doküman + seminer). Not: `ZERNIO_API_KEY_PATRON` sosyal-panel .env.local'de boş, genel anahtar elle eşlendi.
 
 ## Kararlar
 - 2026-10-26 | Hat ilk önce patronun içerik hesabı için; portföyde patron işi, doğrudan Etkin | kullanıcı seçimi | mülakat
