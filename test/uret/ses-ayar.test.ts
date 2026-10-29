@@ -41,7 +41,7 @@ describe("telaffuz sözlüğü", () => {
   it("varsayılan hesap konfigünde ses ayarı AISCALE Batu değerleridir", async () => {
     const tema = await temaYukle("varsayilan");
     expect(tema.ses).toMatchObject({ modelId: "eleven_v4", usdPer1kChars: 0.3, settings: { stability: 0.5, similarityBoost: 0.9, style: 0, useSpeakerBoost: true, speed: 1.2 } });
-    expect(tema.ses!.lexicon.map((l) => l.display)).toEqual(["OpenMontage", "Claude", "GitHub", "HyperFrames"]);
+    expect(tema.ses!.lexicon.map((l) => l.display)).toEqual(["OpenMontage", "Claude", "Code", "GitHub", "HyperFrames"]);
   });
 });
 
@@ -65,7 +65,7 @@ describe("ses ayarı akışı", () => {
     const { kur, sesId } = saglayiciKur("elevenlabs", { ELEVENLABS_API_KEY: "k", ELEVENLABS_VOICE_ID: "v1" }, fetchImpl);
     const klasor = await mkdtemp(path.join(tmpdir(), "ses-"));
     const s = await sesUret({ metin: "Claude ile OpenMontage", klasor, saglayici: kur(tema.ses), sozluk: tema.ses!.lexicon, sesId, kosucu });
-    expect(govdeler[0]).toMatchObject({ text: "Klod ile Opın Montaj", model_id: "eleven_v4", voice_settings: { stability: 0.5, similarity_boost: 0.9, style: 0, use_speaker_boost: true, speed: 1.2 } });
+    expect(govdeler[0]).toMatchObject({ text: "Klad ile Opın Montaj", model_id: "eleven_v4", voice_settings: { stability: 0.5, similarity_boost: 0.9, style: 0, use_speaker_boost: true, speed: 1.2 } });
     expect(s.kelimeler.map((k) => k.w)).toEqual(["Claude", "ile", "OpenMontage"]);
     expect(s.usd).toBeCloseTo((20 / 1000) * 0.3, 6);
     expect(JSON.parse(await readFile(path.join(klasor, "ses.json"), "utf8")).kelimeler).toHaveLength(3);

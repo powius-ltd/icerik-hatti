@@ -77,7 +77,8 @@
     "usdPer1kChars": 0.3,
     "lexicon": [
       { "display": "OpenMontage", "spoken": "Opın Montaj" },
-      { "display": "Claude", "spoken": "Klod" },
+      { "display": "Claude", "spoken": "Klad" },
+        { "display": "Code", "spoken": "Kod" },
       { "display": "GitHub", "spoken": "Githab" },
       { "display": "HyperFrames", "spoken": "Hayper Freymz" }
     ]
