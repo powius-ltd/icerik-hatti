@@ -75,8 +75,20 @@ function baslikAlt(s: FisSahne, enBaslik: number, enAlt: number): { baslik: stri
   return { baslik: kirp(etiketsiz(ilk?.metin ?? ""), enBaslik), ...(geri.length > 0 && { alt: kirp(geri.map((c) => c.metin).join(" "), enAlt) }) };
 }
 
+/** Ekran yazısının ilk satırı "3" ya da "15 / 28" ise kartın büyük yazısı odur, kalan satırlar başlık olur. */
+const BUYUK_YAZI = /^(\d{1,3})(?:\s*\/\s*(\d{1,3}))?\s*\n([\s\S]+)$/;
+
 function rakamKart(s: FisSahne, a: KelimeAraligi, b: YonBaglami): KalipSecimi | undefined {
   if (a.adet < 2) return undefined;
+  const buyuk = BUYUK_YAZI.exec(s.ekranYazisi.trim());
+  if (buyuk) {
+    const baslikYazi = bosluksuz(buyuk[3]!);
+    const liste = cumleler(s.metin);
+    const buyukYazi = buyuk[2] ? `${buyuk[1]}/${buyuk[2]}` : buyuk[1]!.padStart(2, "0");
+    const altYazi = liste[0] ? kirp(etiketsiz(liste[0].metin), 80) : undefined;
+    const params = { adim: b.sira, toplam: b.toplam, buyukYazi, baslik: kirp(baslikYazi, 64), ...(altYazi && { alt: altYazi }), ikon: ikonBul(`${baslikYazi} ${s.metin}`), startWord: a.ilk, landWord: a.ilk + 1 };
+    return { template: "rakam-kart", kind: "motion", params, neden: "rakam-kart yönü, ekran yazısındaki numara" };
+  }
   const { baslik, alt } = baslikAlt(s, 64, 80);
   if (baslik === "") return undefined;
   const yazi = bosluksuz(s.ekranYazisi);

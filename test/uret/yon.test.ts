@@ -50,6 +50,14 @@ describe("yön → kalıp eşlemesi", () => {
     expect(satirlar.every((x) => x.tur === "ok")).toBe(true);
   });
 
+  it("rakam-kart: ekran yazısının ilk satırındaki numara ya da oran sahne numarasının yerine geçer", () => {
+    const liste = yonEsle("rakam-kart", s({ ekranYazisi: "1\nACIMASIZ OL", metin: "Birincisi: Acımasız ol." }), A, B);
+    expect(liste.params).toMatchObject({ buyukYazi: "01", baslik: "ACIMASIZ OL" });
+    const oran = yonEsle("rakam-kart", s({ ekranYazisi: "15 / 28\nÖzellik listesi", metin: "Yarısından fazlası aynı liste." }), A, B);
+    expect(oran.params).toMatchObject({ buyukYazi: "15/28", baslik: "Özellik listesi" });
+    expect(oran.params).not.toHaveProperty("sayi");
+  });
+
   it("rakam-kart: tek sayı sayaç olur, araç adı logo olur, sayı yoksa adım numarası", () => {
     expect(yonEsle("rakam-kart", s({}), A, B).params).toMatchObject({ sayi: 2000, logo: "claude", adim: 3, toplam: 8, startWord: 10 });
     const yok = yonEsle("rakam-kart", s({ ekranYazisi: "Kurulum", metin: "Dosyayı aç, sonra çalıştır." }), A, B);

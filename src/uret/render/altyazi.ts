@@ -40,7 +40,7 @@ export function captionLayer(groups: readonly CaptionGroup[], endSec: number, th
     );
     const rise = g.cta ? 30 : 10;
     const inSec = g.cta ? c.ctaInSec : c.inSec;
-    js.push(`tl.set("#${id}",{yPercent:-50},0);`, `tl.fromTo("#${id}",{opacity:0,y:${rise}},{opacity:1,y:0,duration:${inSec},ease:"power3.out"},${fmt(start)});`);
+    js.push(`tl.set("#${id}",{yPercent:-50},0);`, `tl.fromTo("#${id}",{opacity:0,y:${rise}},{opacity:1,y:0,duration:${inSec},ease:"power3.out"},${fmt(start)});`, `tl.set("#${id}",{opacity:0},${fmt(start + dur)});`);
     for (const w of g.words) {
       js.push(`tl.fromTo("#cw${w.index}",{opacity:${c.dimOpacity}},{opacity:1,duration:${c.wordInSec},ease:"none"},${fmt(w.start)});`);
       if (w.emphasis) js.push(`tl.fromTo("#cw${w.index}",{color:"${fg}"},{color:"${accent}",duration:${c.wordInSec},ease:"none"},${fmt(w.start)});`);

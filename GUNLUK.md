@@ -29,6 +29,9 @@
 - Konuşmasız kaynak (the_unfair 3D ada) hatta uymuyor: fiş 2 cümleye iniyor; BUL'da konuşma olmayanlar elenmeli.
 - 5 eklenti Reels'i Zernio ile @aiscale_app'te yayında (15:31, kapak 1 sn): https://www.instagram.com/reel/DfFA5cSASRt/ · Zernio 6ae33cb74000a42c8178d3e3. ManyChat CLAUDE akışı kuruldu (doküman + seminer). Not: `ZERNIO_API_KEY_PATRON` sosyal-panel .env.local'de boş, genel anahtar elle eşlendi.
 
+## 2026-10-30
+- 3 Reels üretildi (5 komut, rakibin reklamları, önce sat): hazır metinden fiş, ElevenLabs 2.189 karakter ~0,66 $, karma render. Kod: rakam kartında ekran yazısı numarası/oranı, sohbet seçiminde ekran yazısındaki tırnak, biten altyazının açıkça gizlenmesi. Teslim: `/home/dev/teslim/icerik-hatti/2026-10-30-uc-reels/`. Paylaşım onayı bekliyor.
+
 ## Kararlar
 - 2026-10-26 | Hat ilk önce patronun içerik hesabı için; portföyde patron işi, doğrudan Etkin | kullanıcı seçimi | mülakat
 - 2026-10-26 | Üç repo (viral-uyarla, kreatif-studyo, sosyal-panel) yerine tek yeni repo; parçalar kopyalanır, eski repolar donar | tek komut, tek yer; Abdürrahim teslimi etkilenmesin | mülakat

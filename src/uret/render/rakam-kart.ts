@@ -21,6 +21,8 @@ export const RakamKartParams = z.object({
   toplam: z.number().int().positive(),
   /** Söylenen büyük sayı; yoksa büyük rakam adım numarasıdır. */
   sayi: z.number().nonnegative().optional(),
+  /** Fişin verdiği numara ("03", "15/28"); varsa adım etiketi ve adım numarası görünmez. */
+  buyukYazi: z.string().min(1).max(7).optional(),
   baslik: z.string().min(1).max(70),
   alt: z.string().max(100).optional(),
   ikon: z.enum(ICON_NAMES as [IconName, ...IconName[]]).default("check"),
@@ -54,15 +56,15 @@ async function render(scene: Sahne, ctx: SceneContext): Promise<Layer> {
   const merkez = params.logo ? await logoSvg(params.logo, 92) : icon(params.ikon, 92);
   const etiket = `ADIM ${String(params.adim).padStart(2, "0")}/${String(params.toplam).padStart(2, "0")}`;
   const buyuk = params.sayi ?? params.adim;
-  const ilk = params.sayi !== undefined ? "0" : String(params.adim).padStart(2, "0");
+  const ilk = params.buyukYazi ?? (params.sayi !== undefined ? "0" : String(params.adim).padStart(2, "0"));
   const inner =
-    `<div class="rk" id="${p}-k"><div class="rk-chip" id="${p}-ch">${etiket}</div><div class="rk-ring${params.logo ? "" : " ik"}" id="${p}-rg">${merkez}</div>` +
+    `<div class="rk" id="${p}-k">${params.buyukYazi ? "" : `<div class="rk-chip" id="${p}-ch">${etiket}</div>`}<div class="rk-ring${params.logo ? "" : " ik"}" id="${p}-rg">${merkez}</div>` +
     `<div class="rk-num" id="${p}-n">${ilk}</div><div class="rk-ln" id="${p}-ln"></div>` +
     `<div class="rk-t" id="${p}-t" style="font-size:${baslikBoyu(params.baslik.length)}px">${esc(params.baslik)}</div>` +
     `${params.alt ? `<div class="rk-a" id="${p}-a">${esc(params.alt)}</div>` : ""}</div>`;
   const js = [
     slide(`#${p}-k`, scene.start, { dy: 50, dur: 0.5 }),
-    fade(`#${p}-ch`, scene.start + 0.1, { dur: 0.3 }),
+    ...(params.buyukYazi ? [] : [fade(`#${p}-ch`, scene.start + 0.1, { dur: 0.3 })]),
     pop(`#${p}-rg`, scene.start + 0.2, { dur: 0.5 }),
     draw(`#${p}-ln`, startT + 0.1, { dur: Math.max(0.4, landT - startT) }),
     slide(`#${p}-t`, startT + 0.05, { dy: 24, dur: 0.4 }),

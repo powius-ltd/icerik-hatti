@@ -29,7 +29,7 @@ export function adayYonler(s: FisSahne): SomutYon[] {
   const metin = duz(s.metin);
   const yazi = duz(s.ekranYazisi);
   const hepsi = `${metin} ${yazi}`;
-  const tirnak = TIRNAK.exec(metin)?.[1]?.trim();
+  const tirnak = (TIRNAK.exec(metin) ?? TIRNAK.exec(yazi))?.[1]?.trim();
   const komutTirnagi = tirnak !== undefined && KOMUT_KOKU.test(tirnak);
   const adaylar: SomutYon[] = [];
   if (!komutTirnagi && (tirnak !== undefined || hepsi.includes("?") || SORU_EKI.test(metin))) adaylar.push("sohbet");
