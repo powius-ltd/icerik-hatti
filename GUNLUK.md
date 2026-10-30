@@ -31,6 +31,7 @@
 
 ## 2026-10-30
 - 3 Reels üretildi (5 komut, rakibin reklamları, önce sat): hazır metinden fiş, ElevenLabs 2.189 karakter ~0,66 $, karma render. Kod: rakam kartında ekran yazısı numarası/oranı, sohbet seçiminde ekran yazısındaki tırnak, biten altyazının açıkça gizlenmesi. Teslim: `/home/dev/teslim/icerik-hatti/2026-10-30-uc-reels/`. Paylaşım onayı bekliyor.
+- 5 komut Reels'i Zernio ile @aiscale_app'te yayında (19:03, kapak 1 sn): https://www.instagram.com/reel/DfH9uI4ES5w/ · Zernio 6ae4bf6c02f76b5dee6d23d1. Anahtar sosyal-panel `ZERNIO_API_KEY`, `ZERNIO_API_KEY_VARSAYILAN` olarak verildi. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
 - 2026-10-26 | Hat ilk önce patronun içerik hesabı için; portföyde patron işi, doğrudan Etkin | kullanıcı seçimi | mülakat
