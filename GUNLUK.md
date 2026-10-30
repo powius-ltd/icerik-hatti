@@ -52,3 +52,5 @@
 - 2026-10-29 | Telaffuz: Claude → "Klad", Code → "Kod" (Klod uzuyordu) | kullanıcı kulağı | kullanıcı
 - 2026-10-29 | Kaynak vaat eden Reels'te DM iki mesaj: önce vaat edilen doküman, 1 dk sonra seminer linki | 17 Eki "DM seminere gider" kararı korunur, vaat de tutulur | kullanıcı
 - 2026-10-28 | Drive tablosunu ve klasörünü hat kendisi açar (`tablo kur`); rclone kendi client_id + scope=drive | ortak client_id 2026'da kapanıyor, yazma izni gerek | kullanıcı
+- 2026-10-30 | Bu turdaki 3 Reels için DM ile gönderilecek ek doküman yok; video kendi başına yeter, çağrı yalnız seminere | kullanıcı isteği | kullanıcı
+- 2026-10-30 | Pazarlama ve girişimcilik videoları için ücretli tarama yok; konular kendi fikrimizden, hazır metinle hatta girer | kullanıcı isteği | kullanıcı
