@@ -64,3 +64,5 @@
 - 2026-10-31 | Animasyon ekranları gazete görüş sayfası tarzı çizime geçer (krem zemin, lacivert + mavi) | kullanıcı seçimi, örnek: Önce Sat tezgâh görseli | kullanıcı
 - 2026-10-31 | Görseller kodla üretilir | agy kotası darboğaz, günde 4 video için kotaya bağlı kalınmaz | kullanıcı
 - 2026-10-31 | Tempo günde 4 Reels (12, 15, 18, 22); videolar toplu üretilir, Drive'a yüklenir, onaylanınca saatinde paylaşılır; skill + zamanlanmış görev elle bir tam turdan sonra kurulur | kullanıcı isteği | kullanıcı
+- 2026-10-31 | Apify şirket hesabına ve ücretli plana geçer | kullanıcı isteği; "kredi gelene kadar bekler" kararının yerine | kullanıcı
+- 2026-10-31 | İçerik yalnız Claude değil; pazarlama ve startup konularında da üretilir, işler aşamalı otomatikleşir | kullanıcı isteği | kullanıcı
