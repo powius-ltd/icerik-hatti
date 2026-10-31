@@ -33,6 +33,9 @@
 - 3 Reels üretildi (5 komut, rakibin reklamları, önce sat): hazır metinden fiş, ElevenLabs 2.189 karakter ~0,66 $, karma render. Kod: rakam kartında ekran yazısı numarası/oranı, sohbet seçiminde ekran yazısındaki tırnak, biten altyazının açıkça gizlenmesi. Teslim: `/home/dev/teslim/icerik-hatti/2026-10-30-uc-reels/`. Paylaşım onayı bekliyor.
 - 5 komut Reels'i Zernio ile @aiscale_app'te yayında (19:03, kapak 1 sn): https://www.instagram.com/reel/DfH9uI4ES5w/ · Zernio 6ae4bf6c02f76b5dee6d23d1. Anahtar sosyal-panel `ZERNIO_API_KEY`, `ZERNIO_API_KEY_VARSAYILAN` olarak verildi. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
+## 2026-10-31
+- Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
+
 ## Kararlar
 - 2026-10-26 | Hat ilk önce patronun içerik hesabı için; portföyde patron işi, doğrudan Etkin | kullanıcı seçimi | mülakat
 - 2026-10-26 | Üç repo (viral-uyarla, kreatif-studyo, sosyal-panel) yerine tek yeni repo; parçalar kopyalanır, eski repolar donar | tek komut, tek yer; Abdürrahim teslimi etkilenmesin | mülakat
@@ -58,3 +61,6 @@
 - 2026-10-28 | Drive tablosunu ve klasörünü hat kendisi açar (`tablo kur`); rclone kendi client_id + scope=drive | ortak client_id 2026'da kapanıyor, yazma izni gerek | kullanıcı
 - 2026-10-30 | Bu turdaki 3 Reels için DM ile gönderilecek ek doküman yok; video kendi başına yeter, çağrı yalnız seminere | kullanıcı isteği | kullanıcı
 - 2026-10-30 | Pazarlama ve girişimcilik videoları için ücretli tarama yok; konular kendi fikrimizden, hazır metinle hatta girer | kullanıcı isteği | kullanıcı
+- 2026-10-31 | Animasyon ekranları gazete görüş sayfası tarzı çizime geçer (krem zemin, lacivert + mavi) | kullanıcı seçimi, örnek: Önce Sat tezgâh görseli | kullanıcı
+- 2026-10-31 | Görseller kodla üretilir | agy kotası darboğaz, günde 4 video için kotaya bağlı kalınmaz | kullanıcı
+- 2026-10-31 | Tempo günde 4 Reels (12, 15, 18, 22); videolar toplu üretilir, Drive'a yüklenir, onaylanınca saatinde paylaşılır; skill + zamanlanmış görev elle bir tam turdan sonra kurulur | kullanıcı isteği | kullanıcı
