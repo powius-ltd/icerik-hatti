@@ -67,3 +67,4 @@
 - 2026-10-31 | Apify şirket hesabına ve ücretli plana geçer | kullanıcı isteği; "kredi gelene kadar bekler" kararının yerine | kullanıcı
 - 2026-10-31 | İçerik yalnız Claude değil; pazarlama ve startup konularında da üretilir, işler aşamalı otomatikleşir | kullanıcı isteği | kullanıcı
 - 2026-10-31 | Apify taraması haftalık: aylık 5 $'ın 4 $'ı 4 haftaya bölünür (hafta 1 $, 1 $ yedek onayla), her hafta Claude + pazarlama + startup × TikTok + Instagram, tarama başına en çok 50 video, ilk 10 rapora; ek seçenekler kapalı | güncellik ve deneme bütçesi | kullanıcı
+- 2026-10-31 | Haftalık tarama 6 × 30 video (önceki 50'nin yerine); yalnız konu başına en iyi 5 video indirilir (haftada 15), önce ücretsiz yt-dlp, Apify yedek; hafta tavanı 1 $ | indirme en pahalı kalem, bütçeye sığması için | kullanıcı

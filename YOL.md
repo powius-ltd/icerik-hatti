@@ -36,6 +36,7 @@ Patron hesabı için tek yeni repo; parçalar viral-uyarla, kreatif-studyo, sosy
 - **[M] 03-paylas**: onaylı videoyu patron hesabına Zernio ile kuru koşuda gönder; `--onay` ile gerçek. SPEC: `docs/isler/03-paylas/SPEC.md`
 
 ## Sonra
+- [M] Otomasyon sırası (31 Eki): kodla çizim kalıbı → konu havuzu + hazır metinle tablo girişi → 04-bul (viral-uyarla `tara` taşınır, haftalık sayaç: 6 × 30 video, konu başına 5 indirme, 1 $/hafta) → elle tam tur → skill → zamanlanmış `tablo yokla`. Tempo: günde 4 Reels (12, 15, 18, 22), gece toplu üretim, Drive'da onay.
 - [M] 02-uret-ses: onaylı fişten ElevenLabs patron sesi + HyperFrames video + kapak + açıklama (KS `production/voice`, `hf-engine`, `orders/{cover,caption}`). Klon kararına bağlı: "yapı klonu" ise genel HF sahneleri, "görsel klon" ise 05'i bekler.
   26 Eki deneme bulguları (KS kapısı 4 denemenin hiçbirinde temiz geçmedi): (1) KS `orders/display-text.ts` "Birinci" → "1." yapıyor, `edit-director/sentences.ts:12-16` ". " ile bölüyor → metin/ses cümle sayısı tutmuyor (K24); (2) K26 altyazısız boşluk > 1,0 sn denetimi düzeltme turundan sonra da kalıyor; (3) yönetmen LLM'i her koşuda farklı plan → kapı kararsız; bu hatta yönetmen alınmaz, sahne planı fişten deterministik çıkar; (4) sohbet kutuları yarım yazı kalıyor, komut/liste sahneleri görünmüyor; (5) edge ses yolu bozuk (`edge-speak.py:20` WordBoundary), Chatterbox çalışıyor ama robotik.
 - [M] 04-bul: TikTok + Instagram'da tutan video (VU `tara`/`sec`, SP eşikleri: izlenme/takipçi ≥ 3, ≥ 10.000, ≤ 30 gün) → aday listesi → seçilen fişe.
