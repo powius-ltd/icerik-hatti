@@ -34,9 +34,11 @@
 - 5 komut Reels'i Zernio ile @aiscale_app'te yayında (19:03, kapak 1 sn): https://www.instagram.com/reel/DfH9uI4ES5w/ · Zernio 6ae4bf6c02f76b5dee6d23d1. Anahtar sosyal-panel `ZERNIO_API_KEY`, `ZERNIO_API_KEY_VARSAYILAN` olarak verildi. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## 2026-10-31
+- Rakip videosu "biz denedik" bölümü çıkarılıp (ses ücretsiz kesildi, 34,5 sn) yayınlandı: https://www.instagram.com/reel/DfKbQr-lZZc/
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-10-31 | Rakip videosunda "biz denedik" bölümü yok, video kendimizden söz etmez | kullanıcı isteği; 28 reklam iddiası da böylece çıktı | sohbet
 - 2026-10-26 | Hat ilk önce patronun içerik hesabı için; portföyde patron işi, doğrudan Etkin | kullanıcı seçimi | mülakat
 - 2026-10-26 | Üç repo (viral-uyarla, kreatif-studyo, sosyal-panel) yerine tek yeni repo; parçalar kopyalanır, eski repolar donar | tek komut, tek yer; Abdürrahim teslimi etkilenmesin | mülakat
 - 2026-10-26 | İnsan onayı iki yerde: fiş ve paylaşım | gerisi otomatik | mülakat
