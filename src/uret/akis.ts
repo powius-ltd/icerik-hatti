@@ -80,6 +80,13 @@ async function sayfayiYaz(hfDir: string, html: string, yazilar: string[], mp3: s
   if (s.kod !== 0) throw new Error(`Ses wav'a çevrilemedi: ${s.stderr.trim().slice(-200)}`);
 }
 
+async function cizimleriKopyala(fis: Fis, klasor: string, hfDir: string): Promise<void> {
+  const dosyalar = fis.sahneler.flatMap((s) => (s.cizim ? [s.cizim] : []));
+  if (dosyalar.length === 0) return;
+  await mkdir(path.join(hfDir, "assets", "cizim"), { recursive: true });
+  for (const f of dosyalar) await copyFile(path.join(klasor, "cizimler", f), path.join(hfDir, "assets", "cizim", f));
+}
+
 export async function uret(g: UretGirdisi, bag: UretBagi): Promise<UretSonucu> {
   const fis = fisOku(await readFile(g.fisYolu, "utf8"));
   uretilebilir(fis);
@@ -99,6 +106,7 @@ export async function uret(g: UretGirdisi, bag: UretBagi): Promise<UretSonucu> {
     if (bosluk > BOSLUK_TAVANI_SN) throw new Error(`Altyazısız boşluk ${bosluk.toFixed(2)} sn; tavan ${BOSLUK_TAVANI_SN} sn (K26).`);
     const sayfa = await composePage({ plan, words, durationSec: ses.sureSn, theme: tema, hesap: fis.hesap, audioSrc: "assets/ses-son.wav", audioDurationSec: ses.sureSn });
     await sayfayiYaz(hfDir, sayfa.html, themeFontFiles(tema), ses.mp3, bag.kosucu);
+    await cizimleriKopyala(fis, klasor, hfDir);
     await klipleriKes(kesimler, bag.kosucu);
     if (kesimler.length > 0) bag.gunluk(`b-roll: ${kesimler.length} klip kırpıldı`);
     bag.gunluk(`hf/index.html: ${sayfa.html.length} bayt`);

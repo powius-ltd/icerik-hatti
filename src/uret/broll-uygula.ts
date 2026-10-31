@@ -28,7 +28,7 @@ export async function brollUygula(fis: Fis, planSonucu: PlanSonucu, ayar: BrollA
     return bos;
   }
   const klipler = await kliplerBul(ayar, kosucu);
-  const sahneler = planSonucu.plan.scenes.map((s, i) => ({ id: s.id, start: s.start, end: s.end, metin: fis.sahneler[i]!.metin, tur: fis.sahneler[i]!.tur, broll: fis.sahneler[i]!.broll }));
+  const sahneler = planSonucu.plan.scenes.map((s, i) => ({ id: s.id, start: s.start, end: s.end, metin: fis.sahneler[i]!.metin, tur: fis.sahneler[i]!.tur, broll: fis.sahneler[i]!.cizim ? "yok" : fis.sahneler[i]!.broll }));
   const atamalar = new Map(brollAta(fis.fis_id, sahneler, klipler).map((a) => [a.sahneId, a]));
   const kesimler: KesimIstegi[] = [];
   const scenes = planSonucu.plan.scenes.map((s, i) => {

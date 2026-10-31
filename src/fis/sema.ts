@@ -31,6 +31,8 @@ export const fisSahneSema = z.object({
   /** Yalnız bu sahneyi farklı yöne çeker; yoksa fişin `gorsel_yon`'ü. */
   yon: gorselYonSema.optional(),
   /** B-roll klibi (`BR-12`, `HK-01`) ya da `yok` (otomatik atamayı kapatır); yoksa kural atar (`yon/broll.ts`). */
+  /** Bu sahnenin çizimi: `<koşu>/cizimler/` altındaki dosya (`s4.png`); varsa kalıp `cizim` olur, yön ve b-roll atlanır. */
+  cizim: z.string().regex(/^[\w-]+\.(?:png|jpg)$/, "s4.png gibi dosya adı olmalı").optional(),
   broll: z.string().regex(/^(?:(?:HK|BR)-\d+|yok)$/, "BR-12, HK-01 ya da yok olmalı").optional(),
 });
 export type FisSahne = z.infer<typeof fisSahneSema>;

@@ -18,7 +18,7 @@ function base(args: string[]): string[] {
 }
 
 export const checkArgs = (hfDir: string): string[] => base(["check", hfDir]);
-export const renderArgs = (hfDir: string, output: string): string[] => base(["render", hfDir, "--workers", "1", "--output", output]);
+export const renderArgs = (hfDir: string, output: string): string[] => base(["render", hfDir, "--workers", "1", "--sdr", "--output", output]);
 
 function ortam(): NodeJS.ProcessEnv {
   return { ...temelEnv(), HOME: process.env.HOME, npm_config_cache: process.env.npm_config_cache };

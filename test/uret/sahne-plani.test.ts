@@ -1,4 +1,6 @@
 import { describe, expect, it } from "vitest";
+import { cizimEsle } from "../../src/uret/yon/esle.ts";
+import { cizimBaslikBoyu } from "../../src/uret/render/cizim.ts";
 import { fisOku } from "../../src/fis/sema.ts";
 import { kelimeAraliklari, okunusMetni, planKur, sahneSiniri, vurgular } from "../../src/uret/sahne-plani.ts";
 import type { KonusKelime } from "../../src/uret/render/kelimeler.ts";
@@ -72,5 +74,15 @@ describe("sahne = ses parçası", () => {
 
   it("vurgu: ekran yazısındaki uzun kelimeler ve sayılar, sahne başına en çok iki", () => {
     expect(vurgular("Her ay 2.000 ücretsiz mesaj", ["Ayda", "2.000", "ücretsiz", "mesaj", "hakkın"], 6)).toEqual([7, 8]);
+  });
+});
+
+describe("çizim sahnesi", () => {
+  it("fişte cizim satırı kalıbı cizim yapar, başlık satırları tırnaksız gelir", () => {
+    expect(cizimEsle({ no: 4, basSn: 0, sonSn: 2, tur: "grafik", ekranYazisi: '"Tek soru"\nAnaliz hazır\nfazla', konum: "orta", metin: "Sor.", cizim: "s4.png" }, "s4.png")).toMatchObject({ template: "cizim", params: { src: "assets/cizim/s4.png", satirlar: ["Tek soru", "Analiz hazır"] } });
+  });
+  it("başlık boyu uzun satırda küçülür", () => {
+    expect(cizimBaslikBoyu(["28 reklam"])).toBe(92);
+    expect(cizimBaslikBoyu(["Neredeyse kimse: ne zaman ne değişir"])).toBe(54);
   });
 });

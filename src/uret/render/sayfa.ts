@@ -60,8 +60,8 @@ export async function composePage(input: ComposeInput): Promise<ComposeResult> {
   const ctx: SceneContext = { theme, words, endSec: durationSec };
   const layers: Layer[] = [];
   for (const scene of plan.scenes) layers.push(await renderTemplate(scene, ctx));
-  layers.push(markaKatmani(theme));
-  layers.push(captionLayer(makeGroups(words, plan.captions, theme), durationSec, theme));
+  layers.push(markaKatmani(theme, plan.scenes));
+  layers.push(captionLayer(makeGroups(words, plan.captions, theme), durationSec, theme, (sn) => plan.scenes.some((s) => s.template === "cizim" && s.start <= sn && sn < s.end)));
 
   const { w, h } = plan.size;
   const css = pageCss(theme, [...templateCss(plan.scenes), MARKA_CSS], { w, h });

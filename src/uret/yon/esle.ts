@@ -126,6 +126,12 @@ function somutYon(yon: SomutYon, s: FisSahne, a: KelimeAraligi, b: YonBaglami, o
   return onEk ? { ...sonuc, neden: `${onEk} → ${yon}: ${sonuc.neden}` } : sonuc;
 }
 
+/** Çizim sahnesi: ekran yazısının ilk iki satırı başlık olur, tırnaklar atılır. */
+export function cizimEsle(s: FisSahne, dosya: string): KalipSecimi {
+  const satirlar = s.ekranYazisi.split("\n").map((l) => l.replace(/["“”]/g, "").trim()).filter((l) => l !== "").slice(0, 2).map((l) => kirp(l, 60));
+  return { template: "cizim", kind: "motion", params: { src: `assets/cizim/${dosya}`, satirlar }, neden: `çizim: ${dosya}` };
+}
+
 /** Karma planı: sahne `i` için karma dizisindeki somut yönle eşler. */
 export function karmaEsle(yon: SomutYon, s: FisSahne, a: KelimeAraligi, b: YonBaglami): KalipSecimi {
   if (bosluksuz(s.metin) === "") return kartaDus(s, `karma → ${yon} ama sahne metni boş: yalnız kart`);
