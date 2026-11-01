@@ -61,7 +61,7 @@ export async function composePage(input: ComposeInput): Promise<ComposeResult> {
   const layers: Layer[] = [];
   for (const scene of plan.scenes) layers.push(await renderTemplate(scene, ctx));
   layers.push(markaKatmani(theme, plan.scenes));
-  layers.push(captionLayer(makeGroups(words, plan.captions, theme), durationSec, theme, (sn) => plan.scenes.some((s) => s.template === "cizim" && s.start <= sn && sn < s.end)));
+  layers.push(captionLayer(makeGroups(words, plan.captions, theme), durationSec, theme, (sn) => plan.scenes.some((s) => s.template === "cizim" && !(s.params as { tamEkran?: boolean }).tamEkran && s.start <= sn && sn < s.end)));
 
   const { w, h } = plan.size;
   const css = pageCss(theme, [...templateCss(plan.scenes), MARKA_CSS], { w, h });

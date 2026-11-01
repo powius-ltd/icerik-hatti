@@ -10,6 +10,7 @@
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
 
 ## 2026-11-01
+- Kitap, Jack Ma, DOMS Reels'i b-roll'suz, kodla çizilmiş tam ekran görsellerle üretildi (`tools/cizim-kod`, çizim kalıbına `cizimTam`); ses 0,50 $; paylaşım onayı bekliyor. Otomatik fiş düzeltmesi dalda: `worktree-agent-a16b5dd3dbf8cbc5a`, birleştirilmedi.
 - İlk haftalık Apify taraması: 6 × 30 video, 178 aday, 0,49 $ (tavan 1 $); viral-uyarla `tara` elle, çıktı `kosular/2026-11-01-tarama/` (haftalık sayaç kodu henüz yok).
 
 ## 2026-10-26
@@ -41,6 +42,9 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-01 | Bugünkü videolar b-roll'suz; ekranlar karikatür-sinematik tarz, görseller agy değil kodla | kullanıcı isteği; kota ve bekleme yok | sohbet
+- 2026-11-01 | Tüm Reels'te ek doküman yok, çağrı yalnız seminer: yorum anahtarı SEMİNER | kullanıcı isteği | sohbet
+- 2026-11-01 | Otomatik fiş kaynağın kişisel anlatımını ("kızım", "benim sesim") taşıyorsa elle düzeltilir; video kendimizden söz etmez | "bizle alakalı olmasın" kararıyla uyum | sohbet
 - 2026-10-31 | Rakip videosunda "biz denedik" bölümü yok, video kendimizden söz etmez | kullanıcı isteği; 28 reklam iddiası da böylece çıktı | sohbet
 - 2026-10-26 | Hat ilk önce patronun içerik hesabı için; portföyde patron işi, doğrudan Etkin | kullanıcı seçimi | mülakat
 - 2026-10-26 | Üç repo (viral-uyarla, kreatif-studyo, sosyal-panel) yerine tek yeni repo; parçalar kopyalanır, eski repolar donar | tek komut, tek yer; Abdürrahim teslimi etkilenmesin | mülakat

@@ -16,5 +16,5 @@ export const MARKA_CSS = `
 /** Çizim sahnelerinde marka açık zemin üstündedir: yazı koyuya döner, sahne bitince geri gelir. */
 export function markaKatmani(theme: ReelsTheme, scenes: readonly Sahne[] = []): Layer {
   if (!theme.marka) return { html: [], js: [] };
-  return { html: [`<div class="marka" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow><i></i>${esc(theme.marka)}</div>`], js: scenes.flatMap((s) => (s.template === "cizim" ? [`tl.set(".marka",{color:"${token(theme, "cizim-murekkep")}"},${fmt(s.start)});`, `tl.set(".marka",{color:"${token(theme, "fg-on-dark")}"},${fmt(s.end)});`] : [])) };
+  return { html: [`<div class="marka" data-layout-allow-overlap data-layout-allow-occlusion data-layout-allow-overflow><i></i>${esc(theme.marka)}</div>`], js: scenes.flatMap((s) => (s.template === "cizim" && !(s.params as { tamEkran?: boolean }).tamEkran ? [`tl.set(".marka",{color:"${token(theme, "cizim-murekkep")}"},${fmt(s.start)});`, `tl.set(".marka",{color:"${token(theme, "fg-on-dark")}"},${fmt(s.end)});`] : [])) };
 }
