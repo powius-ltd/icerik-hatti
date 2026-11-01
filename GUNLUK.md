@@ -10,6 +10,7 @@
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
 
 ## 2026-11-01
+- Kitap Reels'i yayında (14:49): https://www.instagram.com/reel/DfMqXIFjvPR/ · Zernio 6ae72725b18b4ddbf3a5087e. Jack Ma ve DOMS paylaşım onayı bekliyor.
 - Kitap, Jack Ma, DOMS Reels'i b-roll'suz, kodla çizilmiş tam ekran görsellerle üretildi (`tools/cizim-kod`, çizim kalıbına `cizimTam`); ses 0,50 $; paylaşım onayı bekliyor. Otomatik fiş düzeltmesi dalda: `worktree-agent-a16b5dd3dbf8cbc5a`, birleştirilmedi.
 - İlk haftalık Apify taraması: 6 × 30 video, 178 aday, 0,49 $ (tavan 1 $); viral-uyarla `tara` elle, çıktı `kosular/2026-11-01-tarama/` (haftalık sayaç kodu henüz yok).
 
