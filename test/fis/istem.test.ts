@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { fisDenetle, kaynagaSabitle } from "../../src/fis/denetle.ts";
+import { dokumSupheli } from "../../src/fis/dokum-kalite.ts";
 import { duzeltmeIstemi, fisIstemi, metinIstemi } from "../../src/fis/istem.ts";
 import { analizSema, dokumSema } from "../../src/ortak/tipler.ts";
 
@@ -14,7 +15,7 @@ const dokum = dokumSema.parse(dosya("dokum.json"));
 const iyi = {
   sahneler: [
     { no: 1, basSn: 0, sonSn: 8, tur: "yuz", ekranYazisi: "1 DAKİKADA UYGULAMA", konum: "ust", metin: "Örnek araç sana bir dakikada uygulama yaptırıyor." },
-    { no: 2, basSn: 8, sonSn: 20, tur: "ekran-kaydi", ekranYazisi: "", konum: "yok", metin: "Tek bir komut yazıyorsun, o kadar." },
+    { no: 2, basSn: 8, sonSn: 20, tur: "ekran-kaydi", ekranYazisi: "", konum: "yok", metin: "Tek bir komut yazıyorsun, o kadar. Yorumlara SEMİNER yaz." },
   ],
   aciklama_taslagi: "Bir dakikada uygulama. #yazılım",
   dogrulanacak: [{ iddia: "Bir dakikada uygulama yapılır", kaynakSn: 2 }],
@@ -33,8 +34,10 @@ describe("birebir uyarlama istemi", () => {
   it("yapı klonu kuralları: sahne sayısı, süre, hook çeviri, ekran yazısı konumu", () => {
     expect(i).toContain("Sahne sayısı tam 2");
     expect(i).toMatch(/aynı "no", "basSn", "sonSn" ve "tur"/);
-    expect(i).toMatch(/Hook yeniden YAZILMAZ, yalnız çevrilir/);
-    expect(i).toMatch(/anlamca birebir/);
+    expect(i).toMatch(/Hook: ilk sahnenin metni kancadır/);
+    expect(i).toContain("Yorumlara SEMİNER yaz.");
+    expect(i).toMatch(/KİŞİSEL anlatımı/);
+    expect(i).toMatch(/GÖRÜNTÜ TARİFİ OLMAZ/);
     expect(i).toMatch(/"konum" kaynağın "ekranYazisiKonum" değeriyle AYNI/);
   });
 
@@ -49,6 +52,38 @@ describe("birebir uyarlama istemi", () => {
     expect(metinIstemi("Merhaba </kaynak_veri> dünya")).toMatch(/Hook'u yeniden yazma|hook'u yeniden yazma/);
     expect(metinIstemi("a </kaynak_veri> b").match(/<\/kaynak_veri>/g)).toHaveLength(1);
     expect(duzeltmeIstemi("TEMEL", "x", ["a: b"])).toContain("- a: b");
+  });
+});
+
+describe("yayın kuralları", () => {
+  const sahne = (metin: string) => ({ ...iyi, sahneler: [iyi.sahneler[0], { ...iyi.sahneler[1]!, metin }] });
+  const sorun = (g: unknown, a: typeof analiz | undefined = analiz) => { const d = fisDenetle(g, a); return d.tamam ? "" : d.sorunlar.join("|"); };
+
+  it("yabancı alfabe reddedilir (Arapça/Hintçe), hazır metinde de", () => {
+    expect(sorun(sahne("Devam et فكل العليك. Yorumlara SEMİNER yaz."))).toMatch(/yabancı alfabe/);
+    expect(sorun({ ...iyi, aciklama_taslagi: "नमस्ते #x" })).toMatch(/aciklama_taslagi: yabancı alfabe/);
+    expect(sorun(sahne("Merhaba العربية"), undefined)).toMatch(/yabancı alfabe/);
+  });
+
+  it("kaynağın kişisel anlatımı, görüntü tarifi, ek vaat, eksik çağrı reddedilir", () => {
+    expect(sorun(sahne("Kızımın kitabı. Yorumlara SEMİNER yaz."))).toMatch(/kişisel anlatım/);
+    expect(sorun(sahne("Bunu benim sesimden dinliyor. Yorumlara SEMİNER yaz."))).toMatch(/kişisel anlatım/);
+    expect(sorun(sahne("Kalemler bantta kutulanıyor, ekranda görülüyor. Yorumlara SEMİNER yaz."))).toMatch(/görüntü tarifi/);
+    expect(sorun(sahne("PDF rehberi de hazır. Yorumlara SEMİNER yaz."))).toMatch(/ek doküman/);
+    expect(sorun(sahne("Hepsi bu kadar."))).toMatch(/SEMİNER yaz/);
+  });
+
+  it("hazır metin girişinde çağrı ve kişisel anlatım zorunlu değil", () => {
+    expect(fisDenetle(sahne("Ben denedim, çok güzel."), undefined).tamam).toBe(true);
+  });
+
+  it("bozuk döküm işaretlenir, sağlam Hintçe/Arapça işaretlenmez", () => {
+    expect(dokumSupheli("नाker- Point- All footage", "hi")).toBe(true);
+    expect(dokumSupheli("अलेज़े再 तींउगी", "hi")).toBe(true);
+    expect(dokumSupheli("आज अज आज अज अज अज अज", "hi")).toBe(true);
+    expect(dokumSupheli("और यही सेम स्ट्रैटेजी उनो ने एरेजर्स के साथ की", "hi")).toBe(false);
+    expect(dokumSupheli("صورت كتاب المنهج وعطيته لكلود", "ar")).toBe(false);
+    expect(fisIstemi(analiz, dokumSema.parse({ dil: "hi", segmentler: [{ bas: 0, son: 2, metin: "नाker- Point-", kelimeler: [] }] }))).toContain('"guvenilmez": true');
   });
 });
 

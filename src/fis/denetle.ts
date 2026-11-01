@@ -1,5 +1,6 @@
 /** Model yanıtını şemayla ve kaynakla denetler: sahne sayısı/sırası/süresi/ekran yazısı konumu kaynakla aynı olmalı. */
 import type { Analiz } from "../ortak/tipler.ts";
+import { yayinSorunlari } from "./kural.ts";
 import { fisModelSema, type FisModel } from "./sema.ts";
 
 export type DenetimSonucu = { tamam: true; govde: FisModel } | { tamam: false; sorunlar: string[] };
@@ -39,6 +40,7 @@ export function fisDenetle(ham: unknown, analiz?: Analiz): DenetimSonucu {
       });
     }
   }
+  sorunlar.push(...yayinSorunlari(govde, analiz !== undefined));
   return sorunlar.length ? { tamam: false, sorunlar } : { tamam: true, govde };
 }
 
