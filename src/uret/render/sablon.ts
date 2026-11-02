@@ -119,7 +119,8 @@ export async function render(scene: Sahne, ctx: SceneContext): Promise<Layer> {
   const an = (k: number, ne: string): number => atWord(ctx, scene, params.ilk + k, ne);
   const ters = !sablonAcikZemin(params.kalip);
   let ic = "";
-  const js: string[] = [slide(`#${p}-h`, scene.start, { dy: 24, dur: 0.35 })];
+  // Videonun ilk karesinde başlık hazır durur: akışta kaydıran izleyici boş ekran görmez.
+  const js: string[] = scene.start > 0 ? [slide(`#${p}-h`, scene.start, { dy: 24, dur: 0.35 })] : [];
 
   if (params.kalip === "gazete" || params.kalip === "akis") {
     ic = `<div class="sb-svg">${await svgYukle(params, ctx, scene.id)}</div>`;
