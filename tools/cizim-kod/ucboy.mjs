@@ -11,7 +11,7 @@ ${fincan(190, 0.85, G.ak, "b1")}${fincan(480, 1.25, G.mavi, "b2")}${fincan(770, 
 ${yazi(190, 640, 58, G.mur, "40₺", "f1")}${yazi(480, 640, 58, G.mur, "75₺", "f2")}${yazi(770, 646, 72, G.mavi, "80₺", "f3")}
 <g class="ok"><path d="M480 210V320" stroke="${G.mur}" stroke-width="12"/><path d="M450 290L480 332L510 290Z" fill="${G.mur}"/></g>
 <g class="arti"><rect x="600" y="60" width="210" height="96" rx="20" fill="${G.mur}"/>${yazi(705, 128, 60, G.ak, "+5₺")}</g>
-<g class="kisi">${adam(625, 750, 0.62, { kolA: "M-16 -196L-40 -150L-20 -110", kolB: "M16 -196L60 -180L92 -226", bacakA: "M-10 -110L-34 -56L-54 -2", bacakB: "M10 -110L30 -56L48 0" })}</g>`);
+<g class="kisi">${adam(625, 765, 0.42, { kolA: "M-16 -196L-40 -150L-20 -110", kolB: "M16 -196L60 -180L92 -226", bacakA: "M-10 -110L-34 -56L-54 -2", bacakB: "M10 -110L30 -56L48 0" })}</g>`);
 
 const akis = svg(`<rect x="60" y="250" width="300" height="240" rx="28" fill="#fff" stroke="${G.mur}" stroke-width="6"/>${yazi(210, 345, 44, G.mur, "Orta")}${yazi(210, 435, 84, G.mur, "75₺")}
 <g class="kart2"><rect x="600" y="250" width="300" height="240" rx="28" fill="#fff" stroke="${G.mavi}" stroke-width="11"/>${yazi(750, 345, 44, G.mur, "Büyük")}${yazi(750, 435, 84, G.mavi, "80₺")}</g>
