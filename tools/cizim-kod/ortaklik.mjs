@@ -11,7 +11,7 @@ const pasta = (ara) => svg(`${kisiler(110, 850, 690, 1.35)}
 <g class="p2">${yarim(480 + ara, 300, 190, 1, G.gri)}${yazi(480 + ara + 95, 322, 62, G.mur, "%50")}</g>`);
 
 const kart = (sinif, x, c, metin) => `<g class="${sinif}"><rect x="${x}" y="130" width="340" height="180" rx="28" fill="#fff" stroke="${c}" stroke-width="10"/>${yazi(x + 170, 245, 74, c, metin)}</g>`;
-const kilit = svg(`<g class="karar"><rect x="290" y="0" width="380" height="96" rx="20" fill="${G.mur}"/>${yazi(480, 66, 52, G.ak, "BÜYÜK KARAR")}</g>${kart("evet", 50, G.mavi, "EVET")}${kart("hayir", 570, G.mur, "HAYIR")}
+const kilit = svg(`<g class="karar"><rect x="240" y="0" width="480" height="96" rx="20" fill="${G.mur}"/>${yazi(480, 66, 52, G.ak, "BÜYÜK KARAR")}</g>${kart("evet", 50, G.mavi, "EVET")}${kart("hayir", 570, G.mur, "HAYIR")}
 <path class="h1" pathLength="1" d="M220 310V420H400" fill="none" stroke="${G.mavi}" stroke-width="12"/><path class="h2" pathLength="1" d="M740 310V420H560" fill="none" stroke="${G.mur}" stroke-width="12"/>
 <g class="kilit"><path d="M425 395V340A55 55 0 0 1 535 340V395" fill="none" stroke="${G.mur}" stroke-width="24"/><rect x="390" y="390" width="180" height="150" rx="22" fill="${G.mur}"/><circle cx="480" cy="450" r="22" fill="${G.ak}"/><rect x="470" y="452" width="20" height="50" rx="8" fill="${G.ak}"/></g>`);
 
