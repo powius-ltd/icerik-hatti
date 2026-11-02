@@ -5,7 +5,7 @@ kaynak:
   dosya: docs/isler/12-dort-reels/SPEC.md
 hesap: varsayilan
 gorsel_yon: karma
-fis_onay: evet
+fis_onay: hayir
 paylasim_onay: hayir
 durum: taslak
 sahneler:

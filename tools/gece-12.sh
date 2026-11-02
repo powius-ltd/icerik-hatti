@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# IHT-12 gece koşusu: üç Reels'in sesi ve videosu, ajan denetimi, teslim. Yayın ve Zernio yok.
-#   agir --gece --oncelik 5 --ram 5 --ad iht-4reels -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh
+# IHT-12 gece koşusu: onaylı Reels'lerin sesi ve videosu, ajan denetimi, teslim. Yayın ve Zernio yok.
+#   agir --gece --oncelik 5 --ram 5 --ad iht-4reels -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh 15:<id>,18:<id>,22:<id>
+# Her <id> için docs/isler/12-dort-reels/fisler/<id>.md gerekir ve fis_onay: evet olmalıdır; yoksa para harcanmadan durur.
 #   bash tools/gece-12.sh bakiye       ElevenLabs bakiyesini okur (ücretsiz)
 #   bash tools/gece-12.sh tek <id>     Düzeltilmiş fiş/çizimle anahtarsız yeniden render (ses önbellekten; ajan kullanır)
 # Paket: docs/isler/12-dort-reels/SPEC.md
@@ -17,7 +18,6 @@ SES_TAVAN_USD=1.00
 VIDEO_TAVAN_USD=0.30   # 1.000 karakter × 0,3 $/1k
 KARAKTER_TAVAN=1000
 GEREKEN_KARAKTER=3000
-IDLER="ikea airbnb graphify"
 BURA=$(cd "$(dirname "$0")/.." && pwd)
 
 anahtar() { sed -n 's/^ELEVENLABS_API_KEY_AISCALE=//p' /home/dev/projeler/sosyal-panel/.env.local | head -1 | tr -d '"'"'"'\r'; }
@@ -46,7 +46,18 @@ case "${1:-}" in
     exit $? ;;
 esac
 
-echo "== $(TZ=Europe/Istanbul date '+%F %T') gece koşusu başladı"
+[ $# -eq 1 ] || { echo "kullanım: gece-12.sh <saat:id,saat:id,...>; konu onayı olmadan koşmaz, para harcanmadı"; exit 2; }
+SLOTLAR=${1//,/ }
+IDLER=""
+for s in $SLOTLAR; do
+  id=${s#*:}
+  f=$BURA/docs/isler/12-dort-reels/fisler/$id.md
+  [ -f "$f" ] || { echo "$id: fiş yok; para harcanmadı"; exit 2; }
+  grep -q '^fis_onay: evet$' "$f" || { echo "$id: fiş onaylı değil; para harcanmadı"; exit 2; }
+  IDLER="$IDLER $id"
+done
+
+echo "== $(TZ=Europe/Istanbul date '+%F %T') gece koşusu başladı:$IDLER"
 if [ ! -d "$WT" ]; then
   git -C "$ANA" worktree add -B "$DAL" "$WT" main || { echo "worktree açılamadı"; exit 1; }
 fi
@@ -84,7 +95,7 @@ echo "== ses toplamı $(harcanan) \$; üretilen:$BASARI"
 
 if [ -n "$BASARI" ]; then
   cd "$WT" || exit 1
-  gece-claude 3 '/goal docs/isler/12-dort-reels/SPEC.md PAKET denetimini yap. Videolar: '"$KOK"'/{ikea,airbnb,graphify}/final.mp4 (üretilmişse). Her videonun her sahnesinin sonundan ffmpeg ile bir kare al (sahne sınırı: ses.json + fis.md), Read ile bak; yazı taşması, öğe çakışması, altyazının çizimi örtmesi, boş kalan sahne ara. Hata varsa yalnız tools/cizim-kod/dort-reels.mjs ya da docs/isler/12-dort-reels/fisler/<id>.md içinde sablon alanını düzelt (metin ve aciklama_taslagi rakamlarını değiştirme), `bash tools/gece-12.sh tek <id>` ile yeniden render et; bu komut ücretsizdir, ses önbellekten gelir. Hata verirse ses çağrısı denemeye kalkma. Sosyal-panel .env dosyalarını okuma; hat paylas, hat tablo, Zernio yasak; agir kullanma; port açma. Bitti: her sahne incelendi (video başına sahne sayısı raporda), kalan hata 0; dar commit gece-iht-12 dalında (git add -- <yollar>, git commit --only -- <yollar>); docs/isler/12-dort-reels/RAPOR.md ilk satırı "Durum: bitti", altında video başına tek satır bulgu. Ya da 8 turda dur, ilk satır "Durum: yarım", kalan aynı dosyada. Soru sorma; karar gerekiyorsa RAPOR.md içine "Karar: ..." yaz.'
+  gece-claude 3 '/goal docs/isler/12-dort-reels/SPEC.md PAKET denetimini yap. Videolar: '"$KOK"'/<id>/final.mp4, id listesi:'"$BASARI"'. Her videonun her sahnesinin sonundan ffmpeg ile bir kare al (sahne sınırı: ses.json + fis.md), Read ile bak; yazı taşması, öğe çakışması, altyazının çizimi örtmesi, boş kalan sahne ara. Hata varsa yalnız tools/cizim-kod/dort-reels.mjs ya da docs/isler/12-dort-reels/fisler/<id>.md içinde sablon alanını düzelt (metin ve aciklama_taslagi rakamlarını değiştirme), `bash tools/gece-12.sh tek <id>` ile yeniden render et; bu komut ücretsizdir, ses önbellekten gelir. Hata verirse ses çağrısı denemeye kalkma. Sosyal-panel .env dosyalarını okuma; hat paylas, hat tablo, Zernio yasak; agir kullanma; port açma. Bitti: her sahne incelendi (video başına sahne sayısı raporda), kalan hata 0; dar commit gece-iht-12 dalında (git add -- <yollar>, git commit --only -- <yollar>); docs/isler/12-dort-reels/RAPOR.md ilk satırı "Durum: bitti", altında video başına tek satır bulgu. Ya da 8 turda dur, ilk satır "Durum: yarım", kalan aynı dosyada. Soru sorma; karar gerekiyorsa RAPOR.md içine "Karar: ..." yaz.'
   echo "== ajan çıkış $?"
 fi
 
@@ -97,9 +108,7 @@ kopyala() {  # saat ad klasör
   echo "$1 $2: $OLCU"
 }
 cp "$HF/hyperframes-final.mp4" "$TESLIM/12-hyperframes.mp4" && cp "$HF/hyperframes-kapak.png" "$TESLIM/12-hyperframes-kapak.png" && cp "$HF/hyperframes-aciklama.txt" "$TESLIM/12-hyperframes-aciklama.txt" || EKSIK="$EKSIK hyperframes"
-kopyala 15 ikea "$KOK/ikea"
-kopyala 18 airbnb "$KOK/airbnb"
-kopyala 22 graphify "$KOK/graphify"
+for s in $SLOTLAR; do kopyala "${s%%:*}" "${s#*:}" "$KOK/${s#*:}"; done
 cp "$ANA/docs/isler/12-dort-reels/SPEC.md" "$TESLIM/SPEC.md"
 [ -f "$WT/docs/isler/12-dort-reels/RAPOR.md" ] && cp "$WT/docs/isler/12-dort-reels/RAPOR.md" "$TESLIM/RAPOR.md"
 

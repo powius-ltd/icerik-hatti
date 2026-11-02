@@ -11,7 +11,7 @@
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
 
 ## 2026-11-03
-- IHT-12 gece paketi: 3 Kas dört Reels (12 HyperFrames, 15 IKEA etkisi, 18 Airbnb gevrek, 22 Graphify); fiş + çizim + `tools/gece-12.sh`, sahte sesle kuru koşu geçti. Kuyruğu yönetici koyar. Sabah teslim: `/home/dev/teslim/icerik-hatti/2026-11-03-dort-reels/`. Yayın yok.
+- IHT-12 gece paketi: `tools/gece-12.sh <saat:id,...>` konu parametreli, onaysız fişte para harcamadan durur; kuru koşu sahte sesle geçti. Takvim konularının fişi onaydan sonra yazılır. IKEA, Airbnb, Graphify fişleri stokta. Üretim yok.
 
 ## 2026-11-02
 - IHT-11 şablon: eldeki 6 rakip videosuyla benchmark, altı kalıbın örnek karesi kodla (`tools/cizim-kod/katalog.mjs`); yön onayı alındı, `sablon` kalıbı hatta bağlandı. Teslim: `/home/dev/teslim/icerik-hatti/2026-11-02-sablon-katalog/`.
@@ -60,7 +60,8 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
-- 2026-11-03 | 3 Kas konuları: HyperFrames, IKEA etkisi, Airbnb gevrek, Graphify; Televizyon elendi | ücretsiz araç ağırlığı + gün içi çeşitlilik; TV 2 Kas'ta güvenilir bulunmadı; kullanıcı uyuyor, sabah değiştirebilir | proje oturumu
+- 2026-11-03 | Konuları kullanıcı onaylar; 3 Kas için 2 Kas takvimi esas, ücretli ses onaydan sonra | kullanıcı: "takvimdeki konuları at, onaylayayım" | yönetici aktarımı
+- 2026-11-03 | Tempo kalıcı: her gün 4 Reels | kullanıcı isteği | yönetici aktarımı
 - 2026-11-02 | İlk şablon videosu tamamen animasyon; sonraki bazı videolar ara klip + animasyon | kullanıcı isteği | kullanıcı
 - 2026-11-02 | Altı kalıplı katalog ve günde 4 plan onaylandı | ekip onayı | kullanıcı
 - 2026-11-02 | Şablon benchmark'ı yalnız diskteki rakip videolarıyla yapılır | kullanıcı yeni indirme istemedi | kullanıcı
