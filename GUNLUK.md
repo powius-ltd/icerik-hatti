@@ -48,6 +48,8 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-02 | İlk şablon videosu tamamen animasyon; sonraki bazı videolar ara klip + animasyon | kullanıcı isteği | kullanıcı
+- 2026-11-02 | Altı kalıplı katalog ve günde 4 plan onaylandı | ekip onayı | kullanıcı
 - 2026-11-02 | Şablon benchmark'ı yalnız diskteki rakip videolarıyla yapılır | kullanıcı yeni indirme istemedi | kullanıcı
 - 2026-11-02 | Reels sabit gazete şablonuyla çıkar; animasyonlu sahnede zemin ızgarası rengi, animasyon ve kart farklılaşır | her videoda tanınır görünüm, hızlı üretim | kullanıcı
 - 2026-11-02 | 2 Kasım paylaşımları 15:00, 18:00, 22:00; önce bugün ve yarının konuları belirlenir | günde 4 tempoya geçiş | kullanıcı
