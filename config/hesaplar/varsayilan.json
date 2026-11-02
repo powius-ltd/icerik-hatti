@@ -25,6 +25,13 @@
     "cizim-kagit": "#F3EDE0",
     "cizim-murekkep": "#101B33",
     "cizim-vurgu": "#2F86E8",
+    "sablon-kart": "#FFFFFF",
+    "sablon-zemin-acik": "#E8EEF6",
+    "sablon-izgara-acik": "rgba(47,134,232,.17)",
+    "sablon-izgara-mavi": "rgba(255,255,255,.16)",
+    "sablon-cizgi": "#C9C2B2",
+    "sablon-soluk": "#59647A",
+    "font-vurgu": "InstrumentSerif,serif",
     "radius-window": "30px",
     "radius-row": "16px",
     "radius-pill": "999px",
@@ -48,6 +55,12 @@
         "family": "Poppins",
         "file": "Poppins-Bold.ttf",
         "weight": "600 700"
+      },
+      {
+        "family": "InstrumentSerif",
+        "file": "InstrumentSerif-Italic.ttf",
+        "weight": "400",
+        "style": "italic"
       }
     ]
   },

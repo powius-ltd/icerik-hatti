@@ -2,6 +2,7 @@
 import { parse } from "yaml";
 import { z } from "zod";
 import { sahneTuruSema } from "../ortak/tipler.ts";
+import { SablonSahne } from "../uret/render/sablon.ts";
 
 export const kaynakSema = z.object({
   tur: z.enum(["video", "url", "metin"]),
@@ -35,6 +36,8 @@ export const fisSahneSema = z.object({
   cizim: z.string().regex(/^[\w-]+\.(?:png|jpg)$/, "s4.png gibi dosya adı olmalı").optional(),
   /** true: çizim kâğıt üstünde değil tam ekran sinematik görsel olur. */
   cizimTam: z.boolean().optional(),
+  /** Sabit şablon sahnesi; varsa kalıp `sablon` olur, yön, çizim ve b-roll atlanır. */
+  sablon: SablonSahne.optional(),
   broll: z.string().regex(/^(?:(?:HK|BR)-\d+|yok)$/, "BR-12, HK-01 ya da yok olmalı").optional(),
 });
 export type FisSahne = z.infer<typeof fisSahneSema>;

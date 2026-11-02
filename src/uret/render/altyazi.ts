@@ -25,7 +25,7 @@ function fontSize(group: CaptionGroup, theme: ReelsTheme): number {
 }
 
 /** `acikZemin`: öbeğin başladığı an açık zeminli sahnedeyse koyu altyazı (`.cap-g.acik`, kuralı `cizim.ts`te). */
-export function captionLayer(groups: readonly CaptionGroup[], endSec: number, theme: ReelsTheme, acikZemin: (sn: number) => boolean = () => false): Layer {
+export function captionLayer(groups: readonly CaptionGroup[], endSec: number, theme: ReelsTheme, acikZemin: (sn: number) => boolean = () => false, hapZemin: (sn: number) => boolean = () => false): Layer {
   const c = theme.captions;
   const html: string[] = [];
   const js: string[] = [];
@@ -33,12 +33,13 @@ export function captionLayer(groups: readonly CaptionGroup[], endSec: number, th
     const { start, end } = groupWindow(groups, i, endSec, theme);
     const dur = Math.max(end - start, 0.06);
     const id = `cg${i}`;
-    const acik = !g.cta && acikZemin(g.words[0]!.start);
+    const hap = !g.cta && hapZemin(g.words[0]!.start);
+    const acik = hap || (!g.cta && acikZemin(g.words[0]!.start));
     const fg = token(theme, acik ? "cizim-murekkep" : "fg-on-dark");
     const accent = token(theme, acik ? "cizim-vurgu" : "accent");
     const spans = g.words.map((w) => `<span class="w" id="cw${w.index}">${escapeHtml(w.text)}</span>`).join("");
     html.push(
-      `<div class="clip cap-g${g.cta ? " cta" : ""}${acik ? " acik" : ""}" id="${id}" style="top:${c.centerPx}px;font-size:${fontSize(g, theme)}px" data-start="${fmt(start)}" data-duration="${fmt(dur)}" data-track-index="${CAPTION_TRACK_BASE + (i % CAPTION_TRACKS)}">${spans}</div>`,
+      `<div class="clip cap-g${g.cta ? " cta" : ""}${acik ? " acik" : ""}${hap ? " hap" : ""}" id="${id}" style="top:${c.centerPx}px;font-size:${fontSize(g, theme)}px" data-start="${fmt(start)}" data-duration="${fmt(dur)}" data-track-index="${CAPTION_TRACK_BASE + (i % CAPTION_TRACKS)}">${spans}</div>`,
     );
     const rise = g.cta ? 30 : 10;
     const inSec = g.cta ? c.ctaInSec : c.inSec;

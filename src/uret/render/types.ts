@@ -10,6 +10,8 @@ export interface SceneContext {
   words: readonly Word[];
   /** Sayfanın toplam süresi (sn). */
   endSec: number;
+  /** Koşunun `cizimler/` klasörü (şablon SVG'leri buradan okunur). */
+  cizimKok?: string;
 }
 
 export interface TemplateScene<S extends MotionScene | ScreenScene = MotionScene | ScreenScene> {

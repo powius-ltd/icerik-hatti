@@ -9,11 +9,12 @@ import { cizimTemplate } from "./cizim.ts";
 import { editoryalTemplate } from "./editoryal.ts";
 import { kartTemplate } from "./kart.ts";
 import { rakamKartTemplate } from "./rakam-kart.ts";
+import { sablonTemplate } from "./sablon.ts";
 import { sohbetTemplate } from "./sohbet.ts";
 import { terminalTemplate } from "./terminal.ts";
 import type { SceneContext, TemplateScene } from "./types.ts";
 
-const TEMPLATES: readonly TemplateScene[] = [kartTemplate, chatWindowTemplate, bigStatTemplate, sohbetTemplate, terminalTemplate, rakamKartTemplate, editoryalTemplate, brollTemplate, cizimTemplate];
+const TEMPLATES: readonly TemplateScene[] = [kartTemplate, chatWindowTemplate, bigStatTemplate, sohbetTemplate, terminalTemplate, rakamKartTemplate, editoryalTemplate, brollTemplate, cizimTemplate, sablonTemplate];
 
 export function templateNames(): string[] {
   return TEMPLATES.map((t) => t.name);

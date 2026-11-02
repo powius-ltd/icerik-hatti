@@ -27,6 +27,8 @@ export interface ComposeInput {
   audioDurationSec?: number;
   /** Hata iletisinde tema dosyasını adlandırmak için (eksik belirteç). */
   hesap?: string;
+  /** Koşunun `cizimler/` klasörü. */
+  cizimKok?: string;
 }
 
 export interface ComposeResult {
@@ -57,11 +59,11 @@ function templateCss(scenes: Plan["scenes"]): string[] {
 export async function composePage(input: ComposeInput): Promise<ComposeResult> {
   const { plan, words, durationSec, theme, audioSrc, audioDurationSec = durationSec } = input;
   checkScenes(plan.scenes);
-  const ctx: SceneContext = { theme, words, endSec: durationSec };
+  const ctx: SceneContext = { theme, words, endSec: durationSec, ...(input.cizimKok && { cizimKok: input.cizimKok }) };
   const layers: Layer[] = [];
   for (const scene of plan.scenes) layers.push(await renderTemplate(scene, ctx));
   layers.push(markaKatmani(theme, plan.scenes));
-  layers.push(captionLayer(makeGroups(words, plan.captions, theme), durationSec, theme, (sn) => plan.scenes.some((s) => s.template === "cizim" && !(s.params as { tamEkran?: boolean }).tamEkran && s.start <= sn && sn < s.end)));
+  layers.push(captionLayer(makeGroups(words, plan.captions, theme), durationSec, theme, (sn) => plan.scenes.some((s) => s.template === "cizim" && !(s.params as { tamEkran?: boolean }).tamEkran && s.start <= sn && sn < s.end), (sn) => plan.scenes.some((s) => s.template === "sablon" && s.start <= sn && sn < s.end)));
 
   const { w, h } = plan.size;
   const css = pageCss(theme, [...templateCss(plan.scenes), MARKA_CSS], { w, h });
