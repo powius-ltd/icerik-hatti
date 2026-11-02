@@ -41,7 +41,7 @@ describe("telaffuz sözlüğü", () => {
   it("varsayılan hesap konfigünde ses ayarı AISCALE Batu değerleridir", async () => {
     const tema = await temaYukle("varsayilan");
     expect(tema.ses).toMatchObject({ modelId: "eleven_v4", usdPer1kChars: 0.3, settings: { stability: 0.5, similarityBoost: 0.9, style: 0, useSpeakerBoost: true, speed: 1.2 } });
-    expect(tema.ses!.lexicon.map((l) => l.display)).toEqual(["OpenMontage", "Claude", "Code", "GitHub", "HyperFrames"]);
+    expect(tema.ses!.lexicon.map((l) => l.display)).toEqual(["OpenMontage", "Claude", "Code", "GitHub", "HyperFrames", "Graphify", "Airbnb'yi", "McCain", "Graham", "Michael"]);
   });
 });
 

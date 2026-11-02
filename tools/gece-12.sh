@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+# IHT-12 gece koşusu: üç Reels'in sesi ve videosu, ajan denetimi, teslim. Yayın ve Zernio yok.
+#   agir --gece --oncelik 5 --ram 5 --ad iht-4reels -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh
+#   bash tools/gece-12.sh bakiye       ElevenLabs bakiyesini okur (ücretsiz)
+#   bash tools/gece-12.sh tek <id>     Düzeltilmiş fiş/çizimle anahtarsız yeniden render (ses önbellekten; ajan kullanır)
+# Paket: docs/isler/12-dort-reels/SPEC.md
+set -uo pipefail
+
+ANA=/home/dev/projeler/icerik-hatti
+WT=$ANA/.claude/worktrees/gece-12
+DAL=gece-iht-12
+KOK=$ANA/kosular/2026-11-03-dort-reels
+TESLIM=/home/dev/teslim/icerik-hatti/2026-11-03-dort-reels
+HF=/home/dev/teslim/icerik-hatti/2026-11-02-uc-reels
+SES_ID=fwRD2e4Vs09ZX7vfRCka
+SES_TAVAN_USD=1.00
+VIDEO_TAVAN_USD=0.30   # 1.000 karakter × 0,3 $/1k
+KARAKTER_TAVAN=1000
+GEREKEN_KARAKTER=3000
+IDLER="ikea airbnb graphify"
+BURA=$(cd "$(dirname "$0")/.." && pwd)
+
+anahtar() { sed -n 's/^ELEVENLABS_API_KEY_AISCALE=//p' /home/dev/projeler/sosyal-panel/.env.local | head -1 | tr -d '"'"'"'\r'; }
+
+# Kalan karakteri basar; okunamazsa boş döner.
+bakiye() {
+  curl -fsS --max-time 20 -H "xi-api-key: $(anahtar)" https://api.elevenlabs.io/v1/user/subscription 2>/dev/null \
+    | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{const j=JSON.parse(s);console.log(j.character_limit-j.character_count)}catch{}})'
+}
+
+harcanan() {  # Koşu klasöründeki ses.json toplamı (USD)
+  node -e 'const fs=require("fs");let t=0;for(const i of process.argv.slice(2)){try{t+=JSON.parse(fs.readFileSync(i)).usd}catch{}}console.log(t.toFixed(3))' "$KOK"/*/ses.json
+}
+
+hazirla() {  # id: fişi ve çizimleri koşu klasörüne koyar
+  mkdir -p "$KOK/$1/cizimler"
+  cp "$BURA/docs/isler/12-dort-reels/fisler/$1.md" "$KOK/$1/fis.md"
+  node "$BURA/tools/cizim-kod/dort-reels.mjs" "$1" "$KOK/$1/cizimler"
+}
+
+case "${1:-}" in
+  bakiye) echo "kalan karakter: $(bakiye)"; exit 0 ;;
+  tek)
+    hazirla "$2" || exit 1
+    cd "$BURA" && ELEVENLABS_VOICE_ID=$SES_ID ELEVENLABS_API_KEY=anahtarsiz npm run -s hat -- uret --fis "$KOK/$2/fis.md" --render
+    exit $? ;;
+esac
+
+echo "== $(TZ=Europe/Istanbul date '+%F %T') gece koşusu başladı"
+if [ ! -d "$WT" ]; then
+  git -C "$ANA" worktree add -B "$DAL" "$WT" main || { echo "worktree açılamadı"; exit 1; }
+fi
+ln -sfn "$ANA/node_modules" "$WT/node_modules"
+BURA=$WT
+mkdir -p "$KOK" "$TESLIM"
+
+ANAHTAR=$(anahtar)
+[ -n "$ANAHTAR" ] || { echo "ElevenLabs anahtarı bulunamadı; para harcanmadı"; exit 1; }
+KALAN=$(bakiye)
+if [ -z "$KALAN" ]; then
+  echo "bakiye okunamadı; tavanlarla devam"
+elif [ "$KALAN" -lt "$GEREKEN_KARAKTER" ]; then
+  echo "bakiye yetmiyor ($KALAN < $GEREKEN_KARAKTER karakter); para harcanmadı"; exit 1
+else
+  echo "bakiye: $KALAN karakter"
+fi
+
+BASARI=""
+for id in $IDLER; do
+  hazirla "$id" || { echo "$id: hazırlık başarısız"; continue; }
+  H=$(harcanan)
+  if awk -v h="$H" -v v="$VIDEO_TAVAN_USD" -v t="$SES_TAVAN_USD" 'BEGIN { exit !(h + v > t) }'; then
+    echo "ses tavanı: $H \$ harcandı, tavan $SES_TAVAN_USD \$; durdu"; break
+  fi
+  echo "== $id üretiliyor (harcanan $H \$)"
+  if (cd "$WT" && ELEVENLABS_VOICE_ID=$SES_ID ELEVENLABS_API_KEY=$ANAHTAR npm run -s hat -- uret --fis "$KOK/$id/fis.md" --render --karakter-tavan "$KARAKTER_TAVAN"); then
+    BASARI="$BASARI $id"
+  else
+    echo "$id: üretim başarısız"
+  fi
+done
+unset ANAHTAR
+echo "== ses toplamı $(harcanan) \$; üretilen:$BASARI"
+
+if [ -n "$BASARI" ]; then
+  cd "$WT" || exit 1
+  gece-claude 3 '/goal docs/isler/12-dort-reels/SPEC.md PAKET denetimini yap. Videolar: '"$KOK"'/{ikea,airbnb,graphify}/final.mp4 (üretilmişse). Her videonun her sahnesinin sonundan ffmpeg ile bir kare al (sahne sınırı: ses.json + fis.md), Read ile bak; yazı taşması, öğe çakışması, altyazının çizimi örtmesi, boş kalan sahne ara. Hata varsa yalnız tools/cizim-kod/dort-reels.mjs ya da docs/isler/12-dort-reels/fisler/<id>.md içinde sablon alanını düzelt (metin ve aciklama_taslagi rakamlarını değiştirme), `bash tools/gece-12.sh tek <id>` ile yeniden render et; bu komut ücretsizdir, ses önbellekten gelir. Hata verirse ses çağrısı denemeye kalkma. Sosyal-panel .env dosyalarını okuma; hat paylas, hat tablo, Zernio yasak; agir kullanma; port açma. Bitti: her sahne incelendi (video başına sahne sayısı raporda), kalan hata 0; dar commit gece-iht-12 dalında (git add -- <yollar>, git commit --only -- <yollar>); docs/isler/12-dort-reels/RAPOR.md ilk satırı "Durum: bitti", altında video başına tek satır bulgu. Ya da 8 turda dur, ilk satır "Durum: yarım", kalan aynı dosyada. Soru sorma; karar gerekiyorsa RAPOR.md içine "Karar: ..." yaz.'
+  echo "== ajan çıkış $?"
+fi
+
+# Teslim: ajan yarım kalsa da üretilenler çıkar; saat öneki yayın sırasıdır.
+EKSIK=""
+kopyala() {  # saat ad klasör
+  if [ ! -s "$3/final.mp4" ]; then EKSIK="$EKSIK $2"; return; fi
+  cp "$3/final.mp4" "$TESLIM/$1-$2.mp4"; cp "$3/kapak.png" "$TESLIM/$1-$2-kapak.png"; cp "$3/aciklama.txt" "$TESLIM/$1-$2-aciklama.txt"
+  OLCU=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -show_entries format=duration -of csv=p=0 "$TESLIM/$1-$2.mp4" | tr '\n' ' ')
+  echo "$1 $2: $OLCU"
+}
+cp "$HF/hyperframes-final.mp4" "$TESLIM/12-hyperframes.mp4" && cp "$HF/hyperframes-kapak.png" "$TESLIM/12-hyperframes-kapak.png" && cp "$HF/hyperframes-aciklama.txt" "$TESLIM/12-hyperframes-aciklama.txt" || EKSIK="$EKSIK hyperframes"
+kopyala 15 ikea "$KOK/ikea"
+kopyala 18 airbnb "$KOK/airbnb"
+kopyala 22 graphify "$KOK/graphify"
+cp "$ANA/docs/isler/12-dort-reels/SPEC.md" "$TESLIM/SPEC.md"
+[ -f "$WT/docs/isler/12-dort-reels/RAPOR.md" ] && cp "$WT/docs/isler/12-dort-reels/RAPOR.md" "$TESLIM/RAPOR.md"
+
+git -C "$WT" push -u origin "$DAL" || echo "push başarısız"
+echo "== $(TZ=Europe/Istanbul date '+%F %T') bitti; ses $(harcanan) \$; eksik:${EKSIK:- yok}"
+[ -z "$EKSIK" ]

@@ -98,7 +98,12 @@
       { "display": "Claude", "spoken": "Klad" },
         { "display": "Code", "spoken": "Kod" },
       { "display": "GitHub", "spoken": "Githab" },
-      { "display": "HyperFrames", "spoken": "Hayper Freymz" }
+      { "display": "HyperFrames", "spoken": "Hayper Freymz" },
+      { "display": "Graphify", "spoken": "Grafifay" },
+      { "display": "Airbnb'yi", "spoken": "Erbienbiyi" },
+      { "display": "McCain", "spoken": "Mekkeyn" },
+      { "display": "Graham", "spoken": "Greyım" },
+      { "display": "Michael", "spoken": "Maykıl" }
     ]
   }
 }
