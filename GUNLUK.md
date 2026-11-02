@@ -9,6 +9,9 @@
 - Fişte ürün adı ASR hatası (Kapso → CAPSO): fiş onayında kontrol.
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
 
+## 2026-11-02
+- IHT-11 şablon: eldeki 6 rakip videosuyla benchmark, altı kalıbın örnek karesi kodla (`tools/cizim-kod/katalog.mjs`); yön onayı bekliyor, video hattına bağlanmadı. Teslim: `/home/dev/teslim/icerik-hatti/2026-11-02-sablon-katalog/`.
+
 ## 2026-11-01
 - DOMS Reels'i yayında (2 Kas 12:14): https://www.instagram.com/reel/DfO9cusEqga/ · Zernio 6ae8543c05b08582243e498c.
 - Jack Ma Reels yayında (19:09): https://www.instagram.com/reel/DfNIEbRFYLg/ ; DOMS onay bekliyor. Gazete çizim şablonu ilk deneme `tools/cizim-kod/gazete*.mjs` (commit yok, yön onayı bekliyor).
@@ -45,6 +48,7 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-02 | Şablon benchmark'ı yalnız diskteki rakip videolarıyla yapılır | kullanıcı yeni indirme istemedi | kullanıcı
 - 2026-11-02 | Reels sabit gazete şablonuyla çıkar; animasyonlu sahnede zemin ızgarası rengi, animasyon ve kart farklılaşır | her videoda tanınır görünüm, hızlı üretim | kullanıcı
 - 2026-11-02 | 2 Kasım paylaşımları 15:00, 18:00, 22:00; önce bugün ve yarının konuları belirlenir | günde 4 tempoya geçiş | kullanıcı
 - 2026-11-01 | Bugünkü videolar b-roll'suz; ekranlar karikatür-sinematik tarz, görseller agy değil kodla | kullanıcı isteği; kota ve bekleme yok | sohbet
