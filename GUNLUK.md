@@ -18,7 +18,7 @@
 - %50 ortaklık videosu 19:40 yayında: https://www.instagram.com/reel/DfPwa-AD_fJ/ (47,2 sn, ses ~0,22 $; 18:00 hedefi kaçtı). Kreatif anatomi: `docs/isler/11-sablon/KREATIF-ANATOMI.md`.
 
 - 2026-11-02 | 22:00 videosu Televizyon yerine HyperFrames | reklam kapatma güvenilir bulunmadı, ücretsiz araç türü hesapta önde | kullanıcı
-- HyperFrames videosu üretildi (45,2 sn, ses ~0,20 $), yayın onayı bekliyor. Şablonda ilk sahne başlığı ilk kareden görünür. Senaryo: `docs/isler/11-sablon/hyperframes-senaryo.md`.
+- HyperFrames videosu üretildi (45,2 sn, ses ~0,20 $), 22:00 kaçtı, gönderilmedi; yayın onayı bekliyor. Şablonda ilk sahne başlığı ilk kareden görünür. Senaryo: `docs/isler/11-sablon/hyperframes-senaryo.md`.
 
 ## 2026-11-01
 - DOMS Reels'i yayında (2 Kas 12:14): https://www.instagram.com/reel/DfO9cusEqga/ · Zernio 6ae8543c05b08582243e498c.
