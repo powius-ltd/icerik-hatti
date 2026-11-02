@@ -1,6 +1,7 @@
 # Günlük
 
 ## Bekleyen
+- 3 Kas konuları (2 Kas 12:22 tablosu, iddialar yazarken kaynakla doğrulanır): 12 HyperFrames (hazır; asıl konu Pahalı model stokta), 15 "Çok pahalı" itirazı (kaynak 3,2 M), 18 Rekabet / Peter Thiel (388 B), 22 Hukuk: Claude'la yapılan uygulama (200 B; Türkiye'ye uyarlanır, kontrol listesi dili). Program kullanıcı onayı bekliyor.
 - Karar: 04-bul'a eklenen iki kip (aktif üretici listesi + kişi bazlı kopyalama): liste Drive tablosunda yeni sekme mi, repoda dosya mı; kişi başı kaç video (öneri son 10, tutanlar önce).
 - Karar: son tarih.
 - Kullanıcı: rclone kendi client_id + tam Drive izni (Google Cloud adımları); sonra `tablo kur` + gerçek deneme (07 RAPOR komutları).
