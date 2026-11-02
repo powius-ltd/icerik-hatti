@@ -26,7 +26,8 @@ const beklemeVarsayilan = (ms: number) => new Promise<void>((tamam) => setTimeou
 
 /** Tek durumu sınıflar: bitti (published/scheduled), hata ya da hâlâ beklenen (`undefined`). */
 export function durumuSinifla(postId: string, d: ZernioGonderiDurumu): YoklamaSonucu | undefined {
-  const durum = (d.instagram?.status ?? d.status)?.toLowerCase();
+  // Zamanlanmış gönderide kanal yayına dek `pending` kalır; üst durum `scheduled` ise beklenecek bir şey yok.
+  const durum = d.status?.toLowerCase() === "scheduled" ? "scheduled" : (d.instagram?.status ?? d.status)?.toLowerCase();
   const permalink = d.instagram?.permalink;
   if (durum === "published" || durum === "scheduled") return { kind: "tamam", durum, postId, ...(permalink ? { permalink } : {}) };
   if (durum === "failed" || durum === "error") return { kind: "basarisiz", postId, neden: d.instagram?.errorMessage?.slice(0, 200) ?? "Zernio gönderiyi yayınlayamadı." };

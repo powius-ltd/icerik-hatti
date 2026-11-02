@@ -22,6 +22,11 @@ describe("gonderiyiYokla", () => {
     expect(await gonderiyiYokla(i, "p1", { status: "scheduled" }, { bekle })).toMatchObject({ kind: "tamam", durum: "scheduled" });
     expect(i.gonderiDurumu).not.toHaveBeenCalled();
   });
+  it("üst durum scheduled, kanal pending: zamanlanmış gönderi beklenmeden başarı", async () => {
+    const i = { gonderiDurumu: async () => ({ status: "scheduled" }) };
+    expect(await gonderiyiYokla(i, "p1", { status: "scheduled", instagram: { status: "pending" } }, { bekle })).toMatchObject({ kind: "tamam", durum: "scheduled" });
+  });
+
   it("failed → basarisiz, Zernio hata metniyle", async () => {
     const i = sirali([{ status: "failed", instagram: { status: "failed", errorMessage: "video reddedildi" } }]);
     expect(await gonderiyiYokla(i, "p1", undefined, { bekle })).toEqual({ kind: "basarisiz", postId: "p1", neden: "video reddedildi" });
