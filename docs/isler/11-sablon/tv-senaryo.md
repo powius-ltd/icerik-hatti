@@ -12,5 +12,5 @@ Kaynak: https://github.com/Gathin23/cleanyourtv (PROMPT.md, README; 2026-11-02'd
 | Gövde | 4 | Televizyonda Ayarlar, Cihaz Tercihleri, Hakkında'yı aç. Yapı satırına yedi kez bas, USB hata ayıklamayı aç. | Adım 1 |
 | Gövde | 5 | Aynı Wi-Fi'daki bilgisayarda Claude Code'a projenin istemini yapıştır, televizyon modelini yaz. | Adım 2 |
 | Gövde | 6 | Reklam satırları kapanıyor, ana ekranda senin uygulamaların kalıyor. Hiçbir şey silinmiyor, geri alınabiliyor. | Adım 3, temiz ekran |
-| Gövde | 7 | Samsung ve LG'de çalışmaz. YouTube'un içindeki reklamlara da dokunmaz. | Sınır kartı |
+| Gövde | 7 | Samsung ve LG'de çalışmaz, YouTube'un içindeki reklamlara dokunmaz. Garanti ve güncelleme riski de var, yeni televizyonda deneme. | Sınır kartı |
 | CTA | 8 | Kaydet, akşam dene. Claude Code'u seminerde canlı gösteriyoruz. Yorumlara SEMİNER yaz, kayıt linkini DM'den atayım. | Kapanış |
