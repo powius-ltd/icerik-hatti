@@ -14,6 +14,7 @@
 - İlk şablon videosu "Üç boy tuzağı" 15:00 yayında: https://www.instagram.com/reel/DfPQuJigm_3/ (44,7 sn, ~0,21 $). Teslim: `/home/dev/teslim/icerik-hatti/2026-11-02-uc-reels/`.
 - 2026-11-02 | Reels sabit şablondan, altı kalıpla üretilir; yalnız grid rengi, kart ve hareket değişir | her videoda sıfırdan tasarım tutarlılığı bozuyor | kullanıcı
 - 2026-11-02 | Bugünkü yayın sırası: 15 pazarlama (Üç boy), 18 %50 ortaklık (startup), 22 Claude Code (Televizyon) | gün içinde konu çeşitliliği | kullanıcı
+- 2026-11-02 | Videolar Hook, Giriş, Gövde, CTA perdeleriyle kurgulanır; önce TV videosunda denenir | kreatif analizde tutan videolar sonuç ve kanıtla açılıyor | kullanıcı
 - %50 ortaklık videosu üretildi (47,2 sn, ses ~0,22 $), yayın onayı bekliyor. Kreatif anatomi: `docs/isler/11-sablon/KREATIF-ANATOMI.md`.
 
 ## 2026-11-01
