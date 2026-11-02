@@ -15,7 +15,7 @@
 - 2026-11-02 | Reels sabit şablondan, altı kalıpla üretilir; yalnız grid rengi, kart ve hareket değişir | her videoda sıfırdan tasarım tutarlılığı bozuyor | kullanıcı
 - 2026-11-02 | Bugünkü yayın sırası: 15 pazarlama (Üç boy), 18 %50 ortaklık (startup), 22 Claude Code (Televizyon) | gün içinde konu çeşitliliği | kullanıcı
 - 2026-11-02 | Videolar Hook, Giriş, Gövde, CTA perdeleriyle kurgulanır; önce TV videosunda denenir | kreatif analizde tutan videolar sonuç ve kanıtla açılıyor | kullanıcı
-- %50 ortaklık videosu üretildi (47,2 sn, ses ~0,22 $), yayın onayı bekliyor. Kreatif anatomi: `docs/isler/11-sablon/KREATIF-ANATOMI.md`.
+- %50 ortaklık videosu 19:40 yayında: https://www.instagram.com/reel/DfPwa-AD_fJ/ (47,2 sn, ses ~0,22 $; 18:00 hedefi kaçtı). Kreatif anatomi: `docs/isler/11-sablon/KREATIF-ANATOMI.md`.
 
 ## 2026-11-01
 - DOMS Reels'i yayında (2 Kas 12:14): https://www.instagram.com/reel/DfO9cusEqga/ · Zernio 6ae8543c05b08582243e498c.
