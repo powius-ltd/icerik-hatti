@@ -10,6 +10,7 @@
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
 
 ## 2026-11-01
+- DOMS Reels'i yayında (2 Kas 12:14): https://www.instagram.com/reel/DfO9cusEqga/ · Zernio 6ae8543c05b08582243e498c.
 - Jack Ma Reels yayında (19:09): https://www.instagram.com/reel/DfNIEbRFYLg/ ; DOMS onay bekliyor. Gazete çizim şablonu ilk deneme `tools/cizim-kod/gazete*.mjs` (commit yok, yön onayı bekliyor).
 - Kitap Reels'i yayında (14:49): https://www.instagram.com/reel/DfMqXIFjvPR/ · Zernio 6ae72725b18b4ddbf3a5087e. Jack Ma ve DOMS paylaşım onayı bekliyor.
 - Kitap, Jack Ma, DOMS Reels'i b-roll'suz, kodla çizilmiş tam ekran görsellerle üretildi (`tools/cizim-kod`, çizim kalıbına `cizimTam`); ses 0,50 $; paylaşım onayı bekliyor. Otomatik fiş düzeltmesi dalda: `worktree-agent-a16b5dd3dbf8cbc5a`, birleştirilmedi.
