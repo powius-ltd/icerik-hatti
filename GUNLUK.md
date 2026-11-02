@@ -11,7 +11,7 @@
 
 ## 2026-11-02
 - IHT-11 şablon: eldeki 6 rakip videosuyla benchmark, altı kalıbın örnek karesi kodla (`tools/cizim-kod/katalog.mjs`); yön onayı alındı, `sablon` kalıbı hatta bağlandı. Teslim: `/home/dev/teslim/icerik-hatti/2026-11-02-sablon-katalog/`.
-- İlk şablon videosu "Üç boy tuzağı" üretildi (44,7 sn, ~0,21 $), yayın onayı bekliyor. Teslim: `/home/dev/teslim/icerik-hatti/2026-11-02-uc-reels/`.
+- İlk şablon videosu "Üç boy tuzağı" 15:00 yayında: https://www.instagram.com/reel/DfPQuJigm_3/ (44,7 sn, ~0,21 $). Teslim: `/home/dev/teslim/icerik-hatti/2026-11-02-uc-reels/`.
 - 2026-11-02 | Reels sabit şablondan, altı kalıpla üretilir; yalnız grid rengi, kart ve hareket değişir | her videoda sıfırdan tasarım tutarlılığı bozuyor | kullanıcı
 
 ## 2026-11-01
