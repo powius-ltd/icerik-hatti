@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # IHT-12 gece koşusu: onaylı Reels'lerin sesi ve videosu, ajan denetimi, teslim. Yayın ve Zernio yok.
-#   agir --gece --oncelik 5 --ram 5 --ad iht-4reels -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh 15:<id>,18:<id>,22:<id>
+#   agir --gece --oncelik 5 --ram 5 --ad iht-reels -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh 15:cok-pahali,18:rekabet
 # Her <id> için docs/isler/12-dort-reels/fisler/<id>.md gerekir ve fis_onay: evet olmalıdır; yoksa para harcanmadan durur.
 #   bash tools/gece-12.sh bakiye       ElevenLabs bakiyesini okur (ücretsiz)
 #   bash tools/gece-12.sh tek <id>     Düzeltilmiş fiş/çizimle anahtarsız yeniden render (ses önbellekten; ajan kullanır)
@@ -14,10 +14,10 @@ KOK=$ANA/kosular/2026-11-03-dort-reels
 TESLIM=/home/dev/teslim/icerik-hatti/2026-11-03-dort-reels
 HF=/home/dev/teslim/icerik-hatti/2026-11-02-uc-reels
 SES_ID=fwRD2e4Vs09ZX7vfRCka
-SES_TAVAN_USD=1.00
+SES_TAVAN_USD=0.60     # iki video
 VIDEO_TAVAN_USD=0.30   # 1.000 karakter × 0,3 $/1k
 KARAKTER_TAVAN=1000
-GEREKEN_KARAKTER=3000
+GEREKEN_KARAKTER=2000
 BURA=$(cd "$(dirname "$0")/.." && pwd)
 
 anahtar() { sed -n 's/^ELEVENLABS_API_KEY_AISCALE=//p' /home/dev/projeler/sosyal-panel/.env.local | head -1 | tr -d '"'"'"'\r'; }

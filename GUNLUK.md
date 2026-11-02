@@ -1,7 +1,7 @@
 # Günlük
 
 ## Bekleyen
-- 3 Kas konuları (2 Kas 12:22 tablosu, iddialar yazarken kaynakla doğrulanır): 12 HyperFrames (hazır; asıl konu Pahalı model stokta), 15 "Çok pahalı" itirazı (kaynak 3,2 M), 18 Rekabet / Peter Thiel (388 B), 22 Hukuk: Claude'la yapılan uygulama (200 B; Türkiye'ye uyarlanır, kontrol listesi dili). Program kullanıcı onayı bekliyor.
+- 3 Kas (kullanıcı onayladı): gece 15 "Çok pahalı" ve 18 Rekabet / Peter Thiel üretilir; 12 HyperFrames hazır video kalır; 22 Hukuk bu gece yok, yeni şablonla bakılacak.
 - Karar: 04-bul'a eklenen iki kip (aktif üretici listesi + kişi bazlı kopyalama): liste Drive tablosunda yeni sekme mi, repoda dosya mı; kişi başı kaç video (öneri son 10, tutanlar önce).
 - Karar: son tarih.
 - Kullanıcı: rclone kendi client_id + tam Drive izni (Google Cloud adımları); sonra `tablo kur` + gerçek deneme (07 RAPOR komutları).
@@ -60,6 +60,7 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-03 | Bu gece yalnız pazarlama ve startup üretilir, hukuk yeni şablona kalır | kullanıcı: "Yarın sadece pazarlamayla startup üretsin" | yönetici aktarımı
 - 2026-11-03 | Konuları kullanıcı onaylar; 3 Kas için 2 Kas takvimi esas, ücretli ses onaydan sonra | kullanıcı: "takvimdeki konuları at, onaylayayım" | yönetici aktarımı
 - 2026-11-03 | Tempo kalıcı: her gün 4 Reels | kullanıcı isteği | yönetici aktarımı
 - 2026-11-02 | İlk şablon videosu tamamen animasyon; sonraki bazı videolar ara klip + animasyon | kullanıcı isteği | kullanıcı

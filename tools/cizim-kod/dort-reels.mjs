@@ -43,7 +43,31 @@ ${cizgi("ok", "M770 340C770 600 190 600 190 370M145 425L190 360L240 420", G.mavi
 <g class="s1">${solYazi(70, 270, 46, G.ak, "uv tool install graphifyy")}</g><g class="s2">${solYazi(70, 400, 46, G.ak, "graphify install")}</g><g class="s3">${solYazi(70, 530, 46, G.ak, "/graphify .")}${yazi(760, 530, 34, G.gri, "Claude Code'da", 700)}</g>`),
 };
 
-const takimlar = { ikea, airbnb, graphify };
+const balon = (x, y, g, y2, s1, s2, renk = G.mur) => `${kutu(x, y, g, y2)}${s2 ? `${yazi(x + g / 2, y + y2 / 2 - 12, 58, renk, s1)}${yazi(x + g / 2, y + y2 / 2 + 62, 58, G.mavi, s2)}` : yazi(x + g / 2, y + y2 / 2 + 22, 62, renk, s1)}`;
+const cokPahali = {
+  itiraz: svg(`<g class="kisi">${adam(170, 730, 1.4)}</g><g class="balon">${balon(60, 70, 560, 170, "ÇOK PAHALI!")}</g>
+<g class="etiket"><path d="M560 420L720 300H900V620H720Z" fill="${G.mavi}" stroke="${G.mur}" stroke-width="8" stroke-linejoin="round"/><circle cx="660" cy="460" r="22" fill="${G.ak}" stroke="${G.mur}" stroke-width="7"/>${yazi(790, 480, 88, G.ak, "₺")}</g>`),
+  soru: svg(`<g class="balon">${balon(190, 60, 580, 190, "NEYE GÖRE?", null, G.mavi)}</g>
+<g class="terazi"><path d="M480 300V680M300 680H660M180 390H780" stroke="${G.mur}" stroke-width="16" stroke-linecap="round"/>${kutu(90, 410, 240, 150, G.ak, 16)}${yazi(210, 505, 76, G.mur, "?")}${kutu(630, 410, 240, 150, G.mavi, 16)}${yazi(750, 508, 76, G.ak, "₺")}</g>`),
+  kapsam: svg(`<g class="a">${kutu(50, 70, 380, 200, G.gri, 18)}${yazi(240, 150, 46, G.mur, "AYNI İŞ")}${yazi(240, 220, 46, G.mur, "DAHA UCUZ")}</g>
+<g class="b">${kutu(530, 70, 380, 200, G.ak, 18)}${yazi(720, 150, 42, G.mavi, "FİYAT NEDEN")}${yazi(720, 220, 42, G.mavi, "O KADARDI?")}</g>
+<g class="c">${kutu(130, 380, 700, 330, G.mavi, 22)}${yazi(480, 500, 62, G.ak, "DAHA AZ İŞ")}${yazi(480, 620, 62, G.ak, "DAHA AZ ÜCRET")}</g>`),
+  gunluk: svg(`<g class="yil">${kutu(50, 90, 400, 300, G.gri, 18)}${yazi(250, 180, 44, G.mur, "YILDA")}${yazi(250, 300, 76, G.mur, "3.650 ₺")}</g>
+<g class="gun">${kutu(510, 90, 400, 300, G.mavi, 18)}${yazi(710, 180, 44, G.ak, "GÜNDE")}${yazi(710, 300, 76, G.ak, "10 ₺")}</g>
+<g class="not">${kutu(120, 490, 720, 170, G.mur, 20)}${yazi(480, 595, 54, G.ak, "TOPLAMI DA SÖYLE")}</g>`),
+};
+
+const kosan = (x, y, o, yon = 1) => adam(x, y, o, { kolA: "M-16 -196L-60 -160L-80 -110", kolB: "M16 -196L60 -170L84 -210", bacakA: "M-10 -110L-50 -70L-90 -40", bacakB: "M10 -110L40 -60L30 0", yon });
+const rekabet = {
+  yaris: svg(`<g class="k1">${kosan(210, 720, 1.25)}</g><g class="k2">${kosan(520, 720, 1.25)}</g>
+<g class="bayrak"><path d="M820 730V170" stroke="${G.mur}" stroke-width="16" stroke-linecap="round"/><path d="M820 175L640 245L820 315Z" fill="${G.mavi}" stroke="${G.mur}" stroke-width="8" stroke-linejoin="round"/></g><path d="M40 736H920" stroke="${G.mur}" stroke-width="12" stroke-linecap="round"/>`),
+  arkadas: svg(`<g class="kisi">${adam(190, 730, 1.35)}</g>
+<g class="balon">${kutu(240, 70, 680, 300)}<path d="M340 362L290 450L450 362Z" fill="${G.ak}" stroke="${G.mur}" stroke-width="8" stroke-linejoin="round"/><rect x="330" y="345" width="125" height="30" fill="${G.ak}"/>${yazi(580, 195, 50, G.mur, "Staja giremediğine")}${yazi(580, 285, 50, G.mavi, "sevinmiyor musun?")}</g>`),
+  pazar: svg(`<g class="kalabalik">${[70, 200, 330, 130, 270].map((x, i) => adam(x, i < 3 ? 400 : 700, 1.05)).join("")}${yazi(240, 760, 46, G.mur, "AYNI PAZAR")}</g>
+<g class="tek">${kutu(540, 150, 370, 550, G.mavi, 24)}${adam(725, 560, 1.2)}${yazi(725, 640, 44, G.ak, "FARKLI İŞ")}</g>`),
+};
+
+const takimlar = { ikea, airbnb, graphify, "cok-pahali": cokPahali, rekabet };
 const [ad, k] = process.argv.slice(2);
-if (!takimlar[ad] || !k) throw new Error("Kullanım: node dort-reels.mjs <ikea|airbnb|graphify> <çizim klasörü>");
+if (!takimlar[ad] || !k) throw new Error(`Kullanım: node dort-reels.mjs <${Object.keys(takimlar).join("|")}> <çizim klasörü>`);
 for (const [dosyaAdi, icerik] of Object.entries(takimlar[ad])) w(`${k}/${dosyaAdi}.svg`, icerik);

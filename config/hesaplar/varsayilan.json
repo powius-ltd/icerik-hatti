@@ -103,7 +103,14 @@
       { "display": "Airbnb'yi", "spoken": "Erbienbiyi" },
       { "display": "McCain", "spoken": "Mekkeyn" },
       { "display": "Graham", "spoken": "Greyım" },
-      { "display": "Michael", "spoken": "Maykıl" }
+      { "display": "Michael", "spoken": "Maykıl" },
+      { "display": "Thiel'e", "spoken": "Tiil'e" },
+      { "display": "Thiel'in", "spoken": "Tiil'in" },
+      { "display": "Scalia", "spoken": "Skalya" },
+      { "display": "Kennedy", "spoken": "Kenedi" },
+      { "display": "PayPal'ı", "spoken": "Peypal'ı" },
+      { "display": "Google", "spoken": "Gugıl" },
+      { "display": "Gourville'in", "spoken": "Gorvil'in" }
     ]
   }
 }
