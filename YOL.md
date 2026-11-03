@@ -47,6 +47,7 @@ Patron hesabı için tek yeni repo; parçalar viral-uyarla, kreatif-studyo, sosy
 
 - [A] 10-broll: kurucu arşivinden ara kesit (kanca, bölüm başları, CTA tam ekran klip). SPEC: `docs/isler/10-broll/SPEC.md`. Önce yön onayı + 412 px görüntü.
 - [M] DM dokümanı: CTA'da söz verilen link (ör. 5 eklenti) her video için Notion sayfası; fiş onayında "doküman hazır mı" satırı.
+- [A] Yeni kurgu (3 Kas, park): sonraki Reels'te yeni kurgu, yönü belirlenmedi; kullanıcı açınca örnek video ya da tarifle başlanır, şablona işlenir.
 
 ## Daha sonra
 - [M] 05-klon: kaynak kareden yerleşim çıkarımı (agy: öğe türü + kutu + zamanlama) → genel HF sahnesi; renk/tipografi patron temasından.
