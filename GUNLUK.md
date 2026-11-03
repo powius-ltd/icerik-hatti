@@ -1,7 +1,6 @@
 # Günlük
 
 ## Bekleyen
-- HyperFrames Reels (12-hyperframes.mp4) 3 Kas 18:00 için hazır, kuru koşu geçti; kullanıcı onayı bekliyor.
 - Karar: 04-bul'a eklenen iki kip (aktif üretici listesi + kişi bazlı kopyalama): liste Drive tablosunda yeni sekme mi, repoda dosya mı; kişi başı kaç video (öneri son 10, tutanlar önce).
 - Karar: son tarih.
 - Kullanıcı: rclone kendi client_id + tam Drive izni (Google Cloud adımları); sonra `tablo kur` + gerçek deneme (07 RAPOR komutları).
@@ -11,7 +10,7 @@
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
 
 ## 2026-11-03
-- Zernio ile @aiscale_app'e zamanlandı (kapak 1 sn; teslimdeki kapak png'si kullanılmadı, `hat paylas` görsel kapak almıyor): Çok pahalı 12:00 · Zernio 6ae99fdacfc78a2c6c467912; Rekabet 15:00 · Zernio 6ae99fe2cfc78a2c6c467936. ManyChat SEMİNER kuralı denetlenmedi (araç yok).
+- Zernio ile @aiscale_app'e zamanlandı (kapak 1 sn; teslimdeki kapak png'si kullanılmadı, `hat paylas` görsel kapak almıyor): Çok pahalı 12:00 · Zernio 6ae99fdacfc78a2c6c467912; Rekabet 15:00 · Zernio 6ae99fe2cfc78a2c6c467936; HyperFrames 18:00 (kullanıcı onayıyla) · Zernio 6ae9a0a9444788e77bc0f8f6. ManyChat SEMİNER kuralı denetlenmedi (araç yok).
 
 ## 2026-11-03
 - IHT-12 gece paketi: `tools/gece-12.sh <saat:id,...>` konu parametreli, onaysız fişte para harcamadan durur; kuru koşu sahte sesle geçti. Takvim konularının fişi onaydan sonra yazılır. IKEA, Airbnb, Graphify fişleri stokta. Üretim yok.
