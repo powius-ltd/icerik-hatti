@@ -12,6 +12,7 @@
 ## 2026-11-03
 - Zernio ile @aiscale_app'e zamanlandı (kapak 1 sn; teslimdeki kapak png'si kullanılmadı, `hat paylas` görsel kapak almıyor): Çok pahalı 12:00 · Zernio 6ae99fdacfc78a2c6c467912; Rekabet 15:00 · Zernio 6ae99fe2cfc78a2c6c467936; HyperFrames 18:00 (kullanıcı onayıyla) · Zernio 6ae9a0a9444788e77bc0f8f6. ManyChat SEMİNER kuralı denetlenmedi (araç yok).
 - Çok pahalı Reels 12:00'de yayında: https://www.instagram.com/reel/DfRhBvAj9om/ · Zernio 6ae99fdacfc78a2c6c467912 (12:38 yoklaması).
+- Rekabet Reels 15:00'te yayında: https://www.instagram.com/reel/DfR1k3NjINp/ · Zernio 6ae99fe2cfc78a2c6c467936 (16:22 yoklaması); HyperFrames 18:00 hâlâ zamanlı.
 
 ## 2026-11-03
 - IHT-12 gece paketi: `tools/gece-12.sh <saat:id,...>` konu parametreli, onaysız fişte para harcamadan durur; kuru koşu sahte sesle geçti. Takvim konularının fişi onaydan sonra yazılır. IKEA, Airbnb, Graphify fişleri stokta. Üretim yok.
