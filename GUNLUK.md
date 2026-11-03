@@ -8,11 +8,20 @@
 - Ekranın alt %40'ı boş (kart üstte, altyazı ortada): sonraki görsel iyileştirme.
 - Fişte ürün adı ASR hatası (Kapso → CAPSO): fiş onayında kontrol.
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
+- Karar: 22:00 Graphify Reels'i (teknik; fiş `docs/isler/12-dort-reels/fisler/graphify.md`, ~38 sn, ses ~0,23 $). Kullanıcı "teknik girebiliriz" dedi, öneri onay bekliyor; üretim başlatılmadı (3 Kas 22:00 kaçtıysa sonraki slota).
+- Karar: gece üretim kuralı: kanca somut nesne/durum + ters köşe ya da soru, emir kipli öğüt ve "X'e göre" alıntısı yok; süre ≤ 45 sn (kaynak `docs/analitik/2026-11-03-reels.md`).
+- Karar: 4 Kas'ın 4 konusu (12, 15, 18, 22) onaylanıp gece kuyruğuna girecek; liste henüz çıkarılmadı. Stokta IKEA (emir kipli kanca, yeniden yazılmalı), Airbnb (kalıba uyuyor), Graphify.
+- ManyChat SEMİNER kuralı yeni gönderilerde DM atmıyor: gngr.gngr 2 Kas (Kalem) ve 3 Kas (Çok pahalı) "Seminer" yazdı, DM gitmedi. Kullanıcı panelden bakmalı.
+- 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
 ## 2026-11-03
 - Zernio ile @aiscale_app'e zamanlandı (kapak 1 sn; teslimdeki kapak png'si kullanılmadı, `hat paylas` görsel kapak almıyor): Çok pahalı 12:00 · Zernio 6ae99fdacfc78a2c6c467912; Rekabet 15:00 · Zernio 6ae99fe2cfc78a2c6c467936; HyperFrames 18:00 (kullanıcı onayıyla) · Zernio 6ae9a0a9444788e77bc0f8f6. ManyChat SEMİNER kuralı denetlenmedi (araç yok).
 - Çok pahalı Reels 12:00'de yayında: https://www.instagram.com/reel/DfRhBvAj9om/ · Zernio 6ae99fdacfc78a2c6c467912 (12:38 yoklaması).
 - Rekabet Reels 15:00'te yayında: https://www.instagram.com/reel/DfR1k3NjINp/ · Zernio 6ae99fe2cfc78a2c6c467936 (16:22 yoklaması); HyperFrames 18:00 hâlâ zamanlı.
+- HyperFrames 18:03'te yayında: https://www.instagram.com/reel/DfSKAlbFOSr/ · Zernio 6ae9a0a9444788e77bc0f8f6. 22:00 için hazır video yok (IHT-12 planında boş bırakılmıştı).
+- Analitik (Zernio, ücretsiz): 31 Eki–3 Kas 9 Reels kanca/gövde raporu `docs/analitik/2026-11-03-reels.md` (e6b4f71). Tutan kanca somut nesne + ters köşe/soru (3 sn tutma %59–66), emir kipli öğüt %40–53; 50 sn üstünde gövde düşüyor; erişimi konudan çok gün belirliyor. Zernio tutma eğrisi ve takipçi kazanımı vermiyor.
+- Bugünkü videolarda değişiklik yapılmadı; "yeni kurgu" fikri YOL Sonra'ya park edildi (2ad2cb3).
+- Yarının sırası: (1) 22:00 Graphify kararı, (2) 4 Kas konularını onaylat → fişler → gece-12 benzeri paket, komutu yöneticiye bildir, (3) ManyChat SEMİNER kontrolü, (4) skill yazımına geçiş (YOL Sonra).
 
 ## 2026-11-03
 - IHT-12 gece paketi: `tools/gece-12.sh <saat:id,...>` konu parametreli, onaysız fişte para harcamadan durur; kuru koşu sahte sesle geçti. Takvim konularının fişi onaydan sonra yazılır. IKEA, Airbnb, Graphify fişleri stokta. Üretim yok.
