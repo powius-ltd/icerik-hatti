@@ -12,6 +12,7 @@
 
 ## 2026-11-03
 - IHT-12 gece paketi: `tools/gece-12.sh <saat:id,...>` konu parametreli, onaysız fişte para harcamadan durur; kuru koşu sahte sesle geçti. Takvim konularının fişi onaydan sonra yazılır. IKEA, Airbnb, Graphify fişleri stokta. Üretim yok.
+- IHT-12 2 Reels main'e alındı, 118052d
 
 ## 2026-11-02
 - IHT-11 şablon: eldeki 6 rakip videosuyla benchmark, altı kalıbın örnek karesi kodla (`tools/cizim-kod/katalog.mjs`); yön onayı alındı, `sablon` kalıbı hatta bağlandı. Teslim: `/home/dev/teslim/icerik-hatti/2026-11-02-sablon-katalog/`.
