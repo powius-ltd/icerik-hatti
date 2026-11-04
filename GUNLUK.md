@@ -13,7 +13,7 @@
 
 ## 2026-11-04
 - 4 Kas Reels'i gündüz üretildi (gece kuyruğu boştu); konular kullanıcı seçimi: 12 Graphify (37,8 sn), 15 Fayda/matkap (40,9 sn), 18 Giriş engeli/Stories (40,8 sn), 22 Pahalı model/opusplan (39,4 sn). Ses toplamı 0,74 $ (tavan 1,20 $). Teslim: `/home/dev/teslim/icerik-hatti/2026-11-04-dort-reels/`.
-- Graphify Zernio ile 12:00'ye zamanlandı · Zernio 6aeaf2bfb2c6a30be1fab3bf. 15/18/22 paylaşım onayı bekliyor.
+- Graphify 12:00'de yayında: https://www.instagram.com/reel/DfUFqMrDDcA/ · Zernio 6aeaf2bfb2c6a30be1fab3bf. 15/18/22 kullanıcı izleyip onaylayacak.
 - Çizim ortak parçaları `tools/cizim-kod/reels-yardimci.mjs`e alındı; yeni konu `reels-<id>.mjs` dosyasıyla eklenir. `gece-12.sh` artık `GUN` parametreli, 4 video tavanı 1,20 $.
 
 ## 2026-11-03
