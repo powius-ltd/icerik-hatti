@@ -8,11 +8,13 @@
 - Ekranın alt %40'ı boş (kart üstte, altyazı ortada): sonraki görsel iyileştirme.
 - Fişte ürün adı ASR hatası (Kapso → CAPSO): fiş onayında kontrol.
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
-- Karar: 22:00 Graphify Reels'i (teknik; fiş `docs/isler/12-dort-reels/fisler/graphify.md`, ~38 sn, ses ~0,23 $). Kullanıcı "teknik girebiliriz" dedi, öneri onay bekliyor; üretim başlatılmadı (3 Kas 22:00 kaçtıysa sonraki slota).
-- Karar: gece üretim kuralı: kanca somut nesne/durum + ters köşe ya da soru, emir kipli öğüt ve "X'e göre" alıntısı yok; süre ≤ 45 sn (kaynak `docs/analitik/2026-11-03-reels.md`).
-- Karar: 4 Kas'ın 4 konusu (12, 15, 18, 22) onaylanıp gece kuyruğuna girecek; liste henüz çıkarılmadı. Stokta IKEA (emir kipli kanca, yeniden yazılmalı), Airbnb (kalıba uyuyor), Graphify.
 - ManyChat SEMİNER kuralı yeni gönderilerde DM atmıyor: gngr.gngr 2 Kas (Kalem) ve 3 Kas (Çok pahalı) "Seminer" yazdı, DM gitmedi. Kullanıcı panelden bakmalı.
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
+
+## 2026-11-04
+- 4 Kas Reels'i gündüz üretildi (gece kuyruğu boştu); konular kullanıcı seçimi: 12 Graphify (37,8 sn), 15 Fayda/matkap (40,9 sn), 18 Giriş engeli/Stories (40,8 sn), 22 Pahalı model/opusplan (39,4 sn). Ses toplamı 0,74 $ (tavan 1,20 $). Teslim: `/home/dev/teslim/icerik-hatti/2026-11-04-dort-reels/`.
+- Graphify Zernio ile 12:00'ye zamanlandı · Zernio 6aeaf2bfb2c6a30be1fab3bf. 15/18/22 paylaşım onayı bekliyor.
+- Çizim ortak parçaları `tools/cizim-kod/reels-yardimci.mjs`e alındı; yeni konu `reels-<id>.mjs` dosyasıyla eklenir. `gece-12.sh` artık `GUN` parametreli, 4 video tavanı 1,20 $.
 
 ## 2026-11-03
 - Zernio ile @aiscale_app'e zamanlandı (kapak 1 sn; teslimdeki kapak png'si kullanılmadı, `hat paylas` görsel kapak almıyor): Çok pahalı 12:00 · Zernio 6ae99fdacfc78a2c6c467912; Rekabet 15:00 · Zernio 6ae99fe2cfc78a2c6c467936; HyperFrames 18:00 (kullanıcı onayıyla) · Zernio 6ae9a0a9444788e77bc0f8f6. ManyChat SEMİNER kuralı denetlenmedi (araç yok).
@@ -74,6 +76,8 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-04 | Üretim kuralı kalıcı: kanca somut nesne/durum + ters köşe ya da soru, emir kipli öğüt ve "X'e göre" alıntısı yok, süre ≤ 45 sn | 9 Reels analizi (docs/analitik/2026-11-03-reels.md) | kullanıcı
+- 2026-11-04 | Ses günlük tavanı 1,20 $ (video başına 0,30 $) | 4 Reels tempo | kullanıcı
 - 2026-11-03 | Bu gece yalnız pazarlama ve startup üretilir, hukuk yeni şablona kalır | kullanıcı: "Yarın sadece pazarlamayla startup üretsin" | yönetici aktarımı
 - 2026-11-03 | Konuları kullanıcı onaylar; 3 Kas için 2 Kas takvimi esas, ücretli ses onaydan sonra | kullanıcı: "takvimdeki konuları at, onaylayayım" | yönetici aktarımı
 - 2026-11-03 | Tempo kalıcı: her gün 4 Reels | kullanıcı isteği | yönetici aktarımı

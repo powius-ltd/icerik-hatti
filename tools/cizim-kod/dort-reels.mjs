@@ -1,15 +1,7 @@
 // 3 Kasım Reels'lerinin SVG sahneleri: node dort-reels.mjs <ikea|airbnb|graphify> <koşu>/cizimler. Öğeler sınıf adıyla şablondan hareket ettirilir.
-import { writeFileSync as w } from "node:fs";
+import { writeFileSync as w, existsSync } from "node:fs";
 import { G, adam } from "./gazete.mjs";
-
-const svg = (ic) => `<svg xmlns="http://www.w3.org/2000/svg" width="960" height="780" viewBox="0 0 960 780">${ic}</svg>`;
-const yazi = (x, y, boy, renk, metin, agirlik = 800) => `<text x="${x}" y="${y}" text-anchor="middle" font-family="Poppins" font-weight="${agirlik}" font-size="${boy}" fill="${renk}">${metin}</text>`;
-const solYazi = (x, y, boy, renk, metin) => `<text x="${x}" y="${y}" font-family="JetBrainsMono" font-weight="700" font-size="${boy}" fill="${renk}">${metin}</text>`;
-const kutu = (x, y, g, y2, c = G.ak, r = 26) => `<rect x="${x}" y="${y}" width="${g}" height="${y2}" rx="${r}" fill="${c}" stroke="${G.mur}" stroke-width="8"/>`;
-const cizgi = (sinif, d, c = G.mur, k = 16) => `<path class="${sinif}" pathLength="1" d="${d}" fill="none" stroke="${c}" stroke-width="${k}" stroke-linecap="round" stroke-linejoin="round"/>`;
-
-// Eşit boylu karton kutu: ön yüz + kapak; `kapali` değilse kapaklar açık.
-const karton = (x, y, g, y2, c = G.ak, kapali = true) => `<path d="M${x} ${y}L${x + 70} ${y - 60}H${x + g + 70}V${y + y2 - 60}L${x + g} ${y + y2}Z" fill="${G.gri}" stroke="${G.mur}" stroke-width="8" stroke-linejoin="round"/>${kutu(x, y, g, y2, c, 8)}${kapali ? "" : `<path d="M${x} ${y}L${x - 50} ${y - 80}M${x + g} ${y}L${x + g + 50} ${y - 80}" stroke="${G.mur}" stroke-width="14" stroke-linecap="round"/>`}`;
+import { svg, yazi, solYazi, kutu, cizgi, karton } from "./reels-yardimci.mjs";
 
 const ikea = {
   montaj: svg(`<g class="kutu">${karton(300, 330, 330, 300, G.ak, false)}${yazi(465, 465, 58, G.mavi, "KENDİN")}${yazi(465, 535, 58, G.mavi, "KUR")}</g>
@@ -69,5 +61,8 @@ const rekabet = {
 
 const takimlar = { ikea, airbnb, graphify, "cok-pahali": cokPahali, rekabet };
 const [ad, k] = process.argv.slice(2);
+// Yeni konu kendi dosyasında: reels-<id>.mjs, varsayılan dışa aktarım { dosyaAdı: svg }.
+const ek = new URL(`./reels-${ad}.mjs`, import.meta.url);
+if (!takimlar[ad] && ad && existsSync(ek)) takimlar[ad] = (await import(ek)).default;
 if (!takimlar[ad] || !k) throw new Error(`Kullanım: node dort-reels.mjs <${Object.keys(takimlar).join("|")}> <çizim klasörü>`);
 for (const [dosyaAdi, icerik] of Object.entries(takimlar[ad])) w(`${k}/${dosyaAdi}.svg`, icerik);

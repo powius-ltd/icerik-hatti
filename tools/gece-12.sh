@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # IHT-12 gece koşusu: onaylı Reels'lerin sesi ve videosu, ajan denetimi, teslim. Yayın ve Zernio yok.
-#   agir --gece --oncelik 5 --ram 5 --ad iht-reels -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh 15:cok-pahali,18:rekabet
+#   GUN=2026-11-05 agir --gece --oncelik 5 --ram 5 --ad iht-reels -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh 12:a,15:b,18:c,22:d
+# GUN yayın günüdür (varsayılan yarın); koşu ve teslim klasörü ona göre açılır.
 # Her <id> için docs/isler/12-dort-reels/fisler/<id>.md gerekir ve fis_onay: evet olmalıdır; yoksa para harcanmadan durur.
 #   bash tools/gece-12.sh bakiye       ElevenLabs bakiyesini okur (ücretsiz)
 #   bash tools/gece-12.sh tek <id>     Düzeltilmiş fiş/çizimle anahtarsız yeniden render (ses önbellekten; ajan kullanır)
@@ -10,14 +11,14 @@ set -uo pipefail
 ANA=/home/dev/projeler/icerik-hatti
 WT=$ANA/.claude/worktrees/gece-12
 DAL=gece-iht-12
-KOK=$ANA/kosular/2026-11-03-dort-reels
-TESLIM=/home/dev/teslim/icerik-hatti/2026-11-03-dort-reels
-HF=/home/dev/teslim/icerik-hatti/2026-11-02-uc-reels
+GUN=${GUN:-$(TZ=Europe/Istanbul date -d tomorrow +%F)}
+KOK=$ANA/kosular/$GUN-dort-reels
+TESLIM=/home/dev/teslim/icerik-hatti/$GUN-dort-reels
 SES_ID=fwRD2e4Vs09ZX7vfRCka
-SES_TAVAN_USD=0.60     # iki video
+SES_TAVAN_USD=1.20     # dört video (4 Kas kararı)
 VIDEO_TAVAN_USD=0.30   # 1.000 karakter × 0,3 $/1k
 KARAKTER_TAVAN=1000
-GEREKEN_KARAKTER=2000
+GEREKEN_KARAKTER=2800
 BURA=$(cd "$(dirname "$0")/.." && pwd)
 
 anahtar() { sed -n 's/^ELEVENLABS_API_KEY_AISCALE=//p' /home/dev/projeler/sosyal-panel/.env.local | head -1 | tr -d '"'"'"'\r'; }
@@ -107,7 +108,6 @@ kopyala() {  # saat ad klasör
   OLCU=$(ffprobe -v error -select_streams v:0 -show_entries stream=width,height -show_entries format=duration -of csv=p=0 "$TESLIM/$1-$2.mp4" | tr '\n' ' ')
   echo "$1 $2: $OLCU"
 }
-cp "$HF/hyperframes-final.mp4" "$TESLIM/12-hyperframes.mp4" && cp "$HF/hyperframes-kapak.png" "$TESLIM/12-hyperframes-kapak.png" && cp "$HF/hyperframes-aciklama.txt" "$TESLIM/12-hyperframes-aciklama.txt" || EKSIK="$EKSIK hyperframes"
 for s in $SLOTLAR; do kopyala "${s%%:*}" "${s#*:}" "$KOK/${s#*:}"; done
 cp "$ANA/docs/isler/12-dort-reels/SPEC.md" "$TESLIM/SPEC.md"
 [ -f "$WT/docs/isler/12-dort-reels/RAPOR.md" ] && cp "$WT/docs/isler/12-dort-reels/RAPOR.md" "$TESLIM/RAPOR.md"
