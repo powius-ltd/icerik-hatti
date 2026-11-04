@@ -1,0 +1,14 @@
+{"out":"sosyal-kanit-mix","hook":"KOD BİLMEDEN\nNE KURDULAR?","hook_sn":3.0,
+ "fix":{"CLOUD":"CLAUDE","KİTAYA":"KÜTAHYA","TURUMSAL":"KURUMSAL","HIMM":""},
+ "cta":{"ses":"cta/cta.mp3","metin":"SIRADAKİ HİKÂYE\nSENİNKİ OLSUN\nYORUMLARA\nSEMİNER YAZ","sn":5.2},
+ "clips":[
+ {"src":"SH-05.mp4","dokum":"SH-05","t0":0.0,"t1":3.85,"crop":[122,0,796,870]},
+ {"src":"SH-05.mp4","dokum":"SH-05","t0":101.2,"t1":104.1,"crop":[122,0,796,870]},
+ {"src":"SH-01.mp4","dokum":"SH-01","t0":0.0,"t1":9.6,"crop":[170,370,740,510]},
+ {"src":"SH-03.mp4","dokum":"SH-03","t0":1.15,"t1":5.17,"crop":[324,60,546,680]},
+ {"src":"SH-03.mp4","dokum":"SH-03","t0":105.38,"t1":109.72,"crop":[324,60,546,680]},
+ {"src":"SH-02.mp4","dokum":"SH-02","t0":34.1,"t1":37.0,"crop":[0,0,1080,870]},
+ {"src":"SH-02.mp4","dokum":"SH-02","t0":38.68,"t1":43.8,"crop":[0,0,1080,870]},
+ {"src":"SH-01.mp4","dokum":"SH-01","t0":85.2,"t1":88.98,"crop":[170,370,740,510]},
+ {"src":"SH-01.mp4","dokum":"SH-01","t0":92.9,"t1":94.62,"crop":[170,370,740,510]}
+ ]}

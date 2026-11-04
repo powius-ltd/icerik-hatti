@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Testimonial kesim motoru.
 Kullanim: build.py <spec.json> [--ciktidir DIR]
-spec: {"out": "ad", "hook": "ust yazi", "hook_sn": 3.0, "clips": [{"src": "dosya.mp4", "dokum": "TST-02", "t0": 1.0, "t1": 5.0, "crop": [x,y,w,h], "fgy": 480}]}
+spec: {"out": "ad", "hook": "ust yazi", "hook_sn": 3.0, "cta": {"ses": "cta/x.mp3", "metin": "SATIR1\\nSATIR2", "sn": 5.0}, "clips": [{"src": "dosya.mp4", "dokum": "TST-02", "t0": 1.0, "t1": 5.0, "crop": [x,y,w,h], "fgy": 480}]}
 - crop: kaynaktan konusmaci paneli (yuz merkezli); on plan 1080 genislige olceklenir, bulanik arka plan ustunde fgy konumuna konur.
 - Altyazi: ASS, kelime vurgulu (aktif kelime sari), beyaz + siyah kontur, y<=~1480 (alt %20'nin ustu).
 - Ses: -14 LUFS (olcup duzeltir). Cikti 1080x1920 H.264/AAC.
@@ -49,6 +49,7 @@ WrapStyle: 2
 [V4+ Styles]
 Format: Name,Fontname,Fontsize,PrimaryColour,SecondaryColour,OutlineColour,BackColour,Bold,Italic,Underline,StrikeOut,ScaleX,ScaleY,Spacing,Angle,BorderStyle,Outline,Shadow,Alignment,MarginL,MarginR,MarginV,Encoding
 Style: Alt,DejaVu Sans,60,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,7,0,2,60,60,{H-1470},1
+Style: Cta,DejaVu Sans,86,&H00FFFFFF,&H00FFFFFF,&H00A03CC8,&H00A03CC8,-1,0,0,0,100,100,0,0,3,24,0,5,80,80,0,1
 Style: Hook,DejaVu Sans,62,&H00FFFFFF,&H00FFFFFF,&H00A03CC8,&H00A03CC8,-1,0,0,0,100,100,0,0,3,18,0,8,60,60,230,1
 
 [Events]
@@ -67,6 +68,9 @@ Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
     if spec.get("hook"):
         hs = spec.get("hook_sn", 3.0)
         ev.append(f"Dialogue: 1,{ass_time(0)},{ass_time(hs)},Hook,,0,0,0,,{{\\fad(150,200)}}{spec['hook'].replace(chr(10), chr(92)+'N')}")
+    if spec.get("cta"):
+        c = spec["cta"]
+        ev.append(f"Dialogue: 1,{ass_time(off + 0.15)},{ass_time(off + c['sn'])},Cta,,0,0,0,,{{\\fad(200,0)}}{c['metin'].replace(chr(10), chr(92)+'N')}")
     open(path, "w", encoding="utf-8").write(hdr + "\n".join(ev) + "\n")
     return off
 
@@ -95,6 +99,14 @@ def main():
                   f"[{i}:a]aresample=48000,afade=in:d=0.03,afade=out:st={d-0.03:.3f}:d=0.03[a{i}]")
         labels += f"[v{i}][a{i}]"
     n = len(spec["clips"])
+    if spec.get("cta"):
+        # Kapanis: son kesitin son karesi bulanik ve karartilmis, ustunde CTA yazisi ve seslendirmesi.
+        c, son = spec["cta"], spec["clips"][-1]
+        cmd += ["-ss", str(son["t1"] - 0.1), "-t", "0.1", "-i", f"{K}/kaynak/{son['src']}", "-i", f"{K}/{c['ses']}"]
+        fc.append(f"[{n}:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},gblur=sigma=40,eq=brightness=-0.3,"
+                  f"fps=30,setsar=1,trim=end_frame=1,tpad=stop_mode=clone:stop_duration={c['sn']},trim=duration={c['sn']}[v{n}];"
+                  f"[{n+1}:a]aresample=48000,adelay=300:all=1,apad,atrim=duration={c['sn']}[a{n}]")
+        labels += f"[v{n}][a{n}]"; n += 1
     fc.append(f"{labels}concat=n={n}:v=1:a=1[vc][ac];[vc]ass='{ass}'[vo];[ac]loudnorm=I=-14:TP=-1.5:LRA=11[ao]")
     cmd += ["-filter_complex", ";".join(fc), "-map", "[vo]", "-map", "[ao]", "-c:v", "libx264", "-preset", "medium", "-crf", "20",
             "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", out]
