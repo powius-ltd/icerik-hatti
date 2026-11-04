@@ -21,7 +21,7 @@
 - Giriş engeli 18:00 · Zernio 6aeb320eac6255f5ccd3fabe ve Pahalı model 22:00 · Zernio 6aeb3211ac6255f5ccd3fac6 zamanlandı (kullanıcı onayıyla).
 - Giriş engeli 18:00'de yayında: https://www.instagram.com/reel/DfUuxA1DOZ_/ (19:39 yoklaması).
 - Pahalı model 22:00'de yayında: https://www.instagram.com/reel/DfVKNAUip-n/ (4 Kas dört Reels tamam).
-- Sosyal kanıt mix (gelen/shorts 5 videodan 4 kişi: Ayşenur, Çağrı, Sümeyye, harita mühendisi; Florida atlandı) 43,5 sn + patron sesiyle SEMİNER CTA (~0,01 $). Teslim: `/home/dev/teslim/icerik-hatti/2026-11-04-sosyal-kanit/` · 183443f. İzleme bekliyor.
+- Sosyal kanıt mix (gelen/shorts 5 videodan 4 kişi: Ayşenur, Çağrı, Sümeyye, harita mühendisi; Florida atlandı) 43,5 sn + patron sesiyle SEMİNER CTA (~0,01 $). Teslim: `/home/dev/teslim/icerik-hatti/2026-11-04-sosyal-kanit/` · 183443f. 22:50'de yayında: https://www.instagram.com/reel/DfVP3HFjvQc/ · Zernio 6aeb8c5a68959db0d5fcaa7f.
 - Çizim ortak parçaları `tools/cizim-kod/reels-yardimci.mjs`e alındı; yeni konu `reels-<id>.mjs` dosyasıyla eklenir. `gece-12.sh` artık `GUN` parametreli, 4 video tavanı 1,20 $.
 
 ## 2026-11-03
