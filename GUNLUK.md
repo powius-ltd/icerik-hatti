@@ -18,6 +18,7 @@
 - 4 Kas Reels'i gündüz üretildi (gece kuyruğu boştu); konular kullanıcı seçimi: 12 Graphify (37,8 sn), 15 Fayda/matkap (40,9 sn), 18 Giriş engeli/Stories (40,8 sn), 22 Pahalı model/opusplan (39,4 sn). Ses toplamı 0,74 $ (tavan 1,20 $). Teslim: `/home/dev/teslim/icerik-hatti/2026-11-04-dort-reels/`.
 - Graphify 12:00'de yayında: https://www.instagram.com/reel/DfUFqMrDDcA/ · Zernio 6aeaf2bfb2c6a30be1fab3bf. Fayda 15:00'e zamanlandı (kullanıcı onayıyla) · Zernio 6aeafef97850d11942407535; 18/22 onay bekliyor.
 - Fayda 15:00'te yayında: https://www.instagram.com/reel/DfUaU7tCTFp/ · Zernio 6aeafef97850d11942407535 (16:23 yoklaması).
+- Giriş engeli 18:00 · Zernio 6aeb320eac6255f5ccd3fabe ve Pahalı model 22:00 · Zernio 6aeb3211ac6255f5ccd3fac6 zamanlandı (kullanıcı onayıyla).
 - Çizim ortak parçaları `tools/cizim-kod/reels-yardimci.mjs`e alındı; yeni konu `reels-<id>.mjs` dosyasıyla eklenir. `gece-12.sh` artık `GUN` parametreli, 4 video tavanı 1,20 $.
 
 ## 2026-11-03
@@ -82,6 +83,7 @@
 ## Kararlar
 - 2026-11-04 | Üretim kuralı kalıcı: kanca somut nesne/durum + ters köşe ya da soru, emir kipli öğüt ve "X'e göre" alıntısı yok, süre ≤ 45 sn | 9 Reels analizi (docs/analitik/2026-11-03-reels.md) | kullanıcı
 - 2026-11-04 | Ses günlük tavanı 1,20 $ (video başına 0,30 $) | 4 Reels tempo | kullanıcı
+- 2026-11-04 | Üretilen ve izlenen Reels, kullanıcı aksini söylemedikçe kendi saatine zamanlanır (video başı ayrı onay beklenmez) | 4 Kas'ta 18/22 akışı | kullanıcı
 - 2026-11-03 | Bu gece yalnız pazarlama ve startup üretilir, hukuk yeni şablona kalır | kullanıcı: "Yarın sadece pazarlamayla startup üretsin" | yönetici aktarımı
 - 2026-11-03 | Konuları kullanıcı onaylar; 3 Kas için 2 Kas takvimi esas, ücretli ses onaydan sonra | kullanıcı: "takvimdeki konuları at, onaylayayım" | yönetici aktarımı
 - 2026-11-03 | Tempo kalıcı: her gün 4 Reels | kullanıcı isteği | yönetici aktarımı
