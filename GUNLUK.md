@@ -19,6 +19,7 @@
 - Graphify 12:00'de yayında: https://www.instagram.com/reel/DfUFqMrDDcA/ · Zernio 6aeaf2bfb2c6a30be1fab3bf. Fayda 15:00'e zamanlandı (kullanıcı onayıyla) · Zernio 6aeafef97850d11942407535; 18/22 onay bekliyor.
 - Fayda 15:00'te yayında: https://www.instagram.com/reel/DfUaU7tCTFp/ · Zernio 6aeafef97850d11942407535 (16:23 yoklaması).
 - Giriş engeli 18:00 · Zernio 6aeb320eac6255f5ccd3fabe ve Pahalı model 22:00 · Zernio 6aeb3211ac6255f5ccd3fac6 zamanlandı (kullanıcı onayıyla).
+- Giriş engeli 18:00'de yayında: https://www.instagram.com/reel/DfUuxA1DOZ_/ (19:39 yoklaması).
 - Çizim ortak parçaları `tools/cizim-kod/reels-yardimci.mjs`e alındı; yeni konu `reels-<id>.mjs` dosyasıyla eklenir. `gece-12.sh` artık `GUN` parametreli, 4 video tavanı 1,20 $.
 
 ## 2026-11-03
