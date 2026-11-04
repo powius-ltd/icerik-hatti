@@ -1,7 +1,7 @@
 # Günlük
 
 ## Bekleyen
-- Kullanıcı (16:00): 15/18/22 videolarını izleyip paylaşım onayı; 15:00 slotu kayarsa saat yeniden belirlenir. Teslim `/home/dev/teslim/icerik-hatti/2026-11-04-dort-reels/`.
+- Kullanıcı (16:00): 18/22 videolarını izleyip paylaşım onayı. Teslim `/home/dev/teslim/icerik-hatti/2026-11-04-dort-reels/`.
 - Sosyal kanıt (park, 16:00): kullanıcı elindeki indirilmiş Shorts/Reels'i `/home/dev/gelen/icerik-hatti/sosyal-kanit/`e atacak; sonra tarama listesi (kişi, güçlü cümle, süre) ve ne üretileceği konuşulur. Sunucudan YouTube indirme hâlâ "bot" engelli (4 Kas, 4 istemci denendi); yeni video gerekirse laptoptan yt-dlp (girişsiz, 5–15 sn bekleme) ya da kullanıcının sitesi.
 - Yarının (5 Kas) 4 konusu seçilmedi; seçilip fiş onaylanınca gece komutu: `GUN=2026-11-05 agir --gece --oncelik 5 --ram 5 --ad iht-reels -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh 12:<id>,15:<id>,18:<id>,22:<id>`. Stok: airbnb, ikea (kanca yeniden yazılmalı).
 - Karar: 04-bul'a eklenen iki kip (aktif üretici listesi + kişi bazlı kopyalama): liste Drive tablosunda yeni sekme mi, repoda dosya mı; kişi başı kaç video (öneri son 10, tutanlar önce).
@@ -16,7 +16,7 @@
 
 ## 2026-11-04
 - 4 Kas Reels'i gündüz üretildi (gece kuyruğu boştu); konular kullanıcı seçimi: 12 Graphify (37,8 sn), 15 Fayda/matkap (40,9 sn), 18 Giriş engeli/Stories (40,8 sn), 22 Pahalı model/opusplan (39,4 sn). Ses toplamı 0,74 $ (tavan 1,20 $). Teslim: `/home/dev/teslim/icerik-hatti/2026-11-04-dort-reels/`.
-- Graphify 12:00'de yayında: https://www.instagram.com/reel/DfUFqMrDDcA/ · Zernio 6aeaf2bfb2c6a30be1fab3bf. 15/18/22 kullanıcı izleyip onaylayacak.
+- Graphify 12:00'de yayında: https://www.instagram.com/reel/DfUFqMrDDcA/ · Zernio 6aeaf2bfb2c6a30be1fab3bf. Fayda 15:00'e zamanlandı (kullanıcı onayıyla) · Zernio 6aeafef97850d11942407535; 18/22 onay bekliyor.
 - Çizim ortak parçaları `tools/cizim-kod/reels-yardimci.mjs`e alındı; yeni konu `reels-<id>.mjs` dosyasıyla eklenir. `gece-12.sh` artık `GUN` parametreli, 4 video tavanı 1,20 $.
 
 ## 2026-11-03
