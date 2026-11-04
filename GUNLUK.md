@@ -1,6 +1,9 @@
 # Günlük
 
 ## Bekleyen
+- Kullanıcı (16:00): 15/18/22 videolarını izleyip paylaşım onayı; 15:00 slotu kayarsa saat yeniden belirlenir. Teslim `/home/dev/teslim/icerik-hatti/2026-11-04-dort-reels/`.
+- Sosyal kanıt (park, 16:00): kullanıcı elindeki indirilmiş Shorts/Reels'i `/home/dev/gelen/icerik-hatti/sosyal-kanit/`e atacak; sonra tarama listesi (kişi, güçlü cümle, süre) ve ne üretileceği konuşulur. Sunucudan YouTube indirme hâlâ "bot" engelli (4 Kas, 4 istemci denendi); yeni video gerekirse laptoptan yt-dlp (girişsiz, 5–15 sn bekleme) ya da kullanıcının sitesi.
+- Yarının (5 Kas) 4 konusu seçilmedi; seçilip fiş onaylanınca gece komutu: `GUN=2026-11-05 agir --gece --oncelik 5 --ram 5 --ad iht-reels -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh 12:<id>,15:<id>,18:<id>,22:<id>`. Stok: airbnb, ikea (kanca yeniden yazılmalı).
 - Karar: 04-bul'a eklenen iki kip (aktif üretici listesi + kişi bazlı kopyalama): liste Drive tablosunda yeni sekme mi, repoda dosya mı; kişi başı kaç video (öneri son 10, tutanlar önce).
 - Karar: son tarih.
 - Kullanıcı: rclone kendi client_id + tam Drive izni (Google Cloud adımları); sonra `tablo kur` + gerçek deneme (07 RAPOR komutları).
