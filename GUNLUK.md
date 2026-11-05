@@ -17,6 +17,8 @@
 ## 2026-11-05
 - Analitik: 4 Kas Reels + hesabın 43 gönderisi (`docs/analitik/`) · cd9cb21, 20809ab. Erişimi kanca değil kaydetme/paylaşma oranı belirliyor; araç içeriği + SEMİNER CTA en iyi kalıp.
 - IHT-13 Anatomy araç Reels (41,4 sn, ses ~0,05 $, demo kaydı skill'in gerçek çizimi) · ad243dc. 18:18'de yayında (kullanıcı "pushlayalım"): https://www.instagram.com/reel/DfXVmktD19A/ · Zernio 6aec9e6cce61bde582b40fc4. BR-90/91 ortak b-roll arşivinden `/home/dev/cikti/anatomy-demo/`e alındı.
+- Hasan testimonial kanca + mail otomasyonu gövdesi (43,6 sn) üretildi, teslimde; 22:00 onayı bekliyor · bc1ba01.
+- Gündüz Reels üretimi skill'e döndü: `.claude/skills/reels-uret/SKILL.md` + `tools/reels.sh` (hazirla/uret/kanca/kareler/teslim/paylas); anahtar okuma `tools/anahtar.sh`te tek kopya (gece-12 de kullanır). Önbellekli sesle uçtan uca denendi, 656 test geçti.
 
 ## 2026-11-04
 - 4 Kas Reels'i gündüz üretildi (gece kuyruğu boştu); konular kullanıcı seçimi: 12 Graphify (37,8 sn), 15 Fayda/matkap (40,9 sn), 18 Giriş engeli/Stories (40,8 sn), 22 Pahalı model/opusplan (39,4 sn). Ses toplamı 0,74 $ (tavan 1,20 $). Teslim: `/home/dev/teslim/icerik-hatti/2026-11-04-dort-reels/`.
@@ -134,3 +136,4 @@
 - 2026-10-31 | İçerik yalnız Claude değil; pazarlama ve startup konularında da üretilir, işler aşamalı otomatikleşir | kullanıcı isteği | kullanıcı
 - 2026-10-31 | Apify taraması haftalık: aylık 5 $'ın 4 $'ı 4 haftaya bölünür (hafta 1 $, 1 $ yedek onayla), her hafta Claude + pazarlama + startup × TikTok + Instagram, tarama başına en çok 50 video, ilk 10 rapora; ek seçenekler kapalı | güncellik ve deneme bütçesi | kullanıcı
 - 2026-10-31 | Haftalık tarama 6 × 30 video (önceki 50'nin yerine); yalnız konu başına en iyi 5 video indirilir (haftada 15), önce ücretsiz yt-dlp, Apify yedek; hafta tavanı 1 $ | indirme en pahalı kalem, bütçeye sığması için | kullanıcı
+- 2026-11-05 | Gündüz tek Reels üretimi `reels-uret` skill'i ve `tools/reels.sh` ile yürür; konu seçimi ve paylaşım onayı kullanıcıda kalır | elle 4 tam turdan sonra; her yeni sohbet araçları baştan arıyordu | kullanıcı

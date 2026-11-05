@@ -21,7 +21,7 @@ KARAKTER_TAVAN=1000
 GEREKEN_KARAKTER=2800
 BURA=$(cd "$(dirname "$0")/.." && pwd)
 
-anahtar() { sed -n 's/^ELEVENLABS_API_KEY_AISCALE=//p' /home/dev/projeler/sosyal-panel/.env.local | head -1 | tr -d '"'"'"'\r'; }
+source "$BURA/tools/anahtar.sh"   # anahtar()
 
 # Kalan karakteri basar; okunamazsa boş döner.
 bakiye() {
