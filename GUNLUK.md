@@ -14,6 +14,10 @@
 - ManyChat SEMİNER kuralı yeni gönderilerde DM atmıyor: gngr.gngr 2 Kas (Kalem) ve 3 Kas (Çok pahalı) "Seminer" yazdı, DM gitmedi. Kullanıcı panelden bakmalı.
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
+## 2026-11-05
+- Analitik: 4 Kas Reels + hesabın 43 gönderisi (`docs/analitik/`) · cd9cb21, 20809ab. Erişimi kanca değil kaydetme/paylaşma oranı belirliyor; araç içeriği + SEMİNER CTA en iyi kalıp.
+- IHT-13 Anatomy araç Reels (41,4 sn, ses ~0,05 $, demo kaydı skill'in gerçek çizimi) · ad243dc. 18:18'de yayında (kullanıcı "pushlayalım"): https://www.instagram.com/reel/DfXVmktD19A/ · Zernio 6aec9e6cce61bde582b40fc4. BR-90/91 ortak b-roll arşivinden `/home/dev/cikti/anatomy-demo/`e alındı.
+
 ## 2026-11-04
 - 4 Kas Reels'i gündüz üretildi (gece kuyruğu boştu); konular kullanıcı seçimi: 12 Graphify (37,8 sn), 15 Fayda/matkap (40,9 sn), 18 Giriş engeli/Stories (40,8 sn), 22 Pahalı model/opusplan (39,4 sn). Ses toplamı 0,74 $ (tavan 1,20 $). Teslim: `/home/dev/teslim/icerik-hatti/2026-11-04-dort-reels/`.
 - Graphify 12:00'de yayında: https://www.instagram.com/reel/DfUFqMrDDcA/ · Zernio 6aeaf2bfb2c6a30be1fab3bf. Fayda 15:00'e zamanlandı (kullanıcı onayıyla) · Zernio 6aeafef97850d11942407535; 18/22 onay bekliyor.
