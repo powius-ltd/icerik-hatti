@@ -17,7 +17,7 @@
 ## 2026-11-05
 - Analitik: 4 Kas Reels + hesabın 43 gönderisi (`docs/analitik/`) · cd9cb21, 20809ab. Erişimi kanca değil kaydetme/paylaşma oranı belirliyor; araç içeriği + SEMİNER CTA en iyi kalıp.
 - IHT-13 Anatomy araç Reels (41,4 sn, ses ~0,05 $, demo kaydı skill'in gerçek çizimi) · ad243dc. 18:18'de yayında (kullanıcı "pushlayalım"): https://www.instagram.com/reel/DfXVmktD19A/ · Zernio 6aec9e6cce61bde582b40fc4. BR-90/91 ortak b-roll arşivinden `/home/dev/cikti/anatomy-demo/`e alındı.
-- Hasan testimonial kanca + mail otomasyonu gövdesi (43,6 sn) üretildi, teslimde; 22:00 onayı bekliyor · bc1ba01.
+- Hasan testimonial kanca + mail otomasyonu gövdesi (43,6 sn) · bc1ba01. 23:05'te yayında (kullanıcı "atalım, keyword seminer"): https://www.instagram.com/reel/DfX2Qwbio39/ · Zernio 6aece14ec9899955dab53dc3. ManyChat SEMİNER kuralı bu gönderide de elle kontrol edilmeli (2–3 Kas DM gitmemişti).
 - Gündüz Reels üretimi skill'e döndü: `.claude/skills/reels-uret/SKILL.md` + `tools/reels.sh` (hazirla/uret/kanca/kareler/teslim/paylas); anahtar okuma `tools/anahtar.sh`te tek kopya (gece-12 de kullanır). Önbellekli sesle uçtan uca denendi, 656 test geçti.
 
 ## 2026-11-04
