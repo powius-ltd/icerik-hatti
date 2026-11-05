@@ -58,8 +58,10 @@ Format: Layer,Start,End,Style,Name,MarginL,MarginR,MarginV,Effect,Text
     ev, off = [], 0.0
     for c in spec["clips"]:
         ws = words_for(c, off, {**spec.get('fix', {}), **c.get('fix', {})})
-        for ch in chunks(ws):
-            end_ch = ch[-1][1] + 0.12
+        cs = chunks(ws)
+        for k, ch in enumerate(cs):
+            # Sonraki parça başlamadan biter; yoksa iki satır üst üste biner.
+            end_ch = min(ch[-1][1] + 0.12, cs[k + 1][0][0]) if k + 1 < len(cs) else ch[-1][1] + 0.12
             for i, w in enumerate(ch):
                 s = w[0]; e = ch[i + 1][0] if i + 1 < len(ch) else end_ch
                 txt = " ".join((r"{\c&H00FFFF&}" + x[2] + r"{\c&HFFFFFF&}") if j == i else x[2] for j, x in enumerate(ch))
