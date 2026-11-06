@@ -13,6 +13,10 @@
 - ManyChat SEMİNER kuralı yeni gönderilerde DM atmıyor: gngr.gngr 2 Kas (Kalem) ve 3 Kas (Çok pahalı) "Seminer" yazdı, DM gitmedi. Kullanıcı panelden bakmalı.
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
+## 2026-11-06
+- 4'lü ızgara testimonial kanca prototipi (konuşan kutu büyür → gazete gövdesine geçiş, 10 sn, 0 $): `tools/testimonial/izgara.py`. Teslim `/home/dev/teslim/icerik-hatti/2026-11-06-izgara-kanca/`. Gerekçe: Sosyal kanıt mix'i 3 sn tutmada %71 (aynı saatte Hasan %51, Pahalı model %55), fark saatten değil formattan. Kullanıcı onayı bekliyor.
+- Geçilmiş kapılar işaretlendi, fiş denetimi dalı main'e alındı (ed91168), eski worktree'ler kaldırıldı · 6286dd2.
+
 ## 2026-11-05
 - Analitik: 4 Kas Reels + hesabın 43 gönderisi (`docs/analitik/`) · cd9cb21, 20809ab. Erişimi kanca değil kaydetme/paylaşma oranı belirliyor; araç içeriği + SEMİNER CTA en iyi kalıp.
 - IHT-13 Anatomy araç Reels (41,4 sn, ses ~0,05 $, demo kaydı skill'in gerçek çizimi) · ad243dc. 18:18'de yayında (kullanıcı "pushlayalım"): https://www.instagram.com/reel/DfXVmktD19A/ · Zernio 6aec9e6cce61bde582b40fc4. BR-90/91 ortak b-roll arşivinden `/home/dev/cikti/anatomy-demo/`e alındı.
