@@ -6,7 +6,7 @@ kaynak:
 hesap: varsayilan
 gorsel_yon: karma
 fis_onay: evet
-paylasim_onay: hayir
+paylasim_onay: evet
 durum: taslak
 # Kanca bu fişte değil: 4'lü ızgara kancası (tools/testimonial/izgara.py, specs/izgara-prototip.json) gövdenin önüne eklenir.
 # Kaynak: SH-05 dökümü (Ayşenur: Viyana, uluslararası ilişkiler mezunu, pedagoji; arkadaşının ödevi için uygulama, "4 saat sürmüş").
