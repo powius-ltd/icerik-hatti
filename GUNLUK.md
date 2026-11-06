@@ -96,6 +96,8 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-06 | IHT-15 iki haftalık takvimi onaylandı (18 ÖĞRENCİ KURDU, 12/22 araç, 15 serbest) | kullanıcı: "bu okey" | kullanıcı
+- 2026-11-06 | Videolarda terminal komutu yok; kitle kod bilmiyor, kurulum "Claude'a söyle, o kursun" diliyle anlatılır (komut yalnız açıklamada olabilir) | kullanıcı: "terminal komutu falan olmasın" | kullanıcı
 - 2026-11-06 | Testimonial Reels 4'lü ızgara kancayla açılır (konuşan kutu büyür, sonra animasyon gövde); seri adı ÖĞRENCİ KURDU · NN, 18:00 slotu | Sosyal kanıt mix 3 sn tutma %71, aynı saatte tek kişili %51–55; kullanıcı fikri ve onayı | kullanıcı
 - 2026-11-06 | Gövde kopyalanabilir 3 adım (araç/istem); öğrencinin birebir yöntemi değil 'nasıl kurulur' anlatımı, doğrulanmayan gelir iddiası yok | kaydetmeyi araç içeriği taşıyor (%6) | IHT ana sohbeti
 - 2026-11-04 | Üretim kuralı kalıcı: kanca somut nesne/durum + ters köşe ya da soru, emir kipli öğüt ve "X'e göre" alıntısı yok, süre ≤ 45 sn | 9 Reels analizi (docs/analitik/2026-11-03-reels.md) | kullanıcı

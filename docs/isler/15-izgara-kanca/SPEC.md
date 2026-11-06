@@ -1,6 +1,6 @@
 # IHT-15: ÖĞRENCİ KURDU serisi + iki haftalık takvim
 
-Sana düşen: takvimdeki konuları onayla (tablo aşağıda); her fiş üretimden önce yine senin onayından geçer.
+Sana düşen: takvim onaylandı (6 Kas); her fiş üretimden önce yine senin onayından geçer.
 
 ## Kazanım
 Her gün en az bir "ÖĞRENCİ KURDU · NN" Reels'i en iyi tutan kancamızla (4'lü ızgara, %71 3 sn tutma) çıkar; kalan slotlar en çok kaydettiren tür olan araç Reels'iyle dolar. Konu her sabah aranmaz, listeden sıradaki alınır.
@@ -43,6 +43,7 @@ Slot kuralı: 18:00 ÖĞRENCİ KURDU · 12:00 ve 22:00 araç Reels · 15:00 serb
 "—" olan hücreler 9 Kas analitiğinden sonra doldurulur (tutanın payı artar).
 
 ## Kurallar ve tavanlar
+- Ekranda terminal komutu yok (6 Kas kararı): kurulum "Claude'a şunu söyle: … kur" diye anlatılır; komut gerekiyorsa yalnız açıklamada.
 - Konu listesi onayı = kazanım onayı; fiş metni yine video başına onaylanır, paylaşım izlenip onaylanınca saatine (4 Kas kararı).
 - Ses 0,15–0,30 $/video, gün tavanı 1,20 $ (4 Kas kararı). Apify bu pakette yok (araç konuları 1 Kas taramasından).
 - Gelir/rakam iddiası dökümde doğrulanmıyorsa kullanılmaz; "3 adım" öğrencinin birebir yöntemi değil, "nasıl kurulur" anlatımı (fişte not).

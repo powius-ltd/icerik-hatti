@@ -32,6 +32,7 @@ Erişimi kanca değil kaydetme + paylaşma oranı belirliyor. Formül: **ücrets
 | Sosyal kanıt mix | fiş yok | `python3 tools/testimonial/build.py <spec>` + `cta` alanı; paylaşım `hat paylas --video … --aciklama …` | `tools/testimonial/specs/sosyal-kanit-mix.json` |
 
 ## Fiş yazımı
+- **Ekranda terminal komutu yok** (6 Kas): kitle kod bilmiyor; kurulum sahnesi "Claude'a söyle: X'i kur" dilinde, komut yalnız açıklamada.
 - Fiş `docs/isler/<NN-ad>/fisler/<id>.md`; `fis_onay: evet` (konu onaylıysa), `paylasim_onay: hayir`. Biçim için yukarıdaki örneği kopyala.
 - 5–7 sahne, toplam ≤ ~650 karakter (≈ 40 sn). Kancada gövde ≤ ~550 karakter (kanca + gövde ≤ ~45 sn).
 - `sablon.kalip`: `rakam` (2–3 satır, `sec: true` vurgulu), `akis` / `gazete` (SVG + `adimlar`), `kapanis` (`damga: SEMİNER`), `cubuk`. Şema: `src/uret/render/sablon.ts`.
