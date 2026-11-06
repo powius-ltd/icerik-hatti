@@ -14,6 +14,7 @@
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
 ## 2026-11-06
+- ÖĞRENCİ KURDU · 02 Baki (38 sn, ses ~0,08 $) 18:00'e zamanlandı · Zernio 6aede2414a6cc0a6681ef33d · 920b400.
 - Ayşenur '4 saatte uygulama' (4'lü ızgara kanca + gazete gövde, 42 sn, ses 0,16 $) 13:05'te yayında: https://www.instagram.com/reel/DfZXlipDBPl/ · Zernio 6aeda8a10ae703c20ba29d32 · da382f2. 12 slotu kaçtı (bugün için video yoktu).
 - 4'lü ızgara testimonial kanca prototipi (konuşan kutu büyür → gazete gövdesine geçiş, 10 sn, 0 $): `tools/testimonial/izgara.py`. Teslim `/home/dev/teslim/icerik-hatti/2026-11-06-izgara-kanca/`. Gerekçe: Sosyal kanıt mix'i 3 sn tutmada %71 (aynı saatte Hasan %51, Pahalı model %55), fark saatten değil formattan. Kullanıcı onayı bekliyor.
 - Geçilmiş kapılar işaretlendi, fiş denetimi dalı main'e alındı (ed91168), eski worktree'ler kaldırıldı · 6286dd2.

@@ -6,7 +6,7 @@ kaynak:
 hesap: varsayilan
 gorsel_yon: karma
 fis_onay: evet
-paylasim_onay: hayir
+paylasim_onay: evet
 durum: taslak
 # Seri: ÖĞRENCİ KURDU · 02 (01 = aysenur-uygulama). Kanca: 4'lü ızgara (tools/reels.sh izgara), son konuşan Baki ("3. günde kurdum").
 # Kaynak: TST-01 / TST-05 dökümü (Baki, 19, İzmir Aliağa; teknik bilgi yok; 3 haftadır toplulukta; her gün yapay zekanın video paylaştığı kanal; "3. günde kurdum").
