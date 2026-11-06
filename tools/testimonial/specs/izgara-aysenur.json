@@ -1,0 +1,68 @@
+{
+ "out": "izgara-aysenur",
+ "hook": "KOD BİLMEDEN\nNE KURDULAR?",
+ "hook_sn": 0.9,
+ "renk": {
+  "zemin_kanca": "bg-dark",
+  "zemin_gazete": "cizim-kagit",
+  "murekkep": "cizim-murekkep",
+  "cerceve": "accent",
+  "zemin_son": "cizim-vurgu"
+ },
+ "kisiler": [
+  {
+   "ad": "Sumeyya",
+   "src": "SH-03.mp4",
+   "dokum": "SH-03",
+   "crop": [
+    324,
+    60,
+    546,
+    680
+   ],
+   "t0": 67.7,
+   "t1": 68.72
+  },
+  {
+   "ad": "Harita muh.",
+   "src": "SH-02.mp4",
+   "dokum": "SH-02",
+   "crop": [
+    50,
+    0,
+    680,
+    870
+   ],
+   "t0": 35.66,
+   "t1": 36.94,
+   "fix": {
+    "YANİ": ""
+   }
+  },
+  {
+   "ad": "Aysenur",
+   "src": "SH-05.mp4",
+   "dokum": "SH-05",
+   "crop": [
+    245,
+    0,
+    680,
+    870
+   ],
+   "t0": 102.3,
+   "t1": 104.0
+  },
+  {
+   "ad": "Ogretmen (sessiz)",
+   "src": "SH-01.mp4",
+   "dokum": "SH-01",
+   "crop": [
+    300,
+    370,
+    398,
+    510
+   ],
+   "sessiz_bas": 1.0
+  }
+ ]
+}
