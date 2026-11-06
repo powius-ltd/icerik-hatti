@@ -6,7 +6,7 @@ kaynak:
 hesap: varsayilan
 gorsel_yon: karma
 fis_onay: evet
-paylasim_onay: hayir
+paylasim_onay: evet
 durum: taslak
 # Araç: grill-me (github.com/mattpocock/skills). Doğrulama 6 Kas: planı tek tek sorularla netleştirir, her soruya önerilen cevap verir, kod yazmaz, ortak anlayış onaylanmadan plana geçmez. Kurulum: npx skills add https://github.com/mattpocock/skills --skill grill-me, sonra /grill-me.
 # Yıldız/kurulum sayıları kaynaklar arasında tutarsız, kullanılmadı. Araç demosu kaydı yok: broll alanı boş sahnelerde kurucu arşivinden otomatik b-roll (1 ve 3).

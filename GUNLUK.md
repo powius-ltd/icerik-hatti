@@ -14,6 +14,7 @@
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
 ## 2026-11-06
+- Grill Me araç Reels (39 sn, ses 0,18 $, kurucu b-roll) 22:00'ye zamanlandı · Zernio 6aedf5e7f9e899a4d5ee321f · d23b455. Günün ses toplamı ~0,43 $.
 - ÖĞRENCİ KURDU · 02 Baki (38 sn, ses ~0,08 $) 18:00'e zamanlandı · Zernio 6aede2414a6cc0a6681ef33d · 920b400.
 - Ayşenur '4 saatte uygulama' (4'lü ızgara kanca + gazete gövde, 42 sn, ses 0,16 $) 13:05'te yayında: https://www.instagram.com/reel/DfZXlipDBPl/ · Zernio 6aeda8a10ae703c20ba29d32 · da382f2. 12 slotu kaçtı (bugün için video yoktu).
 - 4'lü ızgara testimonial kanca prototipi (konuşan kutu büyür → gazete gövdesine geçiş, 10 sn, 0 $): `tools/testimonial/izgara.py`. Teslim `/home/dev/teslim/icerik-hatti/2026-11-06-izgara-kanca/`. Gerekçe: Sosyal kanıt mix'i 3 sn tutmada %71 (aynı saatte Hasan %51, Pahalı model %55), fark saatten değil formattan. Kullanıcı onayı bekliyor.
@@ -95,6 +96,8 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-06 | Testimonial Reels 4'lü ızgara kancayla açılır (konuşan kutu büyür, sonra animasyon gövde); seri adı ÖĞRENCİ KURDU · NN, 18:00 slotu | Sosyal kanıt mix 3 sn tutma %71, aynı saatte tek kişili %51–55; kullanıcı fikri ve onayı | kullanıcı
+- 2026-11-06 | Gövde kopyalanabilir 3 adım (araç/istem); öğrencinin birebir yöntemi değil 'nasıl kurulur' anlatımı, doğrulanmayan gelir iddiası yok | kaydetmeyi araç içeriği taşıyor (%6) | IHT ana sohbeti
 - 2026-11-04 | Üretim kuralı kalıcı: kanca somut nesne/durum + ters köşe ya da soru, emir kipli öğüt ve "X'e göre" alıntısı yok, süre ≤ 45 sn | 9 Reels analizi (docs/analitik/2026-11-03-reels.md) | kullanıcı
 - 2026-11-04 | Ses günlük tavanı 1,20 $ (video başına 0,30 $) | 4 Reels tempo | kullanıcı
 - 2026-11-04 | Üretilen ve izlenen Reels, kullanıcı aksini söylemedikçe kendi saatine zamanlanır (video başı ayrı onay beklenmez) | 4 Kas'ta 18/22 akışı | kullanıcı
