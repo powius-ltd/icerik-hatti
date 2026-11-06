@@ -32,10 +32,10 @@ Patron hesabı için tek yeni repo; parçalar viral-uyarla, kreatif-studyo, sosy
 | [x] | K5 Para / dış | 04 | Apify tavanı: haftada 1 $ (31 Eki kararı; 0,3 $ önerisinin yerine) | 1 dk | 04'ten önce |
 
 ## Şimdi (≤ 2)
-- **[M] 01-fis**: video linki/dosyası ya da hazır metin ver → onaylanacak Türkçe birebir fiş. SPEC: `docs/isler/01-fis/SPEC.md`
-- **[M] 03-paylas**: onaylı videoyu patron hesabına Zernio ile kuru koşuda gönder; `--onay` ile gerçek. SPEC: `docs/isler/03-paylas/SPEC.md`
+- **[H] 15-izgara-kanca**: ÖĞRENCİ KURDU serisi (4'lü ızgara kanca + 3 adımlı gazete gövde) + iki haftalık takvim (12/22 araç, 15 serbest, 18 seri). SPEC: `docs/isler/15-izgara-kanca/SPEC.md`
 
 ## Sonra
+- [M] Gece betiğine (`tools/gece-12.sh`) ızgara kanca desteği: ÖĞRENCİ KURDU da gece toplu üretilsin (6 Kas).
 - [M] Otomasyon sırası (31 Eki): kodla çizim kalıbı → konu havuzu + hazır metinle tablo girişi → 04-bul (viral-uyarla `tara` taşınır, haftalık sayaç: 6 × 30 video, konu başına 5 indirme, 1 $/hafta) → elle tam tur → skill → zamanlanmış `tablo yokla`. Tempo: günde 4 Reels (12, 15, 18, 22), gece toplu üretim, Drive'da onay.
 - [M] 02-uret-ses: onaylı fişten ElevenLabs patron sesi + HyperFrames video + kapak + açıklama (KS `production/voice`, `hf-engine`, `orders/{cover,caption}`). Klon kararına bağlı: "yapı klonu" ise genel HF sahneleri, "görsel klon" ise 05'i bekler.
   26 Eki deneme bulguları (KS kapısı 4 denemenin hiçbirinde temiz geçmedi): (1) KS `orders/display-text.ts` "Birinci" → "1." yapıyor, `edit-director/sentences.ts:12-16` ". " ile bölüyor → metin/ses cümle sayısı tutmuyor (K24); (2) K26 altyazısız boşluk > 1,0 sn denetimi düzeltme turundan sonra da kalıyor; (3) yönetmen LLM'i her koşuda farklı plan → kapı kararsız; bu hatta yönetmen alınmaz, sahne planı fişten deterministik çıkar; (4) sohbet kutuları yarım yazı kalıyor, komut/liste sahneleri görünmüyor; (5) edge ses yolu bozuk (`edge-speak.py:20` WordBoundary), Chatterbox çalışıyor ama robotik.
