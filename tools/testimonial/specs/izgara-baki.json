@@ -1,0 +1,65 @@
+{
+ "out": "izgara-baki",
+ "hook": "SIFIR BİLGİYLE\n3. GÜNDE KURDU",
+ "hook_sn": 0.9,
+ "renk": {
+  "zemin_kanca": "bg-dark",
+  "zemin_gazete": "cizim-kagit",
+  "murekkep": "cizim-murekkep",
+  "cerceve": "accent",
+  "zemin_son": "cizim-vurgu"
+ },
+ "kisiler": [
+  {
+   "ad": "Cagri",
+   "src": "SH-01.mp4",
+   "dokum": "SH-01",
+   "crop": [
+    280,
+    350,
+    437,
+    560
+   ],
+   "t0": 39.62,
+   "t1": 40.5
+  },
+  {
+   "ad": "Hakan",
+   "src": "TST-08_Hakan_Yapay_Zekayla_Dis_Klinigi_Yazilimi_Yapti.mp4",
+   "dokum": "TST-08",
+   "crop": [
+    250,
+    236,
+    547,
+    700
+   ],
+   "t0": 156.5,
+   "t1": 157.95
+  },
+  {
+   "ad": "Baki",
+   "src": "TST-01_Baki_Sifirdan_Baslayip_Ucuncu_Gunde_Kanal.mp4",
+   "dokum": "TST-01",
+   "crop": [
+    285,
+    318,
+    470,
+    600
+   ],
+   "t0": 37.2,
+   "t1": 38.42
+  },
+  {
+   "ad": "Onur (sessiz)",
+   "src": "SH-04.mp4",
+   "dokum": "SH-04",
+   "crop": [
+    330,
+    130,
+    370,
+    474
+   ],
+   "sessiz_bas": 20.0
+  }
+ ]
+}
