@@ -25,11 +25,11 @@ Patron hesabı için tek yeni repo; parçalar viral-uyarla, kreatif-studyo, sosy
 ## Senin kapıların
 | | Kapı | Paket / grup | Ne yaparsın | Süre | Ne zaman |
 |---|---|---|---|---|---|
-| [ ] | Karar | 02, 05 | birebir klon düzeyi | 1 dk | şimdi |
-| [ ] | K1 Kazanım | 01, 03 | kazanım onayı (01: 0 $; 03: 0 $, kuru koşu) | 2 dk | 01 başlamadan |
-| [ ] | K5 Para / dış | 02 | ElevenLabs klon + ilk ses tutarı | 1 dk | 02'den önce |
-| [ ] | K3 Elle test | grup A | `docs/ELLE-TEST.md` grup A: link ver, fişi onayla, videoyu izle, paylaşımı onayla | 20 dk | 01+02+03 bitince |
-| [ ] | K5 Para / dış | 04 | Apify tavanı (öneri 0,3 $ ilk koşu) | 1 dk | 04'ten önce |
+| [x] | Karar | 02, 05 | birebir klon düzeyi (28 Eki: yapı klonu) | 1 dk | şimdi |
+| [x] | K1 Kazanım | 01, 03 | kazanım onayı (01: 0 $; 03: 0 $, kuru koşu) | 2 dk | 01 başlamadan |
+| [x] | K5 Para / dış | 02 | ElevenLabs klon + ilk ses tutarı | 1 dk | 02'den önce |
+| [x] | K3 Elle test | grup A | `docs/ELLE-TEST.md` grup A: link ver, fişi onayla, videoyu izle, paylaşımı onayla | 20 dk | 01+02+03 bitince |
+| [x] | K5 Para / dış | 04 | Apify tavanı: haftada 1 $ (31 Eki kararı; 0,3 $ önerisinin yerine) | 1 dk | 04'ten önce |
 
 ## Şimdi (≤ 2)
 - **[M] 01-fis**: video linki/dosyası ya da hazır metin ver → onaylanacak Türkçe birebir fiş. SPEC: `docs/isler/01-fis/SPEC.md`
