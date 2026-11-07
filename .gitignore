@@ -8,3 +8,4 @@ uretim/
 *.wav
 *.mp3
 .hat/
+__pycache__/
