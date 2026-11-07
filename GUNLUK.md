@@ -17,6 +17,8 @@
 
 ## 2026-11-08
 - Yönetici hedefi (7 Kas, kullanıcı sözü): günde 4 içerik, haftalık önceden zamanlama. IHT-16 SPEC + hafta takvimi önerisi yazıldı, YOL Şimdi güncellendi; karar saati dışı (00:52), sorular sabaha.
+- IHT-16 gece betiği haftalık takvimden okur (`docs/takvim/2026-H46.tsv`, `tools/takvim.sh`), ızgara kancalı fiş gece üretilir; kuru denemeyle doğrulandı, 223 test · c7d0ee3, 682dec2. Ücretli tam koşu henüz yok.
+- Yarının ilk işi: sabah kullanıcıya 9–15 Kas takvim onayı + 3 açık soru; onayla 9 Kas'ın 4 fişi (`docs/isler/16-haftalik-hat/fisler/`), sonra gece komutu yöneticiye: `GUN=2026-11-09 agir --gece --oncelik 5 --ram 5 --ad iht-16 -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh takvim` · tavan 1,20 $.
 
 ## 2026-11-06
 - Grill Me araç Reels (39 sn, ses 0,18 $, kurucu b-roll) 22:00'ye zamanlandı · Zernio 6aedf5e7f9e899a4d5ee321f · d23b455. Günün ses toplamı ~0,43 $.
@@ -101,6 +103,8 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-07 | Hedef: içerik hattı günde 4 içerik; konular haftalık önceden belirlenip zamanlanır, kullanıcı yalnız izler | kullanıcı: "günlük 4 içerik çıkması lazım", "haftalık olarak direkt onlara zamanlayıp oluşturup ben izleyeceğim" | Yönetici · 7 Kas aktarımı
+- 2026-11-08 | Gece betiği slotları haftalık takvim dosyasından (`docs/takvim/<yıl>-H<hafta>.tsv`) okur; eski saat:id kullanımı korunur | haftalık hat için konu günlük değil haftalık seçilir | IHT ana sohbeti
 - 2026-11-06 | IHT-15 iki haftalık takvimi onaylandı (18 ÖĞRENCİ KURDU, 12/22 araç, 15 serbest) | kullanıcı: "bu okey" | kullanıcı
 - 2026-11-06 | Videolarda terminal komutu yok; kitle kod bilmiyor, kurulum "Claude'a söyle, o kursun" diliyle anlatılır (komut yalnız açıklamada olabilir) | kullanıcı: "terminal komutu falan olmasın" | kullanıcı
 - 2026-11-06 | Testimonial Reels 4'lü ızgara kancayla açılır (konuşan kutu büyür, sonra animasyon gövde); seri adı ÖĞRENCİ KURDU · NN, 18:00 slotu | Sosyal kanıt mix 3 sn tutma %71, aynı saatte tek kişili %51–55; kullanıcı fikri ve onayı | kullanıcı
