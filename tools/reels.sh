@@ -7,14 +7,14 @@
 #   bash tools/reels.sh kareler <id> [GUN] [bas] [son] kontrol şeridi: scratch'e PNG (Read ile bakılır)
 #   bash tools/reels.sh teslim <id> [GUN]             teslim klasörüne mp4 + kapak + açıklama
 #   bash tools/reels.sh paylas <id> <SS:DD|simdi> [GUN]   fişte paylasim_onay: evet olmalı; GERİ ALINAMAZ
-# GUN yayın günü (varsayılan bugün, İstanbul). Koşu: kosular/<GUN>-reels/<id>/; fiş id'si = fiş dosya adı.
+# GUN yayın günü (varsayılan bugün, İstanbul). Koşu: kosular/<GUN>-reels/<id>/ (REELS_KOK ile kök değişir); fiş id'si = fiş dosya adı.
 set -uo pipefail
 BURA=$(cd "$(dirname "$0")/.." && pwd)
 source "$BURA/tools/anahtar.sh"
 SES_ID=fwRD2e4Vs09ZX7vfRCka
 KARAKTER_TAVAN=1000
 bugun() { TZ=Europe/Istanbul date +%F; }
-kok() { echo "$BURA/kosular/${1:-$(bugun)}-reels"; }
+kok() { echo "${REELS_KOK:-$BURA/kosular}/${1:-$(bugun)}-reels"; }  # REELS_KOK: gece betiği worktree'den ana kosular/ klasörünü gösterir
 sure() { ffprobe -v error -show_entries format=duration -of csv=p=0 "$1"; }
 
 # kanca mp4'ünü gövdenin önüne ekler: birlestir <kanca.mp4> <koşu klasörü>. .kancali: final.mp4 birleşik mi? uret yeniden koştuysa final yeni gövdedir.
