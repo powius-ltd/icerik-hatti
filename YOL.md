@@ -32,6 +32,8 @@ Patron hesabı için tek yeni repo; parçalar viral-uyarla, kreatif-studyo, sosy
 | [x] | K5 Para / dış | 04 | Apify tavanı: haftada 1 $ (31 Eki kararı; 0,3 $ önerisinin yerine) | 1 dk | 04'ten önce |
 
 ## Şimdi (≤ 2)
+**Hedef (kullanıcı, 7 Kas): günde 4 içerik; konular haftalık önceden belirlenip zamanlanır, kullanıcı yalnız izler.**
+- **[M] 16-haftalik-hat**: Pazar onaylı 28 konuluk hafta takvimi → gece toplu üretim → sabah izle + "tamam" → 12/15/18/22. Kullanıcıdan gerekenler tablosu SPEC'te. SPEC: `docs/isler/16-haftalik-hat/SPEC.md`
 - **[H] 15-izgara-kanca**: ÖĞRENCİ KURDU serisi (4'lü ızgara kanca + 3 adımlı gazete gövde) + iki haftalık takvim (12/22 araç, 15 serbest, 18 seri). SPEC: `docs/isler/15-izgara-kanca/SPEC.md`
 
 ## Sonra

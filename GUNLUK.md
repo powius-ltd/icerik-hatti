@@ -2,7 +2,9 @@
 
 ## Bekleyen
 - Sosyal kanıt (park, 16:00): kullanıcı elindeki indirilmiş Shorts/Reels'i `/home/dev/gelen/icerik-hatti/sosyal-kanit/`e atacak; sonra tarama listesi (kişi, güçlü cümle, süre) ve ne üretileceği konuşulur. Sunucudan YouTube indirme hâlâ "bot" engelli (4 Kas, 4 istemci denendi); yeni video gerekirse laptoptan yt-dlp (girişsiz, 5–15 sn bekleme) ya da kullanıcının sitesi.
-- Yarının (5 Kas) 4 konusu seçilmedi; seçilip fiş onaylanınca gece komutu: `GUN=2026-11-05 agir --gece --oncelik 5 --ram 5 --ad iht-reels -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh 12:<id>,15:<id>,18:<id>,22:<id>`. Stok: airbnb, ikea (kanca yeniden yazılmalı).
+- Karar (sabah sor): IHT-16 9–15 Kas hafta takvimi (28 konu) onayı + üç açık soru (gece koşusunu kim başlatır, günlük onay saati, konu onayı = fiş onayı mı). `docs/isler/16-haftalik-hat/SPEC.md`.
+- Karar (sabah sor): 8 Kas Pazar için video yok (7 Kas'ta da üretim olmadı); bugün gündüz 4'ü üretelim mi, 9 Kas'tan mı başlayalım.
+- Kullanıcı: ses bütçesi haftada ~8,5 $ (gün 1,20 $ tavanı aynı) onayı; yeni öğrenci kaydı (seri havuzu 13 Kas'ta biter).
 - Karar: 04-bul'a eklenen iki kip (aktif üretici listesi + kişi bazlı kopyalama): liste Drive tablosunda yeni sekme mi, repoda dosya mı; kişi başı kaç video (öneri son 10, tutanlar önce).
 - Karar: son tarih.
 - Kullanıcı: rclone kendi client_id + tam Drive izni (Google Cloud adımları); sonra `tablo kur` + gerçek deneme (07 RAPOR komutları).
@@ -12,6 +14,9 @@
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
 - ManyChat SEMİNER kuralı yeni gönderilerde DM atmıyor: gngr.gngr 2 Kas (Kalem) ve 3 Kas (Çok pahalı) "Seminer" yazdı, DM gitmedi. Kullanıcı panelden bakmalı.
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
+
+## 2026-11-08
+- Yönetici hedefi (7 Kas, kullanıcı sözü): günde 4 içerik, haftalık önceden zamanlama. IHT-16 SPEC + hafta takvimi önerisi yazıldı, YOL Şimdi güncellendi; karar saati dışı (00:52), sorular sabaha.
 
 ## 2026-11-06
 - Grill Me araç Reels (39 sn, ses 0,18 $, kurucu b-roll) 22:00'ye zamanlandı · Zernio 6aedf5e7f9e899a4d5ee321f · d23b455. Günün ses toplamı ~0,43 $.
