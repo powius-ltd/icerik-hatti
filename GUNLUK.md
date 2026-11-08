@@ -16,6 +16,7 @@
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
 ## 2026-11-08
+- Gündüz 2 pazarlama Reels'i (Tuzak paket, Reçel deneyi) üretildi, ses ~0,30 $ · 49f66d6. Reçel 12:00'ye zamanlandı · Zernio 6af037ca487f13a4b0d1df84 (ses tepesi +0,4 dBTP elle sınırlandı, fiş durumu elle düzeltildi). Tuzak paket izleme ve saat bekliyor.
 - Yönetici hedefi (7 Kas, kullanıcı sözü): günde 4 içerik, haftalık önceden zamanlama. IHT-16 SPEC + hafta takvimi önerisi yazıldı, YOL Şimdi güncellendi; karar saati dışı (00:52), sorular sabaha.
 - IHT-16 gece betiği haftalık takvimden okur (`docs/takvim/2026-H46.tsv`, `tools/takvim.sh`), ızgara kancalı fiş gece üretilir; kuru denemeyle doğrulandı, 223 test · c7d0ee3, 682dec2. Ücretli tam koşu henüz yok.
 - Yarının ilk işi: sabah kullanıcıya 9–15 Kas takvim onayı + 3 açık soru; onayla 9 Kas'ın 4 fişi (`docs/isler/16-haftalik-hat/fisler/`), sonra gece komutu yöneticiye: `GUN=2026-11-09 agir --gece --oncelik 5 --ram 5 --ad iht-16 -- bash /home/dev/projeler/icerik-hatti/tools/gece-12.sh takvim` · tavan 1,20 $.

@@ -6,7 +6,7 @@ kaynak:
 hesap: varsayilan
 gorsel_yon: karma
 fis_onay: evet
-paylasim_onay: hayir
+paylasim_onay: evet
 durum: taslak
 sahneler:
 - {no: 1, basSn: 0, sonSn: 5, tur: metin-karti, ekranYazisi: "24 çeşit az sattı", konum: ust, broll: yok, metin: "Yirmi dört çeşit reçel koyan tezgâh, altı çeşit koyandan çok daha az sattı.", sablon: {kalip: gazete, baslik: "Çok çeşit, *az* satış", svg: tezgah.svg, adimlar: [{hedef: t1, kelime: 0, hareket: belir}, {hedef: t2, kelime: 6, hareket: belir}, {hedef: ok, kelime: 11, hareket: belir}]}}
