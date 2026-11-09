@@ -16,7 +16,7 @@
 
 ## 2026-11-09
 - Tuzak paket 15:4x'te yayında: https://www.instagram.com/reel/DfhV1LxmSwF/ · Zernio 6af1bd9a13b59184bf1311af (önce 18:00'e zamanlanmıştı, kullanıcı "şimdi at" dedi; 18:00 gönderisi silindi, 404 doğrulandı).
-- Açık: ÖĞRENCİ KURDU organikte tutmadı (143–211 erişim); kullanıcı fikri: reklam kreatifi olarak kullanılsın, 18:00 slotu başka türe. Günde 3 mü 4 mü kararı bekliyor.
+- Günde 3 düzeni ve vaat yok kuralı kararlaştırıldı (Kararlar); 10–16 Kas 21 konu önerisi onaya sunuldu.
 
 ## 2026-11-08
 - Gündüz 2 pazarlama Reels'i (Tuzak paket, Reçel deneyi) üretildi, ses ~0,30 $ · 49f66d6. Reçel 12:00'ye zamanlandı · Zernio 6af037ca487f13a4b0d1df84 (ses tepesi +0,4 dBTP elle sınırlandı, fiş durumu elle düzeltildi). Tuzak paket izleme ve saat bekliyor (Bekleyen'de).
@@ -108,6 +108,8 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-09 | Günde 3 Reels: 12:00 araç, 18:00 pazarlama/startup (kaynaklı deney), 22:00 araç; ÖĞRENCİ KURDU organikten çıkar, reklam kreatifi olur | niceliktense nitelik; testimonial organik erişim 143–211, araç 1.285–1.441 | kullanıcı: "niceliktense niteliğe çalışabiliriz", "olur"
+- 2026-11-09 | Videolar hiçbir ek şey vaat etmez (doküman, link, paket yok); tek çağrı SEMİNER | her vaat ek iş yükü doğuruyor | kullanıcı: "olabildiğince hiçbir şeye vermemeliyiz, ek yük sağlıyor"
 - 2026-11-07 | Hedef: içerik hattı günde 4 içerik; konular haftalık önceden belirlenip zamanlanır, kullanıcı yalnız izler | kullanıcı: "günlük 4 içerik çıkması lazım", "haftalık olarak direkt onlara zamanlayıp oluşturup ben izleyeceğim" | Yönetici · 7 Kas aktarımı
 - 2026-11-08 | Gece betiği slotları haftalık takvim dosyasından (`docs/takvim/<yıl>-H<hafta>.tsv`) okur; eski saat:id kullanımı korunur | haftalık hat için konu günlük değil haftalık seçilir | IHT ana sohbeti
 - 2026-11-06 | IHT-15 iki haftalık takvimi onaylandı (18 ÖĞRENCİ KURDU, 12/22 araç, 15 serbest) | kullanıcı: "bu okey" | kullanıcı
