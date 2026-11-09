@@ -3,7 +3,6 @@
 ## Bekleyen
 - Sosyal kanıt (park, 16:00): kullanıcı elindeki indirilmiş Shorts/Reels'i `/home/dev/gelen/icerik-hatti/sosyal-kanit/`e atacak; sonra tarama listesi (kişi, güçlü cümle, süre) ve ne üretileceği konuşulur. Sunucudan YouTube indirme hâlâ "bot" engelli (4 Kas, 4 istemci denendi); yeni video gerekirse laptoptan yt-dlp (girişsiz, 5–15 sn bekleme) ya da kullanıcının sitesi.
 - Karar (sabah sor): IHT-16 9–15 Kas hafta takvimi (28 konu) onayı + üç açık soru (gece koşusunu kim başlatır, günlük onay saati, konu onayı = fiş onayı mı). `docs/isler/16-haftalik-hat/SPEC.md`.
-- Karar (sabah sor): Tuzak paket Reels'i (8 Kas, hazır, teslim: /home/dev/teslim/icerik-hatti/2026-11-08-reels/tuzak-paket.mp4) zamanlanmadı; izlenip saat verilecek (`bash tools/reels.sh paylas tuzak-paket <SS:DD> 2026-11-08`, önce koşu fişinde paylasim_onay: evet).
 - Kullanıcı: ses bütçesi haftada ~8,5 $ (gün 1,20 $ tavanı aynı) onayı; yeni öğrenci kaydı (seri havuzu 13 Kas'ta biter).
 - Karar: 04-bul'a eklenen iki kip (aktif üretici listesi + kişi bazlı kopyalama): liste Drive tablosunda yeni sekme mi, repoda dosya mı; kişi başı kaç video (öneri son 10, tutanlar önce).
 - Karar: son tarih.
@@ -14,6 +13,9 @@
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
 - ManyChat SEMİNER kuralı yeni gönderilerde DM atmıyor: gngr.gngr 2 Kas (Kalem) ve 3 Kas (Çok pahalı) "Seminer" yazdı, DM gitmedi. Kullanıcı panelden bakmalı.
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
+
+## 2026-11-09
+- Tuzak paket 18:00'e zamanlandı · Zernio 6af1bd4413b59184bf130d73 (koşu 8 Kas klasöründe, 9 Kas'a sembolik bağ).
 
 ## 2026-11-08
 - Gündüz 2 pazarlama Reels'i (Tuzak paket, Reçel deneyi) üretildi, ses ~0,30 $ · 49f66d6. Reçel 12:00'ye zamanlandı · Zernio 6af037ca487f13a4b0d1df84 (ses tepesi +0,4 dBTP elle sınırlandı, fiş durumu elle düzeltildi). Tuzak paket izleme ve saat bekliyor (Bekleyen'de).

@@ -6,7 +6,7 @@ kaynak:
 hesap: varsayilan
 gorsel_yon: karma
 fis_onay: evet
-paylasim_onay: hayir
+paylasim_onay: evet
 durum: taslak
 sahneler:
 - {no: 1, basSn: 0, sonSn: 5, tur: metin-karti, ekranYazisi: "Kimsenin seçmediği paket", konum: ust, broll: yok, metin: "Kimsenin seçmediği bir paket, pahalı paketin satışını iki buçuk katına çıkardı.", sablon: {kalip: gazete, baslik: "Kimsenin *seçmediği* paket", svg: tuzak.svg, adimlar: [{hedef: p3, kelime: 3, hareket: belir}, {hedef: p2, kelime: 4, hareket: belir}, {hedef: ok, kelime: 7, hareket: belir}]}}
