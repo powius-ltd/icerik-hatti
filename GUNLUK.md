@@ -15,7 +15,8 @@
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
 ## 2026-11-09
-- Tuzak paket 18:00'e zamanlandı · Zernio 6af1bd4413b59184bf130d73 (koşu 8 Kas klasöründe, 9 Kas'a sembolik bağ).
+- Tuzak paket 15:4x'te yayında: https://www.instagram.com/reel/DfhV1LxmSwF/ · Zernio 6af1bd9a13b59184bf1311af (önce 18:00'e zamanlanmıştı, kullanıcı "şimdi at" dedi; 18:00 gönderisi silindi, 404 doğrulandı).
+- Açık: ÖĞRENCİ KURDU organikte tutmadı (143–211 erişim); kullanıcı fikri: reklam kreatifi olarak kullanılsın, 18:00 slotu başka türe. Günde 3 mü 4 mü kararı bekliyor.
 
 ## 2026-11-08
 - Gündüz 2 pazarlama Reels'i (Tuzak paket, Reçel deneyi) üretildi, ses ~0,30 $ · 49f66d6. Reçel 12:00'ye zamanlandı · Zernio 6af037ca487f13a4b0d1df84 (ses tepesi +0,4 dBTP elle sınırlandı, fiş durumu elle düzeltildi). Tuzak paket izleme ve saat bekliyor (Bekleyen'de).
