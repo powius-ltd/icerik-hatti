@@ -1,6 +1,8 @@
 # Günlük
 
 ## Bekleyen
+- Karar (sabah sor): haftanın kalan 18:00 ÖĞRENCİ KURDU slotları (12–15 Kas: hakan-uzman-istem, onur-chatbot, sumeyye-hamburger, harita-muhendisi) takvimden çıkıyor mu, yerine ne? 9 Kas kararı 18:00'i pazarlama/startup yapıyordu; 11 Kas seçiminde pazarlama 15:00'te, 18:00 boş. Günde 3'ün saatleri 12/15/22 mi, 12/18/22 mi?
+- Karar (sabah sor): rule-of-3 12 Kas 15:00'te de takvimde (11 Kas'a alındı); 12 Kas 15:00 için yeni konu.
 - Sosyal kanıt (park, 16:00): kullanıcı elindeki indirilmiş Shorts/Reels'i `/home/dev/gelen/icerik-hatti/sosyal-kanit/`e atacak; sonra tarama listesi (kişi, güçlü cümle, süre) ve ne üretileceği konuşulur. Sunucudan YouTube indirme hâlâ "bot" engelli (4 Kas, 4 istemci denendi); yeni video gerekirse laptoptan yt-dlp (girişsiz, 5–15 sn bekleme) ya da kullanıcının sitesi.
 - Karar (sabah sor): IHT-16 9–15 Kas hafta takvimi (28 konu) onayı + üç açık soru (gece koşusunu kim başlatır, günlük onay saati, konu onayı = fiş onayı mı). `docs/isler/16-haftalik-hat/SPEC.md`.
 - Kullanıcı: ses bütçesi haftada ~8,5 $ (gün 1,20 $ tavanı aynı) onayı; yeni öğrenci kaydı (seri havuzu 13 Kas'ta biter).
@@ -13,6 +15,9 @@
 - rclone ortak client_id 2026'da kapanıyor: kendi Google client_id'si (~10 dk).
 - ManyChat SEMİNER kuralı yeni gönderilerde DM atmıyor: gngr.gngr 2 Kas (Kalem) ve 3 Kas (Çok pahalı) "Seminer" yazdı, DM gitmedi. Kullanıcı panelden bakmalı.
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
+
+## 2026-11-11
+- 11 Kas 3 Reels fişi + çizimi yazıldı (yönetici aktarımı, kullanıcı seçimi ~04:00): 12 trader-skill (Day Trader Skill, MIT, sanal hesap; gelir iddiası/vaat yok), 15 rule-of-3 (Simonson-Tversky 1992 + ekmek makinesi), 22 site-animasyon (Scroll Craft, MIT); 18:00 boş. Araçlar kaynaktan doğrulandı, kuru hazırlık geçti; takvim H46 güncellendi. Gece koşusu komutu yöneticiye gönderildi.
 
 ## 2026-11-09
 - Tuzak paket 15:4x'te yayında: https://www.instagram.com/reel/DfhV1LxmSwF/ · Zernio 6af1bd9a13b59184bf1311af (önce 18:00'e zamanlanmıştı, kullanıcı "şimdi at" dedi; 18:00 gönderisi silindi, 404 doğrulandı).
