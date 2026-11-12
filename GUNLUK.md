@@ -17,6 +17,9 @@
 - ManyChat SEMİNER kuralı yeni gönderilerde DM atmıyor: gngr.gngr 2 Kas (Kalem) ve 3 Kas (Çok pahalı) "Seminer" yazdı, DM gitmedi. Kullanıcı panelden bakmalı.
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
+## 2026-11-12
+- gece-iht-12 main'e alındı (IHT-16 11 Kas paket denetimi) · 2681a72
+
 ## 2026-11-11
 - 11 Kas 3 Reels zamanlandı (kullanıcı onayı 10:0x; açıklamalara tam GitHub linki, trader'a SPK standart uyarısı eklendi): 12:00 trader-skill · Zernio 6af4115cb266f368b7e81583 · 15:00 rule-of-3 · 6af4115eb266f368b7e8158a · 18:00 site-animasyon (22'den 18'e alındı, kullanıcı) · 6af41160b266f368b7e81592. Üretim sabah koştu (ses 0,39 $, ajan 0,86 $).
 - Gece iht-16 kod 2 ile durdu: `gece-12.sh` GUN verilmezse "yarın"ı alıyor, 04:31'de 12 Kas takvimi boştu (para harcanmadı). Sabah `GUN=2026-11-11` ile koşuldu.
