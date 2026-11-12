@@ -2,8 +2,8 @@
 
 ## Bekleyen
 - Düzelt: `tools/gece-12.sh` gece yarısından sonra kuyruğa girince GUN "yarın"a kayıyor; gece kuyruğu komutu `GUN=<yayın günü>` ile verilmeli ya da betik 07:00 öncesini "bugün" saymalı (11 Kas iht-16 hatası).
-- Karar (sabah sor): haftanın kalan 18:00 ÖĞRENCİ KURDU slotları (12–15 Kas: hakan-uzman-istem, onur-chatbot, sumeyye-hamburger, harita-muhendisi) takvimden çıkıyor mu, yerine ne? 9 Kas kararı 18:00'i pazarlama/startup yapıyordu; 11 Kas seçiminde pazarlama 15:00'te, 18:00 boş. Günde 3'ün saatleri 12/15/22 mi, 12/18/22 mi?
-- Karar (sabah sor): rule-of-3 12 Kas 15:00'te de takvimde (11 Kas'a alındı); 12 Kas 15:00 için yeni konu.
+- Yarının ilk işi: Batu'nun 10 videosundan (Drive BATU YENİ ADS, kopya `/home/dev/teslim/icerik-hatti/batu-yeni-ads/`) kullanıcı izleyip seçecek; 12:00 ve 18:00'e Zernio ile zamanla. A06 ("günde 5.000 şirket sahibi" iddiası) sıraya girmez. 12 Kas'ta hiç gönderi çıkmadı.
+- Karar (sabah sor): bizim 15:00/22:00 slotları için 13–15 Kas konuları (fiş yok; 28 konuluk takvim onaylanmadı).
 - Sosyal kanıt (park, 16:00): kullanıcı elindeki indirilmiş Shorts/Reels'i `/home/dev/gelen/icerik-hatti/sosyal-kanit/`e atacak; sonra tarama listesi (kişi, güçlü cümle, süre) ve ne üretileceği konuşulur. Sunucudan YouTube indirme hâlâ "bot" engelli (4 Kas, 4 istemci denendi); yeni video gerekirse laptoptan yt-dlp (girişsiz, 5–15 sn bekleme) ya da kullanıcının sitesi.
 - Karar (sabah sor): IHT-16 9–15 Kas hafta takvimi (28 konu) onayı + üç açık soru (gece koşusunu kim başlatır, günlük onay saati, konu onayı = fiş onayı mı). `docs/isler/16-haftalik-hat/SPEC.md`.
 - Kullanıcı: ses bütçesi haftada ~8,5 $ (gün 1,20 $ tavanı aynı) onayı; yeni öğrenci kaydı (seri havuzu 13 Kas'ta biter).
@@ -18,6 +18,8 @@
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
 ## 2026-11-12
+- 11 Kas 18:00'den sonra: kullanıcı kalan zamanlamaları iptal ettirdi (Zernio'da bekleyen yoktu, 18:00 site-animasyon yayında: https://www.instagram.com/reel/DfmwlqaDm3K/); 12–15 Kas takvim satırları yoruma alındı, gece koşusu para harcamaz · f6c1f7b
+- Batu'nun yeni 10 reklam videosu (A01–A10, Meta için kesilmiş, "LİNK AŞAĞIDA" kartlı) Drive'dan teslim klasörüne indirildi; kullanıcı izleyip onaylayacak, henüz zamanlanmadı.
 - gece-iht-12 main'e alındı (IHT-16 11 Kas paket denetimi) · 2681a72
 
 ## 2026-11-11
@@ -119,6 +121,7 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-11 | 12–15 Kas sırası: 12 Drive (Batu) · 15 biz · 18 Drive · 22 biz; Batu videoları kartı ve "ücretsiz eğitim" vaadiyle olduğu gibi atılır (organik "link yok" kuralına istisna) | Batuhan hazır video attı, ek yük olmadan içerik | kullanıcı, sohbet
 - 2026-11-09 | Günde 3 Reels: 12:00 araç, 18:00 pazarlama/startup (kaynaklı deney), 22:00 araç; ÖĞRENCİ KURDU organikten çıkar, reklam kreatifi olur | niceliktense nitelik; testimonial organik erişim 143–211, araç 1.285–1.441 | kullanıcı: "niceliktense niteliğe çalışabiliriz", "olur"
 - 2026-11-09 | Videolar hiçbir ek şey vaat etmez (doküman, link, paket yok); tek çağrı SEMİNER | her vaat ek iş yükü doğuruyor | kullanıcı: "olabildiğince hiçbir şeye vermemeliyiz, ek yük sağlıyor"
 - 2026-11-07 | Hedef: içerik hattı günde 4 içerik; konular haftalık önceden belirlenip zamanlanır, kullanıcı yalnız izler | kullanıcı: "günlük 4 içerik çıkması lazım", "haftalık olarak direkt onlara zamanlayıp oluşturup ben izleyeceğim" | Yönetici · 7 Kas aktarımı
