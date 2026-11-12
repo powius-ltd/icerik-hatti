@@ -3,6 +3,7 @@
 ## Bekleyen
 - Düzelt: `tools/gece-12.sh` gece yarısından sonra kuyruğa girince GUN "yarın"a kayıyor; gece kuyruğu komutu `GUN=<yayın günü>` ile verilmeli ya da betik 07:00 öncesini "bugün" saymalı (11 Kas iht-16 hatası).
 - Yarının ilk işi: Batu'nun 10 videosundan (Drive BATU YENİ ADS, kopya `/home/dev/teslim/icerik-hatti/batu-yeni-ads/`) kullanıcı izleyip seçecek; 12:00 ve 18:00'e Zernio ile zamanla. A06 ("günde 5.000 şirket sahibi" iddiası) sıraya girmez. 12 Kas'ta hiç gönderi çıkmadı.
+- Sonraki paket (yönetici denetimi 12 Kas): GOREVLER.md'ye denetim maddesi, Sigorta ve verify bölümü ekle; IHT-16'da denetim yalnız RAPOR'daydı.
 - Karar (sabah sor): bizim 15:00/22:00 slotları için 13–15 Kas konuları (fiş yok; 28 konuluk takvim onaylanmadı).
 - Sosyal kanıt (park, 16:00): kullanıcı elindeki indirilmiş Shorts/Reels'i `/home/dev/gelen/icerik-hatti/sosyal-kanit/`e atacak; sonra tarama listesi (kişi, güçlü cümle, süre) ve ne üretileceği konuşulur. Sunucudan YouTube indirme hâlâ "bot" engelli (4 Kas, 4 istemci denendi); yeni video gerekirse laptoptan yt-dlp (girişsiz, 5–15 sn bekleme) ya da kullanıcının sitesi.
 - Karar (sabah sor): IHT-16 9–15 Kas hafta takvimi (28 konu) onayı + üç açık soru (gece koşusunu kim başlatır, günlük onay saati, konu onayı = fiş onayı mı). `docs/isler/16-haftalik-hat/SPEC.md`.
