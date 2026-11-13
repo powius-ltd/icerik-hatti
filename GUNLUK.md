@@ -21,6 +21,7 @@
 ## 2026-11-13
 - Batu A01 (müşteri bulma) yayında, kullanıcı onayı "hemen at": https://www.instagram.com/reel/DfrZM1sjx3L/ · Zernio 6af6e3379203e109f20c8a26. Caption'da SEMİNER çağrısı + gelir notu; koşu `kosular/2026-11-13-reels/batu-a01/`.
 - Batu A02 (angarya devret) 18:00'e zamanlandı · Zernio 6af712f8ccd618a7750ff10f. Drive sırası A01→A10 (A06 hariç), kullanıcı "sırayla".
+- bosluk-premium yayında (15:00 kaçtı, 16:4x hemen): https://www.instagram.com/reel/DfrwlMkFd8U/ · Zernio 6af7131dccd618a7750ff20c.
 - Bizim 2 video üretildi (bosluk-premium, eklenti-kota; ses+render ~0,8 $), izleme bekliyor; claude-status (status.claude.com) 14 Kas için render kuyruğunda.
 
 ## 2026-11-12
