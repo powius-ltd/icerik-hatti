@@ -19,6 +19,7 @@
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
 ## 2026-11-14
+- ikea (IKEA etkisi, eski fiş havuzundan) 15:00'e zamanlandı. Not: `reels.sh hazirla` çizimi yalnız reels-<id>.mjs varsa üretiyor; dort-reels.mjs içindeki yerleşik takımlar (ikea, airbnb) için elle `node tools/cizim-kod/dort-reels.mjs <id> <koşu>/cizimler` gerekti.
 - claude-status yayında (12:00 kaçtı, ~12:3x hemen): https://www.instagram.com/reel/Dft4sfrllq8/ · Zernio 6af829b36a643c5bf010e93f. Dünkü kuyruk koşusu fişte kapanış `---` eksik olduğu için hata vermişti; düzeltildi.
 
 ## 2026-11-13
