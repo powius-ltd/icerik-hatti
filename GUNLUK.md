@@ -18,6 +18,9 @@
 - ManyChat SEMİNER kuralı yeni gönderilerde DM atmıyor: gngr.gngr 2 Kas (Kalem) ve 3 Kas (Çok pahalı) "Seminer" yazdı, DM gitmedi. Kullanıcı panelden bakmalı.
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
+## 2026-11-14
+- claude-status yayında (12:00 kaçtı, ~12:3x hemen): https://www.instagram.com/reel/Dft4sfrllq8/ · Zernio 6af829b36a643c5bf010e93f. Dünkü kuyruk koşusu fişte kapanış `---` eksik olduğu için hata vermişti; düzeltildi.
+
 ## 2026-11-13
 - Batu A01 (müşteri bulma) yayında, kullanıcı onayı "hemen at": https://www.instagram.com/reel/DfrZM1sjx3L/ · Zernio 6af6e3379203e109f20c8a26. Caption'da SEMİNER çağrısı + gelir notu; koşu `kosular/2026-11-13-reels/batu-a01/`.
 - Batu A02 (angarya devret) 18:00'e zamanlandı · Zernio 6af712f8ccd618a7750ff10f. Drive sırası A01→A10 (A06 hariç), kullanıcı "sırayla".

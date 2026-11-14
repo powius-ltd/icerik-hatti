@@ -32,3 +32,4 @@ aciklama_taslagi: |-
   Claude'u seminerde canlı gösteriyoruz. Yorumlara SEMİNER yaz, linki DM'den atayım.
 
   #yapayzeka #Claude #ClaudeCode #yapayzekaaraçları #seminer
+---
