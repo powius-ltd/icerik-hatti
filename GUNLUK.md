@@ -18,6 +18,10 @@
 - ManyChat SEMİNER kuralı yeni gönderilerde DM atmıyor: gngr.gngr 2 Kas (Kalem) ve 3 Kas (Çok pahalı) "Seminer" yazdı, DM gitmedi. Kullanıcı panelden bakmalı.
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
+## 2026-11-15
+- Gece iht-15 yine "takvim yok: H47" ile durdu (GUN yarına kaydı, para harcanmadı); damga-karti ve claude-ilk-is gündüz üretiliyor. Drive A04 hazırlandı, gönderilmedi (karar: UGC atılmaz).
+- Apify: FREE plan, yeni dönem 14 Kas–13 Ara, harcama ~0 $ / 5 $.
+
 ## 2026-11-14
 - A03 18:00 (Zernio 6af82f9967cb4caa433481ef) ve haftalik-rapor 22:00 (6af83164f8bd93d06a63c167) zamanlandı. 22:00 Airbnb'den vazgeçildi.
 - 15 Kas takvimi: 15:00 damga-karti, 22:00 claude-ilk-is (fişler yazıldı, gece kuyruğu yöneticide). Drive 12:00 A04, 18:00 A05 sabah zamanlanacak.
@@ -135,6 +139,7 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-15 | Batu/Drive UGC reklam videoları organik hesaba atılmaz (A04–A10 rafa); 4 slotun hepsi bizim içerik | patron: "shadow yiyor" | kullanıcı, sohbet
 - 2026-11-14 | Videolarda Claude dışında marka adı yok (Airbnb fişi rafa) | marka adı sıkıntı çıkarıyor | kullanıcı, sohbet
 - 2026-11-11 | 12–15 Kas sırası: 12 Drive (Batu) · 15 biz · 18 Drive · 22 biz; Batu videoları kartı ve "ücretsiz eğitim" vaadiyle olduğu gibi atılır (organik "link yok" kuralına istisna) | Batuhan hazır video attı, ek yük olmadan içerik | kullanıcı, sohbet
 - 2026-11-09 | Günde 3 Reels: 12:00 araç, 18:00 pazarlama/startup (kaynaklı deney), 22:00 araç; ÖĞRENCİ KURDU organikten çıkar, reklam kreatifi olur | niceliktense nitelik; testimonial organik erişim 143–211, araç 1.285–1.441 | kullanıcı: "niceliktense niteliğe çalışabiliriz", "olur"
