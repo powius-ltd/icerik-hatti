@@ -19,6 +19,7 @@
 - 3 Kas videolarının analitiği 5 Kas'ta eşit yaşta yeniden alınacak; HyperFrames verisi Zernio'da henüz yoktu (202).
 
 ## 2026-11-15
+- 16 Kas için 3 video üretildi (ucuz tarama 0,026 $ → kullanıcı seçimi): premium-istem (emilkowalski/skills), animasyon-teknik (gongnyang/awesome-ai-motion; kaynak depo adını vermiyordu, içerikle eşleştirildi), claude-ekip (affaan-m/ECC). 15:00 slotu boş. Zamanlama sabah izlemeden sonra.
 - Zamanlandı: 15:00 claude-watch, 18:00 claude-hareket-ses, 22:00 claude-ilk-is. Gün 4/4.
 - damga-karti yayında (12:00 yerine ~13:1x): https://www.instagram.com/reel/DfwelBRkjMC/ · Zernio 6af97d9800af9631eac6c400. claude-ilk-is ve claude-hareket-ses (earshot; @ultra.skills uyarlaması) üretildi, zamanlama onayı bekliyor.
 - Apify tarama (claudecode/claudeai/aitools × 20 Reels + 20 profil): 0,19 $, `kosular/2026-11-15-tarama/`. Kullanıcı 4 adaydan yalnız hareketli grafiği seçti.
