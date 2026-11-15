@@ -141,6 +141,7 @@
 - Önce Sat Reels'i (eski animasyonlu sürüm) Zernio ile @aiscale_app'te yayında (12:07, kapak 1 sn): https://www.instagram.com/reel/DfJzA4BAifE/ · Zernio 6ae5af76fd91af9436d2f21a. ManyChat SEMİNER kuralı bu gönderide denenmedi.
 
 ## Kararlar
+- 2026-11-15 | Konu taraması ucuz kip: tek etiket (#claudecode), 10 Reels, takipçi adımı yok, sıralama beğeni+yorum; ~0,03 $ (`tools/tara.sh`) | ilk tarama 0,19 $ (60 Reels 0,156 + 20 profil 0,052); video indirme ücretsiz | kullanıcı, sohbet
 - 2026-11-15 | Batu/Drive UGC reklam videoları organik hesaba atılmaz (A04–A10 rafa); 4 slotun hepsi bizim içerik | patron: "shadow yiyor" | kullanıcı, sohbet
 - 2026-11-14 | Videolarda Claude dışında marka adı yok (Airbnb fişi rafa) | marka adı sıkıntı çıkarıyor | kullanıcı, sohbet
 - 2026-11-11 | 12–15 Kas sırası: 12 Drive (Batu) · 15 biz · 18 Drive · 22 biz; Batu videoları kartı ve "ücretsiz eğitim" vaadiyle olduğu gibi atılır (organik "link yok" kuralına istisna) | Batuhan hazır video attı, ek yük olmadan içerik | kullanıcı, sohbet
